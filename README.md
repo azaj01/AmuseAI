@@ -1,12 +1,7 @@
 # Amuse
-Amuse is the flagship demo application for the [TensorStack SDK](https://github.com/saddam213/TensorStack), showcasing high-performance local AI image, video, audio and text generation through a modern, extensible .NET architecture.
-
-<div align="center">
-   <h1><a href="https://github.com/saddam213/AmuseAI/releases/download/v3.7.9/Amuse_v3.7.9.exe">Download Amuse v3.7.9</a></h1>
-</div>
+Local AI image, video, audio and text.
 
 ## Features
-* Automatic installation of an isolated, Python environment.
 * Safetensors, GGUF, and ONNX support.
 * Video Editor for generated or local content.
 * Image/Video Upscale for static and moving media.
@@ -90,11 +85,40 @@ NVIDIA GPUs can use **CUDA 13.0** for native GPU acceleration. RTX-enabled cards
 ---
 
 
+## How To Run
+Amuse is built on **.NET 10** and is developed using **Visual Studio**.
 
-<div align="center">
-   <h1><a href="https://github.com/saddam213/AmuseAI/releases/download/v3.7.9/Amuse_v3.7.9.exe">Download Amuse v3.7.9</a></h1>
-</div>
+To build and Run Amuse:
 
+1. Install **Visual Studio 2026** with the **.NET desktop development** workload.
+2. Clone the repository and open the `.sln` solution file in Visual Studio.
+3. Allow Visual Studio to restore the required NuGet packages and dependencies.
+4. Select the desired build configuration (`Debug` or `Release`).
+5. Build the solution using **Build → Build Solution** or `Ctrl+Shift+B`.
+
+The resulting binaries will be available in the project's configured build output directory.
+
+Run `Amuse.exe` to start Amuse.
+
+
+---
+
+
+## Contributors
+Contributions to Amuse are welcome!<br />
+Whether you want to contribute code, report issues, suggest improvements, or help in other ways, your contributions are appreciated.
+
+Thank you to everyone who contributes to Amuse and helps make the project better!
+
+---
+
+## License
+
+Amuse is licensed under the Apache License 2.0.
+
+> **Note:** Compiled binaries are licensed under the Amuse 2.0 License due to the inclusion of bundled third-party software and dependencies, which may be subject to their own licensing requirements.
+
+---
 
 ## Attribution & Dependencies
 
@@ -107,34 +131,5 @@ Amuse is made possible in part by these excellent open-source projects
 - `Diffusers` https://github.com/huggingface/diffusers
 - `Transformers` https://github.com/huggingface/transformers
 - `StableDiffusion.cpp` https://github.com/leejet/stable-diffusion.cpp
-
----
-
-## Contributors
-Want to contribute to Amuse? I'd love to hear from you!
-
-All development, source-code changes, issues, pull requests, and other contributions should be made through the main development repository:
-
-https://github.com/saddam213/TensorStack
-
-This repository is dedicated **solely to compiled release builds** of Amuse. Please use the main development repository to report issues, suggest improvements, contribute code, or get involved with the project.
-
-Thank you to everyone who contributes to Amuse and helps make the project better!
-
----
-
-## License
-
-The compiled builds distributed in this repository are covered under the **Amuse 2.0 License**. This licensing applies to the compiled releases due to the inclusion of bundled third-party software and their respective licenses.
-
-If you compile Amuse yourself from the main development repository:
-
-https://github.com/saddam213/TensorStack
-
-the Amuse source code is licensed under the **Apache License 2.0**. When creating your own compiled builds, you are responsible for obtaining, including, and complying with the licenses of any third-party software and dependencies you choose to bundle.
-
-- **Compiled releases:** Amuse 2.0 License
-- **Amuse source code:** Apache License 2.0
-- **Self-compiled builds:** You are responsible for the licensing of bundled third-party software
 
 ---
