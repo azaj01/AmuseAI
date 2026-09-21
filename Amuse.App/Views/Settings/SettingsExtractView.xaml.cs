@@ -1,5 +1,6 @@
 ﻿using Amuse.App.Common;
 using Amuse.App.Dialogs;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Microsoft.Extensions.Logging;
 using System;
@@ -175,7 +176,7 @@ namespace Amuse.App.Views
 
         private async Task RemoveModelAsync()
         {
-            if (await DialogService.ShowMessageAsync("Remove Model", $"Are you sure you want to remove this model?", TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
+            if (await DialogService.ShowMessageAsync(AppDefault.RemoveModel, AppDefault.RemoveModelMessage, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
             {
                 Settings.ExtractModels.Remove(SelectedModel);
                 SelectedModel = Settings.ExtractModels.FirstOrDefault();
@@ -186,13 +187,13 @@ namespace Amuse.App.Views
 
         private async Task ImportModelAsync()
         {
-            var importPath = await DialogService.OpenFileAsync("Import Model", filter: "JSON |*.json;", defualtExt: "json");
+            var importPath = await DialogService.OpenFileAsync(AppDefault.ImportModel, filter: "JSON |*.json;", defualtExt: "json");
             if (!string.IsNullOrEmpty(importPath))
             {
                 var modelImports = await Json.LoadArrayAsync<ExtractModel>(importPath);
                 if (modelImports.IsNullOrEmpty())
                 {
-                    await DialogService.ShowMessageAsync("Import Error", "Failed to import model file.");
+                    await DialogService.ShowMessageAsync(AppErrors.ImportErrorTitle, AppErrors.ImportModel);
                     return;
                 }
 
@@ -208,7 +209,7 @@ namespace Amuse.App.Views
 
         private async Task ExportModelAsync()
         {
-            var exportPath = await DialogService.SaveFileAsync("Export Model", $"{_selectedModel.Name}.json", filter: "JSON |*.json;", defualtExt: "json");
+            var exportPath = await DialogService.SaveFileAsync(AppDefault.ExportModel, $"{_selectedModel.Name}.json", filter: "JSON |*.json;", defualtExt: "json");
             if (!string.IsNullOrEmpty(exportPath))
             {
                 await Json.SaveAsync<ExtractModel>(exportPath, _selectedModel.DeepClone(0));
@@ -225,7 +226,7 @@ namespace Amuse.App.Views
 
         private async Task DeleteModelAsync()
         {
-            if (await DialogService.ShowMessageAsync("Delete Model", $"Are you sure you want to delete this model?", TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
+            if (await DialogService.ShowMessageAsync(AppDefault.DeleteModel, AppDefault.DeleteModelMessage, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
             {
                 await Task.Run(() => _selectedModel.Delete(Settings));
                 _selectedModel.Status = ModelStatusType.Available;

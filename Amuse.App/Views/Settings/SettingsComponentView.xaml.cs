@@ -1,5 +1,6 @@
 ﻿using Amuse.App.Common;
 using Amuse.App.Dialogs;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Microsoft.Extensions.Logging;
 using System;
@@ -160,7 +161,7 @@ namespace Amuse.App.Views
 
         private async Task RemoveModelAsync()
         {
-            if (await DialogService.ShowMessageAsync("Remove Component", $"Are you sure you want to remove this component?", TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
+            if (await DialogService.ShowMessageAsync(AppDefault.RemoveComponent, AppDefault.RemoveComponentMessage, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
             {
                 Settings.Components.Remove(SelectedModel);
                 SelectedModel = default;
@@ -171,13 +172,13 @@ namespace Amuse.App.Views
 
         private async Task ImportModelAsync()
         {
-            var importPath = await DialogService.OpenFileAsync("Import Component", filter: "JSON |*.json;", defualtExt: "json");
+            var importPath = await DialogService.OpenFileAsync(AppDefault.ImportComponent, filter: "JSON |*.json;", defualtExt: "json");
             if (!string.IsNullOrEmpty(importPath))
             {
                 var modelImports = await Json.LoadArrayAsync<ComponentModel>(importPath);
                 if (modelImports.IsNullOrEmpty())
                 {
-                    await DialogService.ShowMessageAsync("Import Error", "Failed to import component file.");
+                    await DialogService.ShowMessageAsync(AppErrors.ImportErrorTitle, AppErrors.ImportComponent);
                     return;
                 }
 
@@ -192,7 +193,7 @@ namespace Amuse.App.Views
 
         private async Task ExportModelAsync()
         {
-            var exportPath = await DialogService.SaveFileAsync("Export Component", $"{_selectedModel.Name}.json", filter: "JSON |*.json;", defualtExt: "json");
+            var exportPath = await DialogService.SaveFileAsync(AppDefault.ExportComponent, $"{_selectedModel.Name}.json", filter: "JSON |*.json;", defualtExt: "json");
             if (!string.IsNullOrEmpty(exportPath))
             {
                 await Json.SaveAsync<ComponentModel>(exportPath, _selectedModel.DeepClone(0));
@@ -209,7 +210,7 @@ namespace Amuse.App.Views
 
         private async Task DeleteModelAsync()
         {
-            if (await DialogService.ShowMessageAsync("Delete Component", $"Are you sure you want to delete this component?", TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
+            if (await DialogService.ShowMessageAsync(AppDefault.DeleteComponent, AppDefault.DeleteComponentMessage, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
             {
                 await Task.Run(() => _selectedModel.Delete(Settings));
                 _selectedModel.Status = ModelStatusType.Available;

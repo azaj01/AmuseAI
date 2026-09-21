@@ -35,44 +35,44 @@
                 Background="{StaticResource ControlDefaultBackground}" >
                 <TextBox.ContextMenu>
                     <ContextMenu IsEnabled="{Binding IsContextMenuEnabled, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Visibility="{Binding IsContextMenuEnabled, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource BooleanToHiddenConverter}}">
-                        <MenuItem  Header="Copy" InputGestureText="Ctrl+C" Command="ApplicationCommands.Copy" >
+                        <MenuItem  Header="{CommonControls:Localize Copy}" InputGestureText="Ctrl+C" Command="ApplicationCommands.Copy" >
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c7" IconStyle="Light" Size="15"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="Save As" InputGestureText="Ctrl+S" Command="{Binding SaveCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
+                        <MenuItem Header="{CommonControls:Localize SaveAs}" InputGestureText="Ctrl+S" Command="{Binding SaveCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c7" IconStyle="Light" Size="15"/>
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator Opacity=".6" />
-                        <MenuItem  Header="Copy Text" InputGestureText="Ctrl+A" Command="{Binding CopyCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
+                        <MenuItem  Header="{CommonControls:Localize CopyText}" InputGestureText="Ctrl+A" Command="{Binding CopyCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c7" IconStyle="Light" Size="15"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="Copy Response" InputGestureText="Ctrl+R" Command="{Binding CopyResponseCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
+                        <MenuItem Header="{CommonControls:Localize CopyResponse}" InputGestureText="Ctrl+R" Command="{Binding CopyResponseCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c5" IconStyle="Light" Size="15" />
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="Copy Thinking" InputGestureText="Ctrl+T" Command="{Binding CopyThinkingCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
+                        <MenuItem Header="{CommonControls:Localize CopyThinking}" InputGestureText="Ctrl+T" Command="{Binding CopyThinkingCommand, Mode=OneWay}" CommandParameter="{StaticResource False}">
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c5" IconStyle="Light" Size="15" />
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator Opacity=".6" />
-                        <MenuItem  Header="Copy Html" InputGestureText="Ctrl+Shift+A" Command="{Binding CopyCommand, Mode=OneWay}" CommandParameter="{StaticResource True}">
+                        <MenuItem  Header="{CommonControls:Localize CopyHtml}" InputGestureText="Ctrl+Shift+A" Command="{Binding CopyCommand, Mode=OneWay}" CommandParameter="{StaticResource True}">
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c7" IconStyle="Light" Size="15"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="Copy Response Html" InputGestureText="Ctrl+Shift+R" Command="{Binding CopyResponseCommand, Mode=OneWay}" CommandParameter="{StaticResource True}">
+                        <MenuItem Header="{CommonControls:Localize CopyResponseHtml}" InputGestureText="Ctrl+Shift+R" Command="{Binding CopyResponseCommand, Mode=OneWay}" CommandParameter="{StaticResource True}">
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c5" IconStyle="Light" Size="15" />
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="Copy Thinking Html" InputGestureText="Ctrl+Shift+T" Command="{Binding CopyThinkingCommand, Mode=OneWay}" CommandParameter="{StaticResource True}">
+                        <MenuItem Header="{CommonControls:Localize CopyThinkingHtml}" InputGestureText="Ctrl+Shift+T" Command="{Binding CopyThinkingCommand, Mode=OneWay}" CommandParameter="{StaticResource True}">
                             <MenuItem.Icon>
                                 <CommonControls:FontAwesome Icon="f0c5" IconStyle="Light" Size="15" />
                             </MenuItem.Icon>

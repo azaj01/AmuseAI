@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Amuse.App.Controls"
+             xmlns:CommonControls="clr-namespace:TensorStack.WPF.Controls;assembly=TensorStack.WPF"
              Name="UI" >
     <Grid DataContext="{Binding ElementName=UI}">
         <ItemsControl  ItemsSource="{Binding DeviceCollection}" >
@@ -110,15 +111,15 @@
                                             <TextBlock Text="{Binding ProcessMemoryUsage, StringFormat={}{0:F1}GB}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                            <TextBlock Text="System: " FontStyle="Italic" Opacity=".7"/>
+                                            <TextBlock Text="{CommonControls:Localize System, Append=:}" FontStyle="Italic" Opacity=".7" Margin="0,0,3,0"/>
                                             <TextBlock Text="{Binding ProgressSubValue, StringFormat={}{0:F1}GB}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
-                                            <TextBlock Text="Total Used: " FontStyle="Italic" Opacity=".7"/>
+                                            <TextBlock Text="{CommonControls:Localize TotalUsed, Append=:}" FontStyle="Italic" Opacity=".7" Margin="0,0,3,0"/>
                                             <TextBlock Text="{Binding MemoryUsage, StringFormat={}{0:F1}GB}" />
                                         </StackPanel>
                                         <StackPanel Orientation="Horizontal"  VerticalAlignment="Center" >
-                                            <TextBlock Text="Remaining: " FontStyle="Italic" Opacity=".7"/>
+                                            <TextBlock Text="{CommonControls:Localize Remaining, Append=:}" FontStyle="Italic" Opacity=".7" Margin="0,0,3,0"/>
                                             <TextBlock Text="{Binding MemoryRemaining, StringFormat={}{0:F1}GB}" />
                                             <TextBlock Text=" / " FontStyle="Italic" Opacity=".7"/>
                                             <TextBlock Text="{Binding MemoryGB, StringFormat={}{0:F1}GB}" />

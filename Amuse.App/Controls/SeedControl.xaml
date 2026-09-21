@@ -8,8 +8,8 @@
              Name="UI" >
     <DockPanel DataContext="{Binding ElementName=UI}">
         <UniformGrid DockPanel.Dock="Right" Columns="2" VerticalAlignment="Bottom" Height="22">
-            <CommonControls:AddOnButton Icon="f051" IconSize="14" IconColor="{StaticResource DefaultForeground}" Width="25" IconOpacity=".8" Command="{Binding SeedCommand}" CommandParameter="{StaticResource False}" ToolTip="New Seed"/>
-            <CommonControls:AddOnButton Icon="f074" IconSize="14" IconColor="{StaticResource DefaultForeground}" Width="25" IconOpacity=".8" Command="{Binding SeedCommand}" CommandParameter="{StaticResource True}" ToolTip="Random Seeds"/>
+            <CommonControls:AddOnButton Icon="f051" IconSize="14" IconColor="{StaticResource DefaultForeground}" Width="25" IconOpacity=".8" Command="{Binding SeedCommand}" CommandParameter="{StaticResource False}" ToolTip="{CommonControls:Localize ToolTip_Seed_New}"/>
+            <CommonControls:AddOnButton Icon="f074" IconSize="14" IconColor="{StaticResource DefaultForeground}" Width="25" IconOpacity=".8" Command="{Binding SeedCommand}" CommandParameter="{StaticResource True}" ToolTip="{CommonControls:Localize ToolTip_Seed_Random}"/>
         </UniformGrid>
         <Grid>
             <TextBox x:Name="TextBoxSeed" Text="{Binding Seed, UpdateSourceTrigger=PropertyChanged}" >
@@ -27,7 +27,7 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            <TextBlock Text="Random" IsHitTestVisible="False" Opacity=".8" Margin="4,3,0,0" Foreground="{StaticResource DefaultForeground}">
+            <TextBlock Text="{CommonControls:Localize Random}" IsHitTestVisible="False" Opacity=".8" Margin="4,3,0,0" Foreground="{StaticResource DefaultForeground}">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
                         <Setter Property="Visibility" Value="Collapsed"/>

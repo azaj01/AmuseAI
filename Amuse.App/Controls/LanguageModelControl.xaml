@@ -41,10 +41,10 @@
                         <Button x:Name="LoadButton" Command="{Binding LoadCommand}" >
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
-                                    <Setter Property="Content" Value="Load" />
+                                    <Setter Property="Content" Value="{CommonControls:Localize Load}" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsEnabled, ElementName=LoadButton}" Value="False">
-                                            <Setter Property="Content" Value="Loading" />
+                                            <Setter Property="Content" Value="{CommonControls:Localize Loading}" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -54,7 +54,7 @@
                             <Border Background="{StaticResource ButtonBackground}" BorderBrush="{StaticResource ButtonBorderBrush}" BorderThickness="1" Visibility="{Binding IsPipelineLoaded, Converter={StaticResource BooleanToHiddenConverter}, FallbackValue=Hidden}">
                                 <DockPanel Margin="4,0" HorizontalAlignment="Center" Opacity=".8">
                                     <CommonControls:FontAwesome DockPanel.Dock="Left" Icon="f058" Size="12" Color="{StaticResource SuccessColour}" Margin="0,1,0,0"/>
-                                    <TextBlock Text="Ready" Margin="4,2,0,0" Foreground="{StaticResource SuccessColour}"/>
+                                    <TextBlock Text="{CommonControls:Localize Ready}" Margin="4,2,0,0" Foreground="{StaticResource SuccessColour}"/>
                                 </DockPanel>
                             </Border>
                         </Grid>
@@ -74,20 +74,20 @@
 
                 <!--Device-->
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Left" Text="Device" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Device}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <Grid>
                         <ComboBox 
                             DisplayMemberPath="Name"
                             SelectedItem="{Binding SelectedDevice}" 
                             ItemsSource="{Binding DeviceCollectionView}" 
                             SelectionChanged="Device_SelectionChanged" />
-                        <TextBlock Text="No devices found." FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding DeviceCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <TextBlock Text="{CommonControls:Localize NoDevicesFound}" FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding DeviceCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </DockPanel>
 
                 <!--Model-->
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Left" Text="Model" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Model}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <Grid Height="36">
                         <CommonControls:ContentComboBox 
                             SelectedItem="{Binding SelectedModel, Mode=TwoWay}"
@@ -101,18 +101,18 @@
                                         <CommonControls:FontAwesome Icon="f013" Size="12"/>
                                     </Button>
                                     <UniformGrid Rows="1">
-                                        <Button Content="Install" Height="26" Command="{Binding InstallCommand}" CommandParameter="Language"/>
-                                        <Button Content="Download" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Language"/>
+                                        <Button Content="{CommonControls:Localize Install}" Height="26" Command="{Binding InstallCommand}" CommandParameter="Language"/>
+                                        <Button Content="{CommonControls:Localize Download}" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Language"/>
                                     </UniformGrid>
                                 </DockPanel>
                             </CommonControls:ContentComboBox.BottomContent>
                         </CommonControls:ContentComboBox>
-                        <TextBlock Text="No models found." FontStyle="Italic" Opacity=".4" Margin="5,-2,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="{Binding ModelCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <TextBlock Text="{CommonControls:Localize NoModelsFound}" FontStyle="Italic" Opacity=".4" Margin="5,-2,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="{Binding ModelCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
                     </Grid>
                 </DockPanel>
 
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Left" Text="Memory" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Memory}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
 
                     <!--MemoryMode-->
                     <ComboBox SelectedItem="{Binding SelectedQualityMode}" 

@@ -9,7 +9,7 @@
         MinWidth="500"
         MaxWidth="500"
         x:Name="UI"
-        Title="Gated Model Access"
+        Title="{CommonControls:Localize Title_GatedModelAccess}"
         Icon="/Images/Icon.ico"
         Style="{StaticResource {x:Type CommonControls:DialogControl}}">
     <DockPanel DataContext="{Binding ElementName=UI}" Margin="15, 15, 15, 10">
@@ -17,8 +17,8 @@
         <!--Close-->
         <Grid DockPanel.Dock="Bottom" Margin="0,25,0,0">
             <UniformGrid Columns="2" Height="30" HorizontalAlignment="Right">
-                <Button Content="Settings" Command="{Binding SaveCommand}" Width="100"/>
-                <Button Content="Close" Command="{Binding CancelCommand}" Width="100"/>
+                <Button Content="{CommonControls:Localize Settings}" Command="{Binding SaveCommand}" Width="100"/>
+                <Button Content="{CommonControls:Localize Close}" Command="{Binding CancelCommand}" Width="100"/>
             </UniformGrid>
         </Grid>
 
@@ -28,10 +28,8 @@
             <CommonControls:FontAwesome DockPanel.Dock="Left" Size="50" Margin="10,10,10,10" Icon="f084" IconStyle="Light" Color="{StaticResource WarningColour}" />
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0,50,0">
                 <TextBlock Text="{Binding Message}" FontSize="14" TextWrapping="Wrap"/>
-
-                <TextBlock Text="The model is publicly accessible, but you have to accept the conditions to access its files and content." FontSize="14" TextWrapping="Wrap"  Margin="0,12,0,0"/>
-
-                <CommonControls:HyperlinkControl Label="Accept Model Terms &amp; Conditions" Link="{Binding ModelLink}" FontSize="14" HorizontalAlignment="Center" Margin="0,4,0,0" Foreground="{StaticResource InfoColour}"/>
+                <TextBlock Text="{CommonControls:Localize AccessTokenMessage}" FontSize="14" TextWrapping="Wrap"  Margin="0,12,0,0"/>
+                <CommonControls:HyperlinkControl Label="{CommonControls:Localize AccessTokenTerms}" Link="{Binding ModelLink}" FontSize="14" HorizontalAlignment="Center" Margin="0,4,0,0" Foreground="{StaticResource InfoColour}"/>
             </StackPanel>
         </DockPanel>
 

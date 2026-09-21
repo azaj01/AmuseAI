@@ -6,9 +6,9 @@ using System;
 using System.Threading.Tasks;
 using TensorStack.Common;
 using TensorStack.Common.Tensor;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
+using TensorStack.WPF.Image;
 
 namespace Amuse.App.Services
 {

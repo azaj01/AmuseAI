@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
+using TensorStack.Common;
 using TensorStack.WPF;
 
 namespace Amuse.App.Common

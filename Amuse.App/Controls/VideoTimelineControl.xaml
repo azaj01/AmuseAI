@@ -39,23 +39,23 @@
                 <!--Timeline Details-->
                 <DockPanel Margin="4,0,0,0" >
                     <UniformGrid DockPanel.Dock="Top" Columns="2">
-                        <TextBlock Text="Current Time:" Opacity=".7" VerticalAlignment="Center" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize CurrentTime, Append=:}" Opacity=".7" VerticalAlignment="Center" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelinePositionTime, FallbackValue=00:00:00, StringFormat={}hh\\:mm\\:ss\\.ff}" FontSize="16" Opacity=".9"/>
-                        <TextBlock Text="Timeline Time:" Opacity=".7" VerticalAlignment="Center" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize TimelineTime, Append=:}" Opacity=".7" VerticalAlignment="Center" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelineLengthTime, FallbackValue=00:00:00, StringFormat={}hh\\:mm\\:ss\\.ff}" FontSize="16" Opacity=".9"/>
                     </UniformGrid>
                     <UniformGrid Columns="2" VerticalAlignment="Bottom" MinWidth="200">
-                        <TextBlock Text="Segments:" Opacity=".7" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize Segments, Append=:}" Opacity=".7" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelineSegements.Count, Mode=OneWay}" Opacity=".9"/>
-                        <TextBlock Text="Timeline Frame:" Opacity=".7" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize TimelineFrame, Append=:}" Opacity=".7" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelinePosition}" Opacity=".9"/>
-                        <TextBlock Text="Timeline Frames:" Opacity=".7" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize TimelineFrames, Append=:}" Opacity=".7" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelineLength}" Opacity=".9"/>
-                        <TextBlock Text="Width:" Opacity=".7" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize Width, Append=:}" Opacity=".7" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelineWidth, FallbackValue=0, TargetNullValue=0, StringFormat={}{0} px}" Opacity=".9"/>
-                        <TextBlock Text="Height:" Opacity=".7" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize Height, Append=:}" Opacity=".7" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelineHeight, FallbackValue=0, TargetNullValue=0, StringFormat={}{0} px}" Opacity=".9"/>
-                        <TextBlock Text="FrameRate:" Opacity=".7" FontStyle="Italic"/>
+                        <TextBlock Text="{CommonControls:Localize FrameRate, Append=:}" Opacity=".7" FontStyle="Italic"/>
                         <TextBlock Text="{Binding TimelineFrameRate, FallbackValue=0, TargetNullValue=0, StringFormat={}{0:N0} fps}" Opacity=".9"/>
                     </UniformGrid>
                 </DockPanel>
@@ -69,16 +69,16 @@
                     <StackPanel>
                         <UniformGrid Columns="3">
                             <StackPanel Orientation="Horizontal" >
-                                <TextBlock Text="Type: " FontStyle="Italic" Opacity=".7"/>
+                                <TextBlock Text="{CommonControls:Localize Type, Append=:}" FontStyle="Italic" Opacity=".7" Margin="0,0,3,0"/>
                                 <TextBlock Text="{Binding SelectedSegement.SegmentType, FallbackValue=Unknown}"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <TextBlock Text="Frame: " FontStyle="Italic" Opacity=".7"/>
+                                <TextBlock Text="{CommonControls:Localize Frame, Append=:}" FontStyle="Italic" Opacity=".7" Margin="0,0,3,0"/>
                                 <TextBlock Text="{Binding SelectedFrame.FrameIndex, FallbackValue=0, Converter={StaticResource AddIntConverter}, ConverterParameter=1}"/>
                                 <TextBlock Text="/" FontStyle="Italic" Opacity=".7"/>
                                 <TextBlock Text="{Binding SelectedSegement.FrameLength, FallbackValue=0}"/>
                             </StackPanel>
-                            <CheckBox Content="Audio Enabled" IsChecked="{Binding SelectedSegement.IsAudioEnabled}" IsEnabled="{Binding SelectedSegement.IsAudioPresent}" HorizontalAlignment="Right"/>
+                            <CheckBox Content="{CommonControls:Localize AudioEnabled}" IsChecked="{Binding SelectedSegement.IsAudioEnabled}" IsEnabled="{Binding SelectedSegement.IsAudioPresent}" HorizontalAlignment="Right"/>
                         </UniformGrid>
                     </StackPanel>
                 </DockPanel>
@@ -105,10 +105,10 @@
 
                     <UniformGrid DockPanel.Dock="Bottom" Columns="2" Margin="40,0,40,0" VerticalAlignment="Top">
                         <Border Style="{StaticResource VideoDropZoneStyle}" >
-                            <CommonControls:IconButton Text="Import Video" Icon="f008" Command="{Binding LoadVideoCommand}" Drop="OnTimelineDrop" Style="{StaticResource AllowDropButton}"/>
+                            <CommonControls:IconButton Text="{CommonControls:Localize ImportVideo}" Icon="f008" Command="{Binding LoadVideoCommand}" Drop="OnTimelineDrop" Style="{StaticResource AllowDropButton}"/>
                         </Border>
                         <Border>
-                            <CommonControls:IconButton Text="Import Audio" Icon="f001" Command="{Binding LoadAudioCommand}" Drop="OnAudioDrop" Style="{StaticResource AllowDropButton}"/>
+                            <CommonControls:IconButton Text="{CommonControls:Localize ImportAudio}" Icon="f001" Command="{Binding LoadAudioCommand}" Drop="OnAudioDrop" Style="{StaticResource AllowDropButton}"/>
                             <Border.Style>
                                 <Style TargetType="{x:Type Border}" BasedOn="{StaticResource AudioDropZoneStyle}">
                                     <Setter Property="IsEnabled" Value="True"/>
@@ -124,7 +124,7 @@
                             </Border.Style>
                         </Border>
                         <Border>
-                            <CommonControls:IconButton Text="Import Image" Icon="f03e" Command="{Binding LoadImageCommand}" Drop="OnImageDrop" Style="{StaticResource AllowDropButton}"/>
+                            <CommonControls:IconButton Text="{CommonControls:Localize ImportImage}" Icon="f03e" Command="{Binding LoadImageCommand}" Drop="OnImageDrop" Style="{StaticResource AllowDropButton}"/>
                             <Border.Style>
                                 <Style TargetType="{x:Type Border}" BasedOn="{StaticResource ImageDropZoneStyle}">
                                     <Setter Property="IsEnabled" Value="True"/>
@@ -140,7 +140,7 @@
                             </Border.Style>
                         </Border>
                         <Border>
-                            <CommonControls:IconButton Text="Import Overlay" Icon="f302" Command="{Binding LoadOverlayCommand}" Drop="OnOverlayDrop" Style="{StaticResource AllowDropButton}"/>
+                            <CommonControls:IconButton Text="{CommonControls:Localize ImportOverlay}" Icon="f302" Command="{Binding LoadOverlayCommand}" Drop="OnOverlayDrop" Style="{StaticResource AllowDropButton}"/>
                             <Border.Style>
                                 <Style TargetType="{x:Type Border}" BasedOn="{StaticResource ImageDropZoneStyle}">
                                     <Setter Property="IsEnabled" Value="True"/>
@@ -164,14 +164,14 @@
             <DockPanel Width="400" HorizontalAlignment="Right" >
                 <DockPanel>
                     <UniformGrid DockPanel.Dock="Bottom" Columns="2" Height="30">
-                        <Button Content="Cancel" Command="{Binding CancelCommand}"/>
-                        <Button Content="Save" Command="{Binding SaveVideoCommand}"/>
+                        <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}"/>
+                        <Button Content="{CommonControls:Localize Save}" Command="{Binding SaveVideoCommand}"/>
                     </UniformGrid>
                     <StackPanel>
-                        <CommonControls:SliderControl Text="Frame Width" Minimum="3" Maximum="{Binding PreviewFrameSize}" Value="{Binding TimelineFrameWidth}" TickFrequency="1" ValueFormat="N0"/>
-                        <CommonControls:SliderControl Text="Frame Size" Minimum="20" Maximum="260" TickFrequency="10" ValueFormat="N0" Value="{Binding PreviewFrameSize}"/>
-                        <CommonControls:SliderControl Text="Preview Quality" Minimum="20" Maximum="260" TickFrequency="10" ValueFormat="N0" Value="{Binding TimelineThumbHeight}"/>
-                        <CheckBox Content="Enable Audio Processing" IsChecked="{Binding IsAudioEnabled}"  Margin="0,5,0,0"/>
+                        <CommonControls:SliderControl Text="{CommonControls:Localize FrameWidth}" Minimum="3" Maximum="{Binding PreviewFrameSize}" Value="{Binding TimelineFrameWidth}" TickFrequency="1" ValueFormat="N0"/>
+                        <CommonControls:SliderControl Text="{CommonControls:Localize FrameSize}" Minimum="20" Maximum="260" TickFrequency="10" ValueFormat="N0" Value="{Binding PreviewFrameSize}"/>
+                        <CommonControls:SliderControl Text="{CommonControls:Localize PreviewQuality}" Minimum="20" Maximum="260" TickFrequency="10" ValueFormat="N0" Value="{Binding TimelineThumbHeight}"/>
+                        <CheckBox Content="{CommonControls:Localize EnableAudioProcessing}" IsChecked="{Binding IsAudioEnabled}"  Margin="0,5,0,0"/>
                     </StackPanel>
                 </DockPanel>
             </DockPanel>
@@ -212,48 +212,48 @@
 
                             <!--Timeline Controls-->
                             <UniformGrid DockPanel.Dock="Left" Rows="1">
-                                <Button Command="{Binding TimelineClearCommand}" Width="50" Style="{StaticResource OptionButton}" ToolTip="Clear Timeline" >
+                                <Button Command="{Binding TimelineClearCommand}" Width="50" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_Clear}" >
                                     <CommonControls:FontAwesome Icon="e2ab" Size="12" Color="{StaticResource DangerColour}" Opacity=".8"/>
                                 </Button>
-                                <Button Command="{Binding SaveVideoCommand}" Style="{StaticResource OptionButton}" ToolTip="Save Video">
+                                <Button Command="{Binding SaveVideoCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_Save}">
                                     <CommonControls:FontAwesome Icon="f0c7" Size="12"/>
                                 </Button>
                                 <TextBox x:Name="ExtendTimelineTextBox" DockPanel.Dock="Right" Text="120" TextAlignment="Center"/>
-                                <Button Command="{Binding TimelineExtendCommand}" CommandParameter="{Binding Text, ElementName=ExtendTimelineTextBox, Converter={StaticResource StringToIntConverter}}" Style="{StaticResource OptionButton}" ToolTip="Extend Timeline">
+                                <Button Command="{Binding TimelineExtendCommand}" CommandParameter="{Binding Text, ElementName=ExtendTimelineTextBox, Converter={StaticResource StringToIntConverter}}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_Extend}">
                                     <CommonControls:FontAwesome Icon="e6c4" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding TimelineTrimCommand}" Style="{StaticResource OptionButton}" ToolTip="Trim Timeline">
+                                <Button Command="{Binding TimelineTrimCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_Trim}">
                                     <CommonControls:FontAwesome Icon="e4ba" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding TimelineZoomInCommand}" Style="{StaticResource OptionButton}" ToolTip="Zoom In">
+                                <Button Command="{Binding TimelineZoomInCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_ZoomIn}">
                                     <CommonControls:FontAwesome Icon="f00e" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding TimelineZoomOutCommand}" Style="{StaticResource OptionButton}" ToolTip="Zoom Out">
+                                <Button Command="{Binding TimelineZoomOutCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_ZoomOut}">
                                     <CommonControls:FontAwesome Icon="f010" Size="12"/>
                                 </Button>
                             </UniformGrid>
 
                             <!--Segment Controls-->
                             <UniformGrid DockPanel.Dock="Right" Rows="1">
-                                <Button Command="{Binding SegmentRemoveFrameCommand}" Width="50" Style="{StaticResource OptionButton}" ToolTip="Remove Selected Frames(s)">
+                                <Button Command="{Binding SegmentRemoveFrameCommand}" Width="50" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_FrameRemove}">
                                     <CommonControls:FontAwesome Icon="f0c4" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding SegmentSaveFrameCommand}" Style="{StaticResource OptionButton}" ToolTip="Save Selected Frame To History">
+                                <Button Command="{Binding SegmentSaveFrameCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_FrameSave}">
                                     <CommonControls:FontAwesome Icon="f03e" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding SegmentSplitCommand}" Style="{StaticResource OptionButton}" ToolTip="Split Segment">
+                                <Button Command="{Binding SegmentSplitCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_SegmentSplit}">
                                     <CommonControls:FontAwesome Icon="e254" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding SegmentCopyCommand}" Style="{StaticResource OptionButton}" ToolTip="Copy Segment">
+                                <Button Command="{Binding SegmentCopyCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_SegmentCopy}">
                                     <CommonControls:FontAwesome Icon="f0c5" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding SegmentMoveUpCommand}" Style="{StaticResource OptionButton}" ToolTip="Move Segment Up">
+                                <Button Command="{Binding SegmentMoveUpCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_SegmentUp}">
                                     <CommonControls:FontAwesome Icon="f077" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding SegmentMoveDownCommand}" Style="{StaticResource OptionButton}" ToolTip="Move Segment Down">
+                                <Button Command="{Binding SegmentMoveDownCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_SegmentDown}">
                                     <CommonControls:FontAwesome Icon="f078" Size="12"/>
                                 </Button>
-                                <Button Command="{Binding SegmentRemoveCommand}" Style="{StaticResource OptionButton}" ToolTip="Remove Segment" >
+                                <Button Command="{Binding SegmentRemoveCommand}" Style="{StaticResource OptionButton}" ToolTip="{CommonControls:Localize ToolTip_VideoTimeline_SegmentRemove}" >
                                     <CommonControls:FontAwesome Icon="f2ed" Size="12" Color="{StaticResource DangerColour}" Opacity=".8"/>
                                 </Button>
                             </UniformGrid>
@@ -495,7 +495,7 @@
                     <!--DragDrop Notification-->
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AllowDrop, ElementName=DragDropContainer, Converter={StaticResource BooleanToVisibilityConverter}}" IsHitTestVisible="False">
                         <CommonControls:FontAwesome Icon="e74c" Size="30" IconStyle="SharpLight" Color="{StaticResource AccentColour2}"/>
-                        <TextBlock Text="Drag &amp; Drop Video Here" Foreground="{StaticResource AccentColour2}" FontSize="13" FontWeight="DemiBold" Margin="0,6,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize DragDropVideo}" Foreground="{StaticResource AccentColour2}" FontSize="13" FontWeight="DemiBold" Margin="0,6,0,0"/>
                     </StackPanel>
                 </Grid>
             </DockPanel>

@@ -51,7 +51,7 @@
                             <!--Execute/Cancel-->
                             <UniformGrid DockPanel.Dock="Bottom" Columns="2" Height="30" >
                                 <DockPanel>
-                                    <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="Immediately stops generation by closing the backend process." ToolTipService.InitialShowDelay="200">
+                                    <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="{CommonControls:Localize ToolTip_GenerateStop}" ToolTipService.InitialShowDelay="200">
                                         <CommonControls:FontAwesome Icon="f00d" Color="{StaticResource DangerColour}" />
                                     </Button>
                                     <Grid IsEnabled="{Binding GenerateService.IsCanceling, Converter={StaticResource InverseBoolConverter}}">
@@ -61,7 +61,7 @@
                                                     <Setter Property="Content" Value="Cancel" />
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding GenerateService.IsCanceling}" Value="True">
-                                                            <Setter Property="Content" Value="Canceling" />
+                                                            <Setter Property="Content" Value="{CommonControls:Localize Canceling}" />
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
@@ -70,8 +70,8 @@
                                     </Grid>
                                 </DockPanel>
                                 <Grid IsEnabled="{Binding IsSelectionValid, ElementName=ModelControl}">
-                                    <Button Content="Generate" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
-                                    <Button Content="Automate" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                    <Button Content="{CommonControls:Localize Generate}" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                    <Button Content="{CommonControls:Localize Automate}" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
                                 </Grid>
                             </UniformGrid>
 
@@ -120,7 +120,7 @@
                             <!--Output-->
                             <DockPanel DockPanel.Dock="Bottom" Margin="10,10,10,4">
                                 <DockPanel Height="150">
-                                    <TextBlock DockPanel.Dock="Top" Text="Audio Result" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize AudioResult}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:AudioStreamElement 
                                         x:Name="ResultControl"
                                         Source="{Binding ResultAudio, Mode=TwoWay}" 
@@ -134,7 +134,7 @@
                             <!--Prompt-->
                             <Grid Margin="10,0,10,0" IsEnabled="{Binding IsPipelineLoaded}">
                                 <DockPanel IsEnabled="{Binding IsAutomating, Converter={StaticResource InverseBoolConverter}}">
-                                    <TextBlock DockPanel.Dock="Top" Text="Input Text" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize InputText}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <Border Style="{StaticResource TextDropZoneStyle}">
                                         <CommonControls:TextElement TextSource="{Binding SourceText}" IsSaveEnabled="False" AcceptsReturn="True" TextWrapping="Wrap"/>
                                     </Border>

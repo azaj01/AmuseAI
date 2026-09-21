@@ -129,7 +129,15 @@ namespace Amuse.App.Controls
         public SizeOption SelectedResolution
         {
             get { return _selectedResolution; }
-            set { SetProperty(ref _selectedResolution, value); }
+            set
+            {
+                SetProperty(ref _selectedResolution, value);
+                if (_selectedResolution != null && Options != null)
+                {
+                    Options.Width = _selectedResolution.Width;
+                    Options.Height = _selectedResolution.Height;
+                }
+            }
         }
 
         public bool IsModelOptionsVisible
@@ -268,16 +276,6 @@ namespace Amuse.App.Controls
                 Options.Prompt += $", {triggerWord}";
             }
             return Task.CompletedTask;
-        }
-
-
-        private void ComboBoxResolution_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            if (Options is null || _selectedResolution is null)
-                return;
-
-            Options.Width = _selectedResolution.Width;
-            Options.Height = _selectedResolution.Height;
         }
 
     }

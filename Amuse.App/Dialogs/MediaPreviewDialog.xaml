@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Amuse.App.Dialogs"
         xmlns:CommonControls="clr-namespace:TensorStack.WPF.Controls;assembly=TensorStack.WPF"
         xmlns:Common="clr-namespace:Amuse.App.Common"
-        Title="Media Preview"
+        Title="{CommonControls:Localize Title_MediaPreview}"
         SizeToContent="Manual"
         WindowStartupLocation="CenterOwner"
         Icon="/Images/Icon.ico"
@@ -19,10 +19,10 @@
 
         <Grid DockPanel.Dock="Bottom" Height="30"  Margin="0,20,0,0">
             <UniformGrid Columns="2" HorizontalAlignment="Left">
-                <Button Content="Prev" Command="{Binding PrevCommand}" Width="100"/>
-                <Button Content="Next" Command="{Binding NextCommand}" Width="100"/>
+                <Button Content="{CommonControls:Localize Prev}" Command="{Binding PrevCommand}" Width="100"/>
+                <Button Content="{CommonControls:Localize Next}" Command="{Binding NextCommand}" Width="100"/>
             </UniformGrid>
-            <Button HorizontalAlignment="Right" Content="Close" Command="{Binding CancelCommand}" Width="100" IsDefault="True"/>
+            <Button HorizontalAlignment="Right" Content="{CommonControls:Localize Close}" Command="{Binding CancelCommand}" Width="100" IsDefault="True"/>
         </Grid>
 
         <DockPanel>

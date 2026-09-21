@@ -9,7 +9,7 @@
         MinWidth="900"
         MaxWidth="900"
         MinHeight="560"
-        Title="Environment"
+        Title="{CommonControls:Localize Title_Environment}"
         Icon="/Images/Icon.ico"
         Style="{StaticResource {x:Type CommonControls:DialogControl}}">
     <DockPanel DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:EnvironmentModelDialog}}}" Margin="15, 15, 15, 10">
@@ -17,7 +17,7 @@
         <!--Environment Settings-->
         <UniformGrid DockPanel.Dock="Top" Columns="4" >
             <StackPanel Margin="0,0,2,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}">
-                <TextBlock Text="Name" Style="{StaticResource FieldTextBlockStyle}"/>
+                <TextBlock Text="{CommonControls:Localize Name}" Style="{StaticResource FieldTextBlockStyle}"/>
                 <TextBox Text="{Binding EnvironmentModel.Name, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Margin="2,0,2,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}">
@@ -25,11 +25,11 @@
                 <TextBox Text="{Binding EnvironmentModel.Environment, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <StackPanel Margin="0,0,2,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}" Visibility="{Binding IsCreate, Converter={StaticResource BooleanToVisibilityConverter}}">
-                <TextBlock Text="Backend" Style="{StaticResource FieldTextBlockStyle}"/>
+                <TextBlock Text="{CommonControls:Localize Backend}" Style="{StaticResource FieldTextBlockStyle}"/>
                 <ComboBox ItemsSource="{Binding Source={StaticResource BackendType}}" SelectedItem="{Binding BackendType}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
             </StackPanel>
             <StackPanel Margin="2,0,2,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}">
-                <TextBlock Text="Version" Style="{StaticResource FieldTextBlockStyle}"/>
+                <TextBlock Text="{CommonControls:Localize Version}" Style="{StaticResource FieldTextBlockStyle}"/>
                 <ComboBox SelectedItem="{Binding EnvironmentModel.HostVersion}" ItemsSource="{Binding HostVersions}" />
             </StackPanel>
         </UniformGrid>
@@ -37,25 +37,25 @@
 
         <UniformGrid DockPanel.Dock="Top" Columns="4" >
             <StackPanel Margin="0,0,2,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}">
-                <TextBlock Text="Vendor" Style="{StaticResource FieldTextBlockStyle}"/>
+                <TextBlock Text="{CommonControls:Localize Vendor}" Style="{StaticResource FieldTextBlockStyle}"/>
                 <ComboBox ItemsSource="{Binding Source={StaticResource VendorType}}" SelectedItem="{Binding EnvironmentModel.Vendor}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
             </StackPanel>
             <StackPanel Margin="2,0,2,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}">
-                <TextBlock Text="Type" Style="{StaticResource FieldTextBlockStyle}" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}"/>
+                <TextBlock Text="{CommonControls:Localize Type}" Style="{StaticResource FieldTextBlockStyle}" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}"/>
                 <ComboBox ItemsSource="{Binding Source={StaticResource EnvironmentType}}" SelectedItem="{Binding EnvironmentModel.Type}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
             </StackPanel>
             <Grid Margin="2,0,0,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}">
                 <StackPanel Visibility="{Binding EnvironmentModel.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Device}">
-                    <TextBlock Text="Device" Style="{StaticResource FieldTextBlockStyle}"/>
+                    <TextBlock Text="{CommonControls:Localize Device}" Style="{StaticResource FieldTextBlockStyle}"/>
                     <ComboBox ItemsSource="{Binding Settings.Devices}" SelectedValue="{Binding EnvironmentModel.Device}" DisplayMemberPath="Name" SelectedValuePath="HardwareID" SelectedIndex="0"/>
                 </StackPanel>
                 <StackPanel Visibility="{Binding EnvironmentModel.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Pipeline}">
-                    <TextBlock Text="Pipeline" Style="{StaticResource FieldTextBlockStyle}"/>
+                    <TextBlock Text="{CommonControls:Localize Pipeline}" Style="{StaticResource FieldTextBlockStyle}"/>
                     <ComboBox ItemsSource="{Binding Settings.DiffusionPipelines}" SelectedItem="{Binding EnvironmentModel.Pipeline}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
                 </StackPanel>
             </Grid>
             <StackPanel Margin="2,0,0,0" VerticalAlignment="Bottom" >
-                <CheckBox Content="Default" IsChecked="{Binding EnvironmentModel.IsDefault}" Margin="10,0,0,2"/>
+                <CheckBox Content="{CommonControls:Localize Default_}" IsChecked="{Binding EnvironmentModel.IsDefault}" Margin="10,0,0,2"/>
             </StackPanel>
         </UniformGrid>
 
@@ -63,8 +63,8 @@
         <!--Save/Cancel/Errors-->
         <DockPanel DockPanel.Dock="Bottom" Height="30" Margin="0,15,0,0">
             <UniformGrid DockPanel.Dock="Right" Columns="2" >
-                <Button Content="Save" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
-                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+                <Button Content="{CommonControls:Localize Save}" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
+                <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}"/>
             </UniformGrid>
             <ItemsControl ItemsSource="{Binding Errors}">
                 <ItemsControl.ItemTemplate>
@@ -80,7 +80,7 @@
 
             <!--Requirements-->
             <DockPanel Margin="0,0,4,0" IsEnabled="{Binding IsFixedEnvironment, Converter={StaticResource InverseBoolConverter}}">
-                <TextBlock DockPanel.Dock="Top" Text="Requirements" Style="{StaticResource FieldTextBlockStyle}"/>
+                <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize Requirements}" Style="{StaticResource FieldTextBlockStyle}"/>
                 <TextBox Text="{Binding Requirements, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True"/>
             </DockPanel>
 
@@ -91,7 +91,7 @@
                         <CommonControls:FontAwesome Icon="2b" IconStyle="Light" Color="{StaticResource SuccessColour}"/>
                     </Button>
                     <StackPanel>
-                        <TextBlock Text="Environment Variables" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize EnvironmentVariables}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <UniformGrid Columns="2" >
                             <TextBox Text="{Binding CurrentVariable.Name, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,0"/>
                             <TextBox Text="{Binding CurrentVariable.Value, UpdateSourceTrigger=PropertyChanged}" Margin="2,0,2,0"/>

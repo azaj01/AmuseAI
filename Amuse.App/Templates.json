@@ -4584,8 +4584,8 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -4710,8 +4710,8 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -4836,8 +4836,8 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -4962,8 +4962,8 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -5088,23 +5088,23 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Connectors": {
           "Name": "Connectors",
-          "Type": "Component",
-          "Path": "CON_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Vocoder": {
           "Name": "Vocoder",
-          "Type": "Component",
-          "Path": "VOC_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -5290,23 +5290,23 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Connectors": {
           "Name": "Connectors",
-          "Type": "Component",
-          "Path": "CON_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Vocoder": {
           "Name": "Vocoder",
-          "Type": "Component",
-          "Path": "VOC_LTX20"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -5492,23 +5492,23 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Connectors": {
           "Name": "Connectors",
-          "Type": "Component",
-          "Path": "CON_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Vocoder": {
           "Name": "Vocoder",
-          "Type": "Component",
-          "Path": "VOC_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -5694,23 +5694,23 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Connectors": {
           "Name": "Connectors",
-          "Type": "Component",
-          "Path": "CON_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Vocoder": {
           "Name": "Vocoder",
-          "Type": "Component",
-          "Path": "VOC_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -12030,18 +12030,18 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX23_DEV"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX23_DEV"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Connectors": {
           "Name": "Connectors",
-          "Type": "Component",
-          "Path": "CON_LTX23_DEV"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -12050,8 +12050,8 @@
         },
         "LatentUpsampler": {
           "Name": "LatentUpsampler",
-          "Type": "Component",
-          "Path": "LU_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Transformer": {
           "Name": "Transformer",
@@ -12235,18 +12235,18 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX23_DISTILLED"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX23_DISTILLED"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Connectors": {
           "Name": "Connectors",
-          "Type": "Component",
-          "Path": "CON_LTX23_DISTILLED"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
@@ -12255,8 +12255,8 @@
         },
         "LatentUpsampler": {
           "Name": "LatentUpsampler",
-          "Type": "Component",
-          "Path": "LU_LTX23"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Transformer": {
           "Name": "Transformer",
@@ -12440,23 +12440,23 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
-          "Type": "Component",
-          "Path": "TE_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "LatentUpsampler": {
           "Name": "LatentUpsampler",
-          "Type": "Component",
-          "Path": "LU_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Transformer": {
           "Name": "Transformer",
@@ -12640,23 +12640,23 @@
       "Checkpoint": {
         "Vae": {
           "Name": "AutoEncoder",
-          "Type": "Component",
-          "Path": "VAE_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "AudioVae": {
           "Name": "Audio AutoEncoder",
-          "Type": "Component",
-          "Path": "AVAE_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "TextEncoder": {
           "Name": "TextEncoder",
-          "Type": "Component",
-          "Path": "TE_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "LatentUpsampler": {
           "Name": "LatentUpsampler",
-          "Type": "Component",
-          "Path": "LU_LTX25"
+          "Type": "LocalFile",
+          "Path": ""
         },
         "Transformer": {
           "Name": "Transformer",

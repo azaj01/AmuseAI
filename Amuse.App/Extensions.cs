@@ -10,9 +10,9 @@ using System.Windows;
 using System.Windows.Media;
 using TensorStack.Common;
 using TensorStack.Common.Tensor;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
+using TensorStack.WPF.Image;
 
 namespace Amuse.App
 {

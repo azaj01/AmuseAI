@@ -1,4 +1,5 @@
 ﻿using Amuse.App.Common;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Microsoft.Extensions.Logging;
 using System;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 using TensorStack.Common.Pipeline;
 using TensorStack.WPF;
 using TensorStack.WPF.Controls;
+using TensorStack.WPF.Resources;
 using TensorStack.WPF.Services;
 
 namespace Amuse.App.Views
@@ -142,9 +144,9 @@ namespace Amuse.App.Views
         protected virtual void OnProgress(RunProgress progress)
         {
             if (progress.Maximum > 1)
-                Progress.Update(progress.Value, progress.Maximum, $"Tile {progress.Value}/{progress.Maximum}");
+                Progress.Update(progress.Value, progress.Maximum, $"{AppDefault.Tile} {progress.Value}/{progress.Maximum}");
             else
-                Progress.Indeterminate("Rendering Image...");
+                Progress.Indeterminate($"{AppDefault.RenderingImage}...");
 
             Logger.LogDebug("[{View}] [OnProgress] Step: {Value}/{Max}, Elapsed: {Elapsed:c}", ViewName, progress.Value, progress.Maximum, progress.Elapsed);
         }

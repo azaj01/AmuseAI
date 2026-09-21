@@ -1,4 +1,5 @@
 ﻿using Amuse.App.Dialogs;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -332,7 +333,7 @@ namespace Amuse.App
         private static async Task ShowExceptionMessage(Exception ex)
         {
             Log.Logger.Error(ex, "[Application] [Exception] An unexpected exception occurred.");
-            await App.Current.Dispatcher.InvokeAsync(() => DialogService.ShowErrorAsync("Unexpected Error", $"An unexpected error occurred:\n{ex.Message}"));
+            await App.Current.Dispatcher.InvokeAsync(() => DialogService.ShowErrorAsync(AppErrors.UnexpectedErrorTitle, $"{AppErrors.UnexpectedError}:\n{ex.Message}"));
         }
 
 

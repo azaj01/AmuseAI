@@ -1,7 +1,6 @@
 ﻿using Amuse.Common.Message;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
@@ -175,38 +174,6 @@ namespace Amuse.Common
                 offset += read;
             }
             return buffer;
-        }
-
-
-        public static string GetName(this Enum enumObj)
-        {
-            var fieldInfo = enumObj.GetType().GetField(enumObj.ToString());
-            var attribArray = fieldInfo.GetCustomAttributes(false);
-            if (attribArray.Length > 0)
-            {
-                foreach (var att in attribArray)
-                {
-                    if (att is DisplayAttribute display)
-                        return display.Name ?? enumObj.ToString();
-                }
-            }
-            return enumObj.ToString();
-        }
-
-
-        public static string GetShortName(this Enum enumObj)
-        {
-            var fieldInfo = enumObj.GetType().GetField(enumObj.ToString());
-            var attribArray = fieldInfo.GetCustomAttributes(false);
-            if (attribArray.Length > 0)
-            {
-                foreach (var att in attribArray)
-                {
-                    if (att is DisplayAttribute display)
-                        return display.ShortName ?? enumObj.ToString();
-                }
-            }
-            return enumObj.ToString();
         }
     }
 }

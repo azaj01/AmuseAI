@@ -8,19 +8,19 @@
         xmlns:CommonControls="clr-namespace:TensorStack.WPF.Controls;assembly=TensorStack.WPF"
         MinWidth="550"
         MaxWidth="550"
-        Title="Amuse Update"
+        Title="{CommonControls:Localize Title_AmuseUpdate}"
         Icon="/Images/Icon.ico"
         Style="{StaticResource {x:Type CommonControls:DialogControl}}">
     <DockPanel DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:AppUpdateDialog}}}" Margin="15, 15, 15, 10">
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
             <StackPanel Orientation="Horizontal" Height="30">
-                <Button Content="Download &amp; Install" Command="{Binding DownloadCommand}" IsDefault="True" Padding="25,0"/>
-                <Button Content="Cancel" Command="{Binding CloseCommand}" Width="100"/>
+                <Button Content="{CommonControls:Localize DownloadAndInstall}" Command="{Binding DownloadCommand}" IsDefault="True" Padding="25,0"/>
+                <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CloseCommand}" Width="100"/>
             </StackPanel>
         </StackPanel>
         <DockPanel>
             <StackPanel DockPanel.Dock="Top" Margin="0,0,0,10">
-                <TextBlock Text="There is a new version of Amuse available" FontSize="14"  TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Text="{CommonControls:Localize NewVersionMessage}" FontSize="14"  TextWrapping="Wrap" TextAlignment="Center"/>
             </StackPanel>
             <Border DockPanel.Dock="Top" Visibility="{Binding ErrorMessage, Converter={StaticResource NullOrEmptyVisibilityConverter}}" Padding="10,10" Background="{StaticResource DangerColour}" Opacity=".7">
                 <TextBlock Text="{Binding ErrorMessage}" Foreground="White" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -45,7 +45,8 @@
                         <Run Text="{Binding DownloadSpeed, Mode=OneWay, StringFormat={}{0:N2} MB/s}"/>
                     </TextBlock>
                     <TextBlock DockPanel.Dock="Right" Style="{StaticResource FieldTextBlockStyle}">
-                        <Run Text="Time Remaining: " />
+                        <Run Text="{CommonControls:Localize TimeRemaining, Append=:}"/>
+                        <Run Text=" "/>
                         <Run Text="{Binding DownloadRemaining, Mode=OneWay}"/>
                     </TextBlock>
                 </DockPanel>

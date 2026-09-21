@@ -26,7 +26,7 @@
                 <!--Load/Save/View-->
                 <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" IsEnabled="{Binding IsInputEnabled, Mode=OneWay}">
                     <Button 
-                        ToolTip="Save Response To File" 
+                        ToolTip="{CommonControls:Localize ToolTip_Text_SaveResponseFile}" 
                         ToolTipService.Placement="Top"
                         ToolTipService.InitialShowDelay="600" 
                         Command="{Binding SaveCommand, Mode=OneWay}" 
@@ -35,7 +35,7 @@
                         <CommonControls:FontAwesome Icon="f0c7" />
                     </Button>
                     <Button 
-                        ToolTip="Copy Response Text" 
+                        ToolTip="{CommonControls:Localize ToolTip_Text_CopyResponseText}" 
                         ToolTipService.Placement="Top"
                         ToolTipService.InitialShowDelay="600" 
                         Command="{Binding CopyCommand, Mode=OneWay}" 
@@ -45,7 +45,7 @@
                         <CommonControls:FontAwesome Icon="e8c6" />
                     </Button>
                     <Button 
-                        ToolTip="Copy Response Html" 
+                        ToolTip="{CommonControls:Localize ToolTip_Text_CopyResponseHtml}" 
                         ToolTipService.Placement="Top"
                         ToolTipService.InitialShowDelay="600" 
                         Command="{Binding CopyCommand, Mode=OneWay}" 
@@ -59,7 +59,7 @@
                 <!--Clear-->
                 <DockPanel DockPanel.Dock="Right" Visibility="{Binding IsRemoveEnabled, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
                     <Button DockPanel.Dock="Right"
-                        ToolTip="Clear Text" 
+                        ToolTip="{CommonControls:Localize ToolTip_Text_Clear}" 
                         ToolTipService.Placement="Top"
                         ToolTipService.InitialShowDelay="600" 
                         IsEnabled="{Binding IsInputEnabled, Mode=OneWay}"
@@ -71,11 +71,11 @@
                     <Grid>
                         <StackPanel Margin="10,0,10,0" VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                                <TextBlock Text="Tokens: " Opacity=".7" VerticalAlignment="Center" FontStyle="Italic" FontSize="11"/>
+                                <TextBlock Text="{CommonControls:Localize Tokens, Append=:}" Margin="0,0,3,0" Opacity=".7" VerticalAlignment="Center" FontStyle="Italic" FontSize="11" />
                                 <TextBlock Text="{Binding TokenCount, Mode=OneWay, FallbackValue=0}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0" >
-                                <TextBlock Text="Length: " Opacity=".7" VerticalAlignment="Center" FontStyle="Italic" FontSize="11"/>
+                                <TextBlock Text="{CommonControls:Localize Length, Append=:}" Margin="0,0,3,0" Opacity=".7" VerticalAlignment="Center" FontStyle="Italic" FontSize="11"/>
                                 <TextBlock Text="{Binding Length, Mode=OneWay, ElementName=ResultControl, FallbackValue=0}"/>
                             </StackPanel>
                         </StackPanel>
@@ -93,8 +93,8 @@
                             SizeFalse="11"
                             ColorTrue="#80FFFFFF"
                             ColorFalse="#25FFFFFF"
-                            ToolTipTrue="Disable Streaming Token Updates"
-                            ToolTipFalse="Enable Streaming Token Updates"
+                            ToolTipTrue="{CommonControls:Localize ToolTip_Text_StreamDisable}"
+                            ToolTipFalse="{CommonControls:Localize ToolTip_Text_StreamEnable}"
                             ToolTipPlacement="Top"
                             ToolTipInitialDelay="600"
                             IsChecked="{Binding IsStreamUpdateEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -108,8 +108,8 @@
                             SizeFalse="11"
                             ColorTrue="#80FFFFFF"
                             ColorFalse="#25FFFFFF"
-                            ToolTipTrue="Disable Result Formatting"
-                            ToolTipFalse="Enable Result Formatting (experimental)"
+                            ToolTipTrue="{CommonControls:Localize ToolTip_Text_FormatDisable}"
+                            ToolTipFalse="{CommonControls:Localize ToolTip_Text_FormatEnable}"
                             ToolTipPlacement="Top"
                             ToolTipInitialDelay="600"
                             IsChecked="{Binding IsMarkdownEnabled, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -121,8 +121,8 @@
                             SizeFalse="11"
                             ColorTrue="#80FFFFFF"
                             ColorFalse="#25FFFFFF"
-                            ToolTipTrue="Hide Thinking Content"
-                            ToolTipFalse="Show Thinking Content"
+                            ToolTipTrue="{CommonControls:Localize ToolTip_Text_ThinkingHide}"
+                            ToolTipFalse="{CommonControls:Localize ToolTip_Text_ThinkingShow}"
                             ToolTipPlacement="Top"
                             ToolTipInitialDelay="600"
                             IsChecked="{Binding IsThinkingVisible, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
@@ -133,7 +133,7 @@
                             Icon="f4a7"
                             IconSize="11"
                             IconColor="#80FFFFFF"
-                            ToolTip="Rewind Last Message"
+                            ToolTip="{CommonControls:Localize ToolTip_Text_Rewind}"
                             ToolTipService.Placement="Top"
                             ToolTipService.InitialShowDelay="600"
                             Command="{Binding RewindConversationCommand}"/>
@@ -142,14 +142,14 @@
                             Icon="e1dd"
                             IconSize="11"
                             IconColor="#80FFFFFF"
-                            ToolTip="Branch Conversation"
+                            ToolTip="{CommonControls:Localize ToolTip_Text_Branch}"
                             ToolTipService.Placement="Top"
                             ToolTipService.InitialShowDelay="600"
                             Command="{Binding BranchConversationCommand}"/>
                     </UniformGrid>
                     <Grid Margin="10,0,0,0">
                         <CommonControls:SliderControl 
-                            Text="Refresh Rate" 
+                            Text="{CommonControls:Localize RefreshRate}" 
                             Minimum="0" 
                             Maximum="500" 
                             TickFrequency="20" 
@@ -180,7 +180,7 @@
                     <!--DragDrop Notification-->
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding AllowDrop, ElementName=DragDropContainer, Converter={StaticResource BooleanToVisibilityConverter}}" IsHitTestVisible="False">
                         <CommonControls:FontAwesome Icon="e74c" Size="30" IconStyle="SharpLight" Color="{StaticResource AccentColour2}"/>
-                        <TextBlock Text="Drag &amp; Drop Conversation Here" Foreground="{StaticResource AccentColour2}" FontSize="13" FontWeight="DemiBold" Margin="0,6,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize DragDropConversation}" Foreground="{StaticResource AccentColour2}" FontSize="13" FontWeight="DemiBold" Margin="0,6,0,0"/>
                     </StackPanel>
 
                 </Grid>

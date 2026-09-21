@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Packaging;
+﻿using Amuse.App.Resources;
+using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace Amuse.App.Services
             }
             catch (Exception ex)
             {
-                await DialogService.ShowErrorAsync("Parse Error", $"Failed to parse document.\n {ex.Message}");
+                await DialogService.ShowErrorAsync(AppErrors.ParseErrorTitle, $"{AppErrors.ParseErrorDocument}\n {ex.Message}");
                 return default;
             }
         }

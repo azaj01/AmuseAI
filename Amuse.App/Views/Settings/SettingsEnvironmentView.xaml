@@ -7,8 +7,7 @@
     xmlns:CommonControls="clr-namespace:TensorStack.WPF.Controls;assembly=TensorStack.WPF"
     xmlns:Controls="clr-namespace:Amuse.App.Controls"
     xmlns:Views="clr-namespace:Amuse.App.Views">
-    <GroupBox DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:SettingsEnvironmentView}}}" Margin="10, 20, 20, 20" Header="Environment Settings" Padding="4">
-
+    <GroupBox DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:SettingsEnvironmentView}}}" Margin="10, 20, 20, 20" Header="{CommonControls:Localize EnvironmentSettings}" Padding="4">
         <Grid >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
@@ -27,14 +26,13 @@
                 </DockPanel>
 
                 <StackPanel DockPanel.Dock="Bottom">
-                    <!--<CommonControls:IconButton Text="Add Environment Wizard" FontSize="13" Icon="e2ca" IconStyle="Light" IconColor="{StaticResource SuccessColour}" Command="{Binding AddEnvironmentWizardCommand}" Height="40"  />-->
                     <UniformGrid  Columns="3" Height="50">
-                        <CommonControls:IconButton Text="Add" FontSize="13" Icon="2b" IconStyle="Light" IconColor="{StaticResource SuccessColour}" Command="{Binding AddEnvironmentCommand}"  />
-                        <CommonControls:IconButton Text="Copy" FontSize="13" Icon="f24d" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding CopyEnvironmentCommand}"  />
-                        <CommonControls:IconButton Text="Edit" FontSize="13" Icon="f0ad" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding UpdateEnvironmentCommand}"  />
-                        <CommonControls:IconButton Text="Import" FontSize="13" Icon="f56f" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding ImportEnvironmentCommand}"  />
-                        <CommonControls:IconButton Text="Export" FontSize="13" Icon="f56e" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding ExportEnvironmentCommand}"  />
-                        <CommonControls:IconButton Text="Remove" FontSize="13" Icon="f00d" IconStyle="Light" IconColor="{StaticResource DangerColour}" Command="{Binding RemoveEnvironmentCommand}"  />
+                        <CommonControls:IconButton Text="{CommonControls:Localize Add}" FontSize="13" Icon="2b" IconStyle="Light" IconColor="{StaticResource SuccessColour}" Command="{Binding AddEnvironmentCommand}"  />
+                        <CommonControls:IconButton Text="{CommonControls:Localize Copy}" FontSize="13" Icon="f24d" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding CopyEnvironmentCommand}"  />
+                        <CommonControls:IconButton Text="{CommonControls:Localize Edit}" FontSize="13" Icon="f0ad" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding UpdateEnvironmentCommand}"  />
+                        <CommonControls:IconButton Text="{CommonControls:Localize Import}" FontSize="13" Icon="f56f" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding ImportEnvironmentCommand}"  />
+                        <CommonControls:IconButton Text="{CommonControls:Localize Export}" FontSize="13" Icon="f56e" IconStyle="Light" IconColor="{StaticResource InfoColour}" Command="{Binding ExportEnvironmentCommand}"  />
+                        <CommonControls:IconButton Text="{CommonControls:Localize Remove}" FontSize="13" Icon="f00d" IconStyle="Light" IconColor="{StaticResource DangerColour}" Command="{Binding RemoveEnvironmentCommand}"  />
                     </UniformGrid>
                 </StackPanel>
 
@@ -61,31 +59,31 @@
 
                     <!--Actions-->
                     <DockPanel DockPanel.Dock="Right" Width="174">
-                        <TextBlock DockPanel.Dock="Top" Text="Actions" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize Actions}" Style="{StaticResource FieldTextBlockStyle}" />
                         <UniformGrid  Columns="2" VerticalAlignment="Top"  Visibility="{Binding SelectedEnvironment, Converter={StaticResource NullVisibilityConverter}}" >
-                            <CommonControls:IconButton Text="Create" FontSize="13" Icon="f0ed" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource InfoColour}" Command="{Binding EnvironmentServiceCreateCommand}" Height="40" Alignment="Left" IconMargin="11,0,1,0" />
-                            <CommonControls:IconButton Text="Delete" FontSize="13" Icon="f2ed" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource DangerColour}" Command="{Binding EnvironmentServiceDeleteCommand}" Height="40" Alignment="Left" IconMargin="13,0,1,0" />
-                            <CommonControls:IconButton Text="Update" FontSize="13" Icon="f01e" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource WarningColour}" Command="{Binding EnvironmentServiceUpdateCommand}" Height="40" Alignment="Left" IconMargin="10,0,1,0" />
-                            <CommonControls:IconButton Text="Rebuild" FontSize="13" Icon="f361" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource WarningColour}" Command="{Binding EnvironmentServiceRebuildCommand}" Height="40" Alignment="Left" IconMargin="9,0,1,0" />
+                            <CommonControls:IconButton Text="{CommonControls:Localize Create}" FontSize="13" Icon="f0ed" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource InfoColour}" Command="{Binding EnvironmentServiceCreateCommand}" Height="40" Alignment="Left" IconMargin="11,0,1,0" />
+                            <CommonControls:IconButton Text="{CommonControls:Localize Delete}" FontSize="13" Icon="f2ed" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource DangerColour}" Command="{Binding EnvironmentServiceDeleteCommand}" Height="40" Alignment="Left" IconMargin="13,0,1,0" />
+                            <CommonControls:IconButton Text="{CommonControls:Localize Update}" FontSize="13" Icon="f01e" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource WarningColour}" Command="{Binding EnvironmentServiceUpdateCommand}" Height="40" Alignment="Left" IconMargin="10,0,1,0" />
+                            <CommonControls:IconButton Text="{CommonControls:Localize Rebuild}" FontSize="13" Icon="f361" IconSize="14" IconStyle="Light" IconOpacity=".8" IconColor="{StaticResource WarningColour}" Command="{Binding EnvironmentServiceRebuildCommand}" Height="40" Alignment="Left" IconMargin="9,0,1,0" />
                         </UniformGrid>
                     </DockPanel>
 
                     <!--Environment-->
                     <DockPanel Margin="0,0,100,0">
                         <StackPanel DockPanel.Dock="Top">
-                            <TextBlock Text="Name" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock Text="{CommonControls:Localize Name}" Style="{StaticResource FieldTextBlockStyle}" />
                             <TextBox Text="{Binding SelectedEnvironment.Name}" IsReadOnly="True"/>
                         </StackPanel>
 
                         <DockPanel DockPanel.Dock="Bottom" Margin="0,10,4,0">
                             <Grid DockPanel.Dock="Left"  Height="28" Width="200">
                                 <Button Command="{Binding EnvironmentDefaultCommand}" >
-                                    <TextBlock Text="Set Default Environment"/>
+                                    <TextBlock Text="{CommonControls:Localize EnvironmentSetDefault}"/>
                                 </Button>
                                 <Button IsEnabled="False" Visibility="{Binding SelectedEnvironment.IsDefault, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <DockPanel>
                                         <CommonControls:FontAwesome DockPanel.Dock="Left" Icon="f00c" Size="13" Color="{StaticResource SuccessColour}" Margin="0,0,5,0"/>
-                                        <TextBlock Text="Default Environment" Foreground="{StaticResource SuccessColour}"/>
+                                        <TextBlock Text="{CommonControls:Localize EnvironmentDefault}" Foreground="{StaticResource SuccessColour}"/>
                                     </DockPanel>
                                 </Button>
                             </Grid>
@@ -94,29 +92,29 @@
 
                         <UniformGrid Rows="1">
                             <StackPanel Margin="0,0,2,0">
-                                <TextBlock Text="Type" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Type}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <TextBox Text="{Binding SelectedEnvironment.Type}" IsReadOnly="True"/>
                             </StackPanel>
                             <StackPanel Margin="2,0,2,0">
-                                <TextBlock Text="Vendor" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Vendor}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <TextBox Text="{Binding SelectedEnvironment.Vendor}" IsReadOnly="True"/>
                             </StackPanel>
                             <Grid Margin="2,0,0,0" IsHitTestVisible="False" Visibility="{Binding  SelectedEnvironment.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Device|Pipeline}">
                                 <StackPanel Visibility="{Binding  SelectedEnvironment.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Device}">
-                                    <TextBlock Text="Device" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize Device}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <ComboBox ItemsSource="{Binding Settings.Devices}" SelectedValue="{Binding SelectedEnvironment.Device}" DisplayMemberPath="Name" SelectedValuePath="HardwareID"/>
                                 </StackPanel>
-                                <StackPanel Visibility="{Binding  SelectedEnvironment.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Pipeline}">
-                                    <TextBlock Text="Pipeline" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <StackPanel Visibility="{Binding SelectedEnvironment.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Pipeline}">
+                                    <TextBlock Text="{CommonControls:Localize Pipeline}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <TextBox Text="{Binding SelectedEnvironment.Pipeline}" IsReadOnly="True" />
                                 </StackPanel>
                             </Grid>
                             <StackPanel Margin="2,0,2,0">
-                                <TextBlock Text="Environment" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Environment}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <TextBox Text="{Binding SelectedEnvironment.Environment}" IsReadOnly="True"/>
                             </StackPanel>
                             <StackPanel Margin="2,0,2,0">
-                                <TextBlock Text="Version" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Version}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <TextBox Text="{Binding SelectedEnvironment.HostVersion}" IsReadOnly="True"/>
                             </StackPanel>
                         </UniformGrid>
@@ -126,11 +124,11 @@
 
                 </DockPanel>
                 <StackPanel DockPanel.Dock="Bottom">
-                    <TextBlock Text="Environment Variables" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock Text="{CommonControls:Localize EnvironmentVariables}" Style="{StaticResource FieldTextBlockStyle}" />
                     <ListBox ItemsSource="{Binding SelectedEnvironment.Variables}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" MinHeight="100"/>
                 </StackPanel>
                 <DockPanel>
-                    <TextBlock  DockPanel.Dock="Top" Text="Requirements" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock  DockPanel.Dock="Top" Text="{CommonControls:Localize Requirements}" Style="{StaticResource FieldTextBlockStyle}" />
                     <ListBox ItemsSource="{Binding SelectedEnvironment.Requirements}"  ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
                 </DockPanel>
             </DockPanel>

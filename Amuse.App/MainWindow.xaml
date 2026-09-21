@@ -37,10 +37,10 @@
                         <TextBlock Text="{x:Static local:App.AppVersionDisplay}" Style="{StaticResource FieldTextBlockStyle}" FontSize="10" Margin="2,14,0,0" Opacity=".7"/>
                     </StackPanel>
                     <Grid>
-                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0" ToolTip="Update Available" Command="{Binding UpdateCommand, Source={x:Static Application.Current}}" Style="{StaticResource TransparentButton}" Visibility="{Binding Settings.IsUpdateAvailable, Converter={StaticResource BooleanToHiddenConverter}}">
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,2,0,0" ToolTip="{CommonControls:Localize UpdateAvailable}" Command="{Binding UpdateCommand, Source={x:Static Application.Current}}" Style="{StaticResource TransparentButton}" Visibility="{Binding Settings.IsUpdateAvailable, Converter={StaticResource BooleanToHiddenConverter}}">
                             <StackPanel Orientation="Horizontal" Opacity=".8">
-                                <CommonControls:FontAwesome Icon="&#xf30f;" IconStyle="Light" Color="{StaticResource SuccessColour}" Margin="3,0" Size="14" />
-                                <TextBlock Text="New Version!" Foreground="{StaticResource SuccessColour}" Margin="1,0,0,0" FontSize="11"/>
+                                <CommonControls:FontAwesome Icon="f30f" IconStyle="Light" Color="{StaticResource SuccessColour}" Margin="3,0" Size="14" />
+                                <TextBlock Text="{CommonControls:Localize NewVersion}" Foreground="{StaticResource SuccessColour}" Margin="1,0,0,0" FontSize="11"/>
                             </StackPanel>
                         </Button>
                     </Grid>
@@ -49,9 +49,11 @@
                 <!--Window Options-->
                 <Grid DockPanel.Dock="Right" Width="290" >
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+
+                        <CommonControls:LocalizationControl Visibility="Collapsed"/>
+
                         <CommonControls:IconButton 
                             Width="40"
-                            
                             Icon="f013" 
                             IconStyle="Solid"
                             FontWeight="Bold"
@@ -63,18 +65,18 @@
                         </CommonControls:IconButton>
                         <UniformGrid  Columns="3" >
                             <Button Command="{Binding MinimizeCommand}" Padding="10,1" >
-                                <CommonControls:FontAwesome Icon="&#xf2d1;" />
+                                <CommonControls:FontAwesome Icon="f2d1" />
                             </Button>
                             <Grid>
                                 <Button Command="{Binding RestoreCommand}" Padding="10,1" Visibility="{Binding WindowState, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Maximized}">
-                                    <CommonControls:FontAwesome Icon="&#xf2d2;" />
+                                    <CommonControls:FontAwesome Icon="f2d2" />
                                 </Button>
                                 <Button Command="{Binding MaximizeCommand}" Padding="10,1" Visibility="{Binding WindowState, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Maximized}">
-                                    <CommonControls:FontAwesome Icon="&#xf2d0;" />
+                                    <CommonControls:FontAwesome Icon="f2d0" />
                                 </Button>
                             </Grid>
                             <Button x:Name="CloseButton" Command="{Binding CloseCommand}" Padding="12,0" >
-                                <CommonControls:FontAwesome Icon="&#xf00d;" />
+                                <CommonControls:FontAwesome Icon="f00d" />
                             </Button>
                         </UniformGrid>
                     </StackPanel>
@@ -83,7 +85,7 @@
                 <!--Categories-->
                 <UniformGrid Rows="1" >
                     <CommonControls:IconButton 
-                        Text="Image" 
+                        Text="{CommonControls:Localize Image}" 
                         Icon="f03e" 
                         IconMargin="0,-3,0,0"
                         Style="{StaticResource MenuIconButton}"
@@ -92,7 +94,7 @@
                         IsSelected="{Binding ViewCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Image}">
                     </CommonControls:IconButton>
                     <CommonControls:IconButton 
-                        Text="Video" 
+                        Text="{CommonControls:Localize Video}" 
                         Icon="f008" 
                         IconMargin="0,-3,0,0"
                         Style="{StaticResource MenuIconButton}"
@@ -101,7 +103,7 @@
                         IsSelected="{Binding ViewCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Video}">
                     </CommonControls:IconButton>
                     <CommonControls:IconButton 
-                        Text="Audio" 
+                        Text="{CommonControls:Localize Audio}" 
                         Icon="f001" 
                         IconMargin="0,-1,0,0"
                         Style="{StaticResource MenuIconButton}"
@@ -110,7 +112,7 @@
                         IsSelected="{Binding ViewCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Audio}">
                     </CommonControls:IconButton>
                     <CommonControls:IconButton 
-                        Text="Text" 
+                        Text="{CommonControls:Localize Text}" 
                         Icon="f893" 
                         IconMargin="0,-2,0,0"
                         IconStyle="Regular"
@@ -120,7 +122,7 @@
                         IsSelected="{Binding ViewCategory, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Text}">
                     </CommonControls:IconButton>
                     <CommonControls:IconButton 
-                        Text="Gallery" 
+                        Text="{CommonControls:Localize Gallery}" 
                         Icon="e228" 
                         IconMargin="0,-2,0,0"
                         Style="{StaticResource MenuIconButton}"
@@ -129,7 +131,7 @@
                         IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Gallery}">
                     </CommonControls:IconButton>
                     <CommonControls:IconButton 
-                        Text="Models" 
+                        Text="{CommonControls:Localize Models}" 
                         Icon="f5fd" 
                         IconMargin="0,-2,0,0"
                         Style="{StaticResource MenuIconButton}"
@@ -173,7 +175,7 @@
                             <CommonControls:IconButton 
                                 Height="40"
                                 Icon="f1de"
-                                Text="General" 
+                                Text="{CommonControls:Localize General}" 
                                 IconSize="18"
                                 FontSize="14"
                                 FontWeight="SemiBold"
@@ -188,7 +190,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=General}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Environment" 
+                                Text="{CommonControls:Localize Environment}" 
                                 Icon="f233"
                                 IconSize="18"
                                 FontSize="14"
@@ -204,7 +206,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Environment}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="LLM" 
+                                Text="{CommonControls:Localize LLM}" 
                                 Icon="e699"
                                 IconSize="18"
                                 FontSize="14"
@@ -220,7 +222,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Language}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Diffusion" 
+                                Text="{CommonControls:Localize Diffusion}" 
                                 Icon="e4e2"
                                 IconSize="18"
                                 FontSize="14"
@@ -236,7 +238,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Diffusion}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Lora Adapter" 
+                                Text="{CommonControls:Localize LoraAdapter}" 
                                 Icon="f1e0"
                                 IconSize="18"
                                 FontSize="14"
@@ -252,7 +254,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=LoraAdapter}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="ControlNet" 
+                                Text="{CommonControls:Localize ControlNet}" 
                                 Icon="f78a"
                                 IconSize="18"
                                 FontSize="14"
@@ -268,7 +270,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ControlNet}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Extractor" 
+                                Text="{CommonControls:Localize Extractor}" 
                                 Icon="f302"
                                 IconSize="18"
                                 FontSize="14"
@@ -284,7 +286,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Extract}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Upscaler" 
+                                Text="{CommonControls:Localize Upscaler}" 
                                 Icon="f424"
                                 IconSize="18"
                                 FontSize="14"
@@ -300,7 +302,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Upscale}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Components" 
+                                Text="{CommonControls:Localize Components}" 
                                 Icon="e479"
                                 IconSize="18"
                                 FontSize="14"
@@ -319,7 +321,7 @@
 
                         <Grid Width="180" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20,0,0,20">
                             <DockPanel Opacity=".7">
-                                <CommonControls:FontAwesome DockPanel.Dock="Top" Icon="&#xf535;" Size="35" IconStyle="SharpThin" HorizontalAlignment="Left" />
+                                <CommonControls:FontAwesome DockPanel.Dock="Top" Icon="f535" Size="35" IconStyle="SharpThin" HorizontalAlignment="Left" />
                                 <TextBlock DockPanel.Dock="Top" Text="Made in New Zealand" />
                                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom"  UseLayoutRounding="True" Orientation="Horizontal">
                                     <TextBlock Text="Created By: " FontStyle="Italic"  FontSize="10" VerticalAlignment="Center" Margin="0,2,0,0" />
@@ -333,7 +335,7 @@
                     <Grid Visibility="{Binding ViewCategory, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Image}">
                         <UniformGrid Columns="1" VerticalAlignment="Top" >
                             <CommonControls:IconButton 
-                                Text="Text &#10132; Image" 
+                                Text="{CommonControls:Localize Menu_TextToImage}" 
                                 Icon="f894"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -341,7 +343,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=TextToImage}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Image &#10132; Image" 
+                                Text="{CommonControls:Localize Menu_ImageToImage}" 
                                 Icon="f03e"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -349,7 +351,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ImageToImage}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Image Edit" 
+                                Text="{CommonControls:Localize Menu_ImageEdit}" 
                                 Icon="f4a4"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -357,7 +359,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ImageEdit}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Image Inpaint" 
+                                Text="{CommonControls:Localize Menu_ImageInpaint}" 
                                 Icon="f044"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -365,7 +367,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ImageInpaint}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Paint &#10132; Image" 
+                                Text="{CommonControls:Localize Menu_PaintToImage}" 
                                 Icon="f1fc"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -373,7 +375,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=PaintToImage}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Image Extract" 
+                                Text="{CommonControls:Localize Menu_ImageExtract}" 
                                 Icon="f302"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -381,7 +383,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ImageExtract}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Image Upscale" 
+                                Text="{CommonControls:Localize Menu_ImageUpscale}" 
                                 Icon="f424"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -389,7 +391,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ImageUpscale}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Image Compose" 
+                                Text="{CommonControls:Localize Menu_ImageCompose}" 
                                 Icon="f5fd"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -403,7 +405,7 @@
                     <Grid Visibility="{Binding ViewCategory, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Video}">
                         <UniformGrid Columns="1" VerticalAlignment="Top" >
                             <CommonControls:IconButton 
-                                Text="Text &#10132; Video" 
+                                Text="{CommonControls:Localize Menu_TextToVideo}" 
                                 Icon="f894"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -411,7 +413,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=TextToVideo}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Image &#10132; Video" 
+                                Text="{CommonControls:Localize Menu_ImageToVideo}" 
                                 Icon="f03e"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -419,7 +421,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ImageToVideo}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Video &#10132; Video" 
+                                Text="{CommonControls:Localize Menu_VideoToVideo}" 
                                 Icon="f008"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -427,7 +429,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=VideoToVideo}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Frame &#10132; Frame" 
+                                Text="{CommonControls:Localize Menu_FrameToFrame}" 
                                 Icon="e17a"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -435,7 +437,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=FrameToFrame}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Video Extract" 
+                                Text="{CommonControls:Localize Menu_VideoExtract}" 
                                 Icon="f302"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -443,7 +445,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=VideoExtract}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Video Upscale" 
+                                Text="{CommonControls:Localize Menu_VideoUpscale}" 
                                 Icon="f424"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -451,7 +453,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=VideoUpscale}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Video Interpolate" 
+                                Text="{CommonControls:Localize Menu_VideoInterpolate}" 
                                 Icon="e4a2"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -459,7 +461,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=VideoInterpolate}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Video Compose" 
+                                Text="{CommonControls:Localize Menu_VideoCompose}" 
                                 Icon="e131"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -474,7 +476,7 @@
                     <Grid Visibility="{Binding ViewCategory, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Audio}">
                         <UniformGrid Columns="1" VerticalAlignment="Top" >
                             <CommonControls:IconButton 
-                                Text="Text &#10132; Music" 
+                                Text="{CommonControls:Localize Menu_TextToMusic}" 
                                 Icon="f8c9"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -482,7 +484,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=TextToMusic}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Text &#10132; Audio" 
+                                Text="{CommonControls:Localize Menu_TextToAudio}" 
                                 Icon="f894"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -490,7 +492,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=TextToAudio}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Audio &#10132; Text" 
+                                Text="{CommonControls:Localize Menu_AudioToText}" 
                                 Icon="f001"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -505,7 +507,7 @@
                     <Grid Visibility="{Binding ViewCategory, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Text}">
                         <UniformGrid Columns="1" VerticalAlignment="Top" >
                             <CommonControls:IconButton 
-                                Text="Image &#10132; Text" 
+                                Text="{CommonControls:Localize Menu_ImageToText}" 
                                 Icon="f03e"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -513,7 +515,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=ImageToText}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Instruct" 
+                                Text="{CommonControls:Localize Menu_TextInstruct}" 
                                 Icon="e1e3"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 
@@ -521,7 +523,7 @@
                                 IsSelected="{Binding View, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=TextInstruct}">
                             </CommonControls:IconButton>
                             <CommonControls:IconButton 
-                                Text="Converse" 
+                                Text="{CommonControls:Localize Menu_TextConverse}" 
                                 Icon="e1e7"
                                 Style="{StaticResource SubmenuIconButton}"
                                 Command="{Binding NavigateCommand}" 

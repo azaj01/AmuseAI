@@ -1,4 +1,5 @@
 ﻿using Amuse.App.Common;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Amuse.Common;
 using Amuse.Common.Config;
@@ -13,9 +14,9 @@ using System.Threading.Tasks;
 using TensorStack.Common;
 using TensorStack.Common.Tensor;
 using TensorStack.Media;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
+using TensorStack.WPF.Image;
 
 namespace Amuse.App.Runtime
 {
@@ -197,7 +198,7 @@ namespace Amuse.App.Runtime
                 if (imageTensors.IsNullOrEmpty())
                 {
                     if (!File.Exists(imageFileName))
-                        throw new Exception("Generated image result not found.");
+                        throw new Exception(AppErrors.GeneratedImageNotFound);
 
                     return await ImageInput.CreateAsync(imageFileName);
                 }
@@ -206,7 +207,7 @@ namespace Amuse.App.Runtime
             catch (IOException ex)
             {
                 HandlePipelineClientError(ex);
-                throw new Exception("Pipeline Closed Unexpectedly");
+                throw new Exception(AppErrors.PipelineClosedUnexpectedly);
             }
         }
 
@@ -229,7 +230,7 @@ namespace Amuse.App.Runtime
                 if (videoSequences.IsNullOrEmpty())
                 {
                     if (!File.Exists(videoFileName))
-                        throw new Exception("Generated video result not found.");
+                        throw new Exception(AppErrors.GeneratedVideoNotFound);
 
                     return new VideoInputStream(videoFileName);
                 }
@@ -240,7 +241,7 @@ namespace Amuse.App.Runtime
             catch (IOException ex)
             {
                 HandlePipelineClientError(ex);
-                throw new Exception("Pipeline Closed Unexpectedly");
+                throw new Exception(AppErrors.PipelineClosedUnexpectedly);
             }
         }
 
@@ -267,7 +268,7 @@ namespace Amuse.App.Runtime
                 if (audioTensors.IsNullOrEmpty())
                 {
                     if (!File.Exists(audioFileName))
-                        throw new Exception("Generated audio result not found.");
+                        throw new Exception(AppErrors.GeneratedAudioNotFound);
 
                     return await AudioInputStream.CreateAsync(audioFileName);
                 }
@@ -279,7 +280,7 @@ namespace Amuse.App.Runtime
             catch (IOException ex)
             {
                 HandlePipelineClientError(ex);
-                throw new Exception("Pipeline Closed Unexpectedly");
+                throw new Exception(AppErrors.PipelineClosedUnexpectedly);
             }
         }
 
@@ -313,7 +314,7 @@ namespace Amuse.App.Runtime
             catch (IOException ex)
             {
                 HandlePipelineClientError(ex);
-                throw new Exception("Pipeline Closed Unexpectedly");
+                throw new Exception(AppErrors.PipelineClosedUnexpectedly);
             }
         }
 

@@ -51,7 +51,7 @@ namespace Amuse.App.Dialogs
         }
 
 
-        public Task<bool> ShowDialogAsync(string title, string messageTitle, string messageBody, string buttonTextSave = "Save", string buttonTextCancel = "Cancel")
+        public Task<bool> ShowDialogAsync(string title, string messageTitle, string messageBody, string buttonTextSave = "Save", string buttonTextCancel = "Cancel") //TODO: Localize
         {
             Title = title;
             MessageTitle = messageTitle;

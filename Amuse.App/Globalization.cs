@@ -1,4 +1,5 @@
-﻿using Amuse.Common;
+﻿using Amuse.App.Resources;
+using Amuse.Common;
 using System.Collections.Generic;
 
 namespace Amuse.App
@@ -29,12 +30,12 @@ namespace Amuse.App
 
         private readonly static Dictionary<string, string> ProgressMessages = new Dictionary<string, string>()
         {
-            {"Initialize",  "Initializing Pipeline..." },
-            {"TextEncoder", "Encoding Prompt..." },
-            {"Transformer", "Generating..." },
-            {"Step",        "Step: {5}/{6}" },
-            {"AutoEncoder", "Generating Result..." },
-            {"Complete",    "Generating Result..." }
+            {"Initialize",  AppDefault.ProgressInitialize },
+            {"TextEncoder", AppDefault.ProgressTextEncoder },
+            {"Transformer", AppDefault.ProgressTransformer  },
+            {"Step",        AppDefault.ProgressStep },
+            {"AutoEncoder", AppDefault.ProgressAutoEncoder  },
+            {"Complete",    AppDefault.ProgressComplete }
         };
     }
 }

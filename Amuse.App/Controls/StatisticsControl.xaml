@@ -18,7 +18,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <TextBlock Text="Elapsed: " Style="{StaticResource FieldTextBlockStyle}" Margin="0,1,0,0"/>
+                <TextBlock Text="{CommonControls:Localize Elapsed, Append=:}" Style="{StaticResource FieldTextBlockStyle}" Margin="0,1,3,0"/>
                 <TextBlock DockPanel.Dock="Top" Text="{Binding Statistics.Elapsed, FallbackValue=00:00:00:00, StringFormat={}hh\\:mm\\:ss\\.ff}" />
             </StackPanel>
         </UniformGrid>

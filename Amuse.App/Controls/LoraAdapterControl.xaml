@@ -33,14 +33,14 @@
                                 <CommonControls:FontAwesome Icon="f013" Size="12" />
                             </Button>
                             <UniformGrid Rows="1">
-                                <Button Content="Install" Height="26" Command="{Binding Data.InstallCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
-                                <Button Content="Download" Height="26" Command="{Binding Data.DownloadCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
+                                <Button Content="{CommonControls:Localize Install}" Height="26" Command="{Binding Data.InstallCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
+                                <Button Content="{CommonControls:Localize Download}" Height="26" Command="{Binding Data.DownloadCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
                             </UniformGrid>
                         </DockPanel>
                     </CommonControls:ContentComboBox.BottomContent>
                 </CommonControls:ContentComboBox>
                 <Grid IsHitTestVisible="False">
-                    <TextBlock Text="No models found." FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" />
+                    <TextBlock Text="{CommonControls:Localize NoModelsFound}" FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" />
                 </Grid>
             </Grid>
         </DockPanel>
@@ -92,15 +92,15 @@
                                             <CommonControls:FontAwesome Icon="f013" Size="12" />
                                         </Button>
                                         <UniformGrid Rows="1">
-                                            <Button Content="Install" Height="26" Command="{Binding Data.InstallCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
-                                            <Button Content="Download" Height="26" Command="{Binding Data.DownloadCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
+                                            <Button Content="{CommonControls:Localize Install}" Height="26" Command="{Binding Data.InstallCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
+                                            <Button Content="{CommonControls:Localize Download}" Height="26" Command="{Binding Data.DownloadCommand, Source={StaticResource ParentContext}}" CommandParameter="LoraAdapter"/>
                                         </UniformGrid>
                                     </DockPanel>
                                 </CommonControls:ContentComboBox.BottomContent>
                             </CommonControls:ContentComboBox>
                             <Grid IsHitTestVisible="False" Margin="5,2,0,0" Opacity=".4" Visibility="{Binding SelectedItem, ElementName=ComboBoxLora, Converter={StaticResource InverseNullVisibilityConverter}}">
-                                <TextBlock Text="No models found." FontStyle="Italic" Visibility="{Binding IsVisible, ElementName=ButtonAdd, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                                <TextBlock Text="Please Select Lora..." FontStyle="Italic" Visibility="{Binding IsVisible, ElementName=ButtonAdd, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+                                <TextBlock Text="{CommonControls:Localize NoModelsFound}" FontStyle="Italic" Visibility="{Binding IsVisible, ElementName=ButtonAdd, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                <TextBlock Text="{CommonControls:Localize PleaseSelectLora}" FontStyle="Italic" Visibility="{Binding IsVisible, ElementName=ButtonAdd, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
                             </Grid>
                         </Grid>
 

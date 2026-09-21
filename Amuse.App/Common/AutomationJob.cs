@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using TensorStack.Common;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
+using TensorStack.WPF.Image;
 
 namespace Amuse.App.Common
 {

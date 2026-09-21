@@ -1,0 +1,1461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Components" xml:space="preserve">
+    <value>Components</value>
+  </data>
+  <data name="ControlNet" xml:space="preserve">
+    <value>ControlNet</value>
+  </data>
+  <data name="Diffusion" xml:space="preserve">
+    <value>Diffusion</value>
+  </data>
+  <data name="Environment" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="Extractor" xml:space="preserve">
+    <value>Extractor</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="LLM" xml:space="preserve">
+    <value>LLM</value>
+  </data>
+  <data name="LoraAdapter" xml:space="preserve">
+    <value>Lora Adapter</value>
+  </data>
+  <data name="Models" xml:space="preserve">
+    <value>Models</value>
+  </data>
+  <data name="NewVersion" xml:space="preserve">
+    <value>New Version!</value>
+  </data>
+  <data name="Menu_TextToImage" xml:space="preserve">
+    <value>Text ➔ Image</value>
+  </data>
+  <data name="Upscaler" xml:space="preserve">
+    <value>Upscaler</value>
+  </data>
+  <data name="Menu_ImageToImage" xml:space="preserve">
+    <value>Image ➔ Image</value>
+  </data>
+  <data name="Menu_ImageEdit" xml:space="preserve">
+    <value>Image Edit</value>
+  </data>
+  <data name="Menu_ImageInpaint" xml:space="preserve">
+    <value>Image Inpaint</value>
+  </data>
+  <data name="Menu_PaintToImage" xml:space="preserve">
+    <value>Paint ➔ Image</value>
+  </data>
+  <data name="Menu_ImageExtract" xml:space="preserve">
+    <value>Image Extract</value>
+  </data>
+  <data name="Menu_ImageUpscale" xml:space="preserve">
+    <value>Image Upscale</value>
+  </data>
+  <data name="Menu_ImageCompose" xml:space="preserve">
+    <value>Image Compose</value>
+  </data>
+  <data name="Menu_TextToVideo" xml:space="preserve">
+    <value>Text ➔ Video</value>
+  </data>
+  <data name="Menu_ImageToVideo" xml:space="preserve">
+    <value>Image ➔ Video</value>
+  </data>
+  <data name="Menu_VideoToVideo" xml:space="preserve">
+    <value>Video ➔ Video</value>
+  </data>
+  <data name="Menu_FrameToFrame" xml:space="preserve">
+    <value>Frame ➔ Frame</value>
+  </data>
+  <data name="Menu_VideoExtract" xml:space="preserve">
+    <value>VideoExtract</value>
+  </data>
+  <data name="Menu_VideoUpscale" xml:space="preserve">
+    <value>VideoUpscale</value>
+  </data>
+  <data name="Menu_VideoInterpolate" xml:space="preserve">
+    <value>VideoInterpolate</value>
+  </data>
+  <data name="Menu_VideoCompose" xml:space="preserve">
+    <value>VideoCompose</value>
+  </data>
+  <data name="Menu_TextToMusic" xml:space="preserve">
+    <value>Text ➔ Music</value>
+  </data>
+  <data name="Menu_TextToAudio" xml:space="preserve">
+    <value>Text ➔ Audio</value>
+  </data>
+  <data name="Menu_AudioToText" xml:space="preserve">
+    <value>Audio ➔ Text</value>
+  </data>
+  <data name="Menu_ImageToText" xml:space="preserve">
+    <value>Image ➔ Text</value>
+  </data>
+  <data name="Menu_TextInstruct" xml:space="preserve">
+    <value>Instruct</value>
+  </data>
+  <data name="Menu_TextConverse" xml:space="preserve">
+    <value>Converse</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Title_EnvironmentSetup" xml:space="preserve">
+    <value>Environment Setup</value>
+  </data>
+  <data name="Title_AmuseUpdate" xml:space="preserve">
+    <value>Amuse Update</value>
+  </data>
+  <data name="Title_ComponentModel" xml:space="preserve">
+    <value>Component Model</value>
+  </data>
+  <data name="Title_ControlNetModel" xml:space="preserve">
+    <value>ControlNet Model</value>
+  </data>
+  <data name="Title_DiffusionModel" xml:space="preserve">
+    <value>Diffusion Model</value>
+  </data>
+  <data name="Title_AddModel" xml:space="preserve">
+    <value>Add Model</value>
+  </data>
+  <data name="Title_Environment" xml:space="preserve">
+    <value>Environment</value>
+  </data>
+  <data name="Title_ExtractModel" xml:space="preserve">
+    <value>Extract Model</value>
+  </data>
+  <data name="Title_GatedModelAccess" xml:space="preserve">
+    <value>Gated Model Access</value>
+  </data>
+  <data name="Title_LanguageModel" xml:space="preserve">
+    <value>Language Model</value>
+  </data>
+  <data name="Title_LoraAdapterModel" xml:space="preserve">
+    <value>Lora Adapter Model</value>
+  </data>
+  <data name="Title_MediaPreview" xml:space="preserve">
+    <value>Media Preview</value>
+  </data>
+  <data name="Title_DownloadInformation" xml:space="preserve">
+    <value>Download Information</value>
+  </data>
+  <data name="Title_UpscaleModel" xml:space="preserve">
+    <value>Upscale Model</value>
+  </data>
+  <data name="AllBeamsResults" xml:space="preserve">
+    <value>All Beams Results</value>
+  </data>
+  <data name="EnableTiling" xml:space="preserve">
+    <value>Enable Tiling</value>
+  </data>
+  <data name="EnableSlicing" xml:space="preserve">
+    <value>Enable Slicing</value>
+  </data>
+  <data name="UseInputSize" xml:space="preserve">
+    <value>Use Input Size</value>
+  </data>
+  <data name="OutputHistory" xml:space="preserve">
+    <value>Output History</value>
+  </data>
+  <data name="OutputLocation" xml:space="preserve">
+    <value>Output Location</value>
+  </data>
+  <data name="Lora" xml:space="preserve">
+    <value>LoRA</value>
+  </data>
+  <data name="Extract" xml:space="preserve">
+    <value>Extract</value>
+  </data>
+  <data name="Upscale" xml:space="preserve">
+    <value>Upscale</value>
+  </data>
+  <data name="Control" xml:space="preserve">
+    <value>Control</value>
+  </data>
+  <data name="InvertOutput" xml:space="preserve">
+    <value>Invert Output</value>
+  </data>
+  <data name="ThinkingEnabled" xml:space="preserve">
+    <value>Thinking Enabled</value>
+  </data>
+  <data name="MinLength" xml:space="preserve">
+    <value>Min Length</value>
+  </data>
+  <data name="MaxLength" xml:space="preserve">
+    <value>Max Length</value>
+  </data>
+  <data name="IsTransparent" xml:space="preserve">
+    <value>IsTransparent</value>
+  </data>
+  <data name="SamplingEnabled" xml:space="preserve">
+    <value>Sampling Enabled</value>
+  </data>
+  <data name="OutputSeed" xml:space="preserve">
+    <value>Output Seed</value>
+  </data>
+  <data name="AudioEnabled" xml:space="preserve">
+    <value>Audio Enabled</value>
+  </data>
+  <data name="EnableAudioProcessing" xml:space="preserve">
+    <value>Enable Audio Processing</value>
+  </data>
+  <data name="DownloadAndInstall" xml:space="preserve">
+    <value>Download &amp; Install</value>
+  </data>
+  <data name="Default_" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="VaeSlicing" xml:space="preserve">
+    <value>Vae Slicing</value>
+  </data>
+  <data name="VaeTiling" xml:space="preserve">
+    <value>Vae Tiling</value>
+  </data>
+  <data name="FirstFrameLastFrame" xml:space="preserve">
+    <value>FirstFrame LastFrame</value>
+  </data>
+  <data name="DynamicOutputShape" xml:space="preserve">
+    <value>Dynamic Output Shape</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="InputImage" xml:space="preserve">
+    <value>Input Image</value>
+  </data>
+  <data name="MergeOutput" xml:space="preserve">
+    <value>Merge Output</value>
+  </data>
+  <data name="RescaleBetasSNR" xml:space="preserve">
+    <value>Rescale Betas SNR</value>
+  </data>
+  <data name="SetAlphaToOne" xml:space="preserve">
+    <value>Set Alpha To One</value>
+  </data>
+  <data name="ClipSample" xml:space="preserve">
+    <value>Clip Sample</value>
+  </data>
+  <data name="Thresholding" xml:space="preserve">
+    <value>Thresholding</value>
+  </data>
+  <data name="DynamicShifting" xml:space="preserve">
+    <value>Dynamic Shifting</value>
+  </data>
+  <data name="InvertSigmas" xml:space="preserve">
+    <value>Invert Sigmas</value>
+  </data>
+  <data name="StochasticSampling" xml:space="preserve">
+    <value>Stochastic Sampling</value>
+  </data>
+  <data name="SkipPrkSteps" xml:space="preserve">
+    <value>Skip Prk Steps</value>
+  </data>
+  <data name="LowerOrderFinal" xml:space="preserve">
+    <value>Lower Order Final</value>
+  </data>
+  <data name="FlowSigmas" xml:space="preserve">
+    <value>Flow Sigmas</value>
+  </data>
+  <data name="PredictorOrder" xml:space="preserve">
+    <value>Predictor Order</value>
+  </data>
+  <data name="CorrectorOrder" xml:space="preserve">
+    <value>Corrector Order</value>
+  </data>
+  <data name="Predictx0" xml:space="preserve">
+    <value>Predict x0</value>
+  </data>
+  <data name="UseFlowSigmas" xml:space="preserve">
+    <value>Use Flow Sigmas</value>
+  </data>
+  <data name="EulerAtFinal" xml:space="preserve">
+    <value>Euler At Final</value>
+  </data>
+  <data name="LuLambdas" xml:space="preserve">
+    <value>Lu Lambdas</value>
+  </data>
+  <data name="SNRShiftScale" xml:space="preserve">
+    <value>SNRShiftScale</value>
+  </data>
+  <data name="RescaleBetasZeroSNR" xml:space="preserve">
+    <value>RescaleBetasZeroSNR</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Prev</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="AddTextLayer" xml:space="preserve">
+    <value>Add Text Layer</value>
+  </data>
+  <data name="AddImageLayer" xml:space="preserve">
+    <value>Add Image Layer</value>
+  </data>
+  <data name="ShowInstalled" xml:space="preserve">
+    <value>Show Installed</value>
+  </data>
+  <data name="AddRecentItems" xml:space="preserve">
+    <value>Add Recent Items</value>
+  </data>
+  <data name="MaxItems" xml:space="preserve">
+    <value>Max Items</value>
+  </data>
+  <data name="SortByLastUsed" xml:space="preserve">
+    <value>Sort by Last Used</value>
+  </data>
+  <data name="Orientation" xml:space="preserve">
+    <value>Orientation</value>
+  </data>
+  <data name="ResetDialogs" xml:space="preserve">
+    <value>Reset Dialogs</value>
+  </data>
+  <data name="EnableExternalLinks" xml:space="preserve">
+    <value>Enable External Links</value>
+  </data>
+  <data name="PipelineDebug" xml:space="preserve">
+    <value>Pipeline Debug</value>
+  </data>
+  <data name="OptimizeDevice" xml:space="preserve">
+    <value>Optimize Device</value>
+  </data>
+  <data name="OptimizeChannels" xml:space="preserve">
+    <value>Optimize Channels</value>
+  </data>
+  <data name="DeviceQuantization" xml:space="preserve">
+    <value>Device Quantization</value>
+  </data>
+  <data name="DiffusionStepPreview" xml:space="preserve">
+    <value>Diffusion Step Preview</value>
+  </data>
+  <data name="StyleSample" xml:space="preserve">
+    <value>Style Sample</value>
+  </data>
+  <data name="LyricsSample" xml:space="preserve">
+    <value>Lyrics Sample</value>
+  </data>
+  <data name="CheckForUpdates" xml:space="preserve">
+    <value>Check For Updates</value>
+  </data>
+  <data name="SchedulerOptions" xml:space="preserve">
+    <value>Scheduler Options</value>
+  </data>
+  <data name="LatentUpscale" xml:space="preserve">
+    <value>Latent Upscale</value>
+  </data>
+  <data name="AutoEncoder" xml:space="preserve">
+    <value>Auto Encoder</value>
+  </data>
+  <data name="ExtractOptions" xml:space="preserve">
+    <value>Extract Options</value>
+  </data>
+  <data name="UpscaleOptions" xml:space="preserve">
+    <value>Upscale Options</value>
+  </data>
+  <data name="CopyText" xml:space="preserve">
+    <value>Copy Text</value>
+  </data>
+  <data name="CopyResponse" xml:space="preserve">
+    <value>Copy Response</value>
+  </data>
+  <data name="CopyThinking" xml:space="preserve">
+    <value>Copy Thinking</value>
+  </data>
+  <data name="CopyHtml" xml:space="preserve">
+    <value>Copy Html</value>
+  </data>
+  <data name="CopyResponseHtml" xml:space="preserve">
+    <value>Copy Response Html</value>
+  </data>
+  <data name="CopyThinkingHtml" xml:space="preserve">
+    <value>Copy Thinking Html</value>
+  </data>
+  <data name="Model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="MemoryProfile" xml:space="preserve">
+    <value>Memory Profile</value>
+  </data>
+  <data name="DefaultOptions" xml:space="preserve">
+    <value>Default Options</value>
+  </data>
+  <data name="Resolutions" xml:space="preserve">
+    <value>Resolutions</value>
+  </data>
+  <data name="SupportedFunctions" xml:space="preserve">
+    <value>Supported Functions</value>
+  </data>
+  <data name="ViewFilter" xml:space="preserve">
+    <value>View Filter</value>
+  </data>
+  <data name="ComponentSettings" xml:space="preserve">
+    <value>Component Settings</value>
+  </data>
+  <data name="ControlNetSettings" xml:space="preserve">
+    <value>ControlNet Settings</value>
+  </data>
+  <data name="DiffusionSettings" xml:space="preserve">
+    <value>Diffusion Settings</value>
+  </data>
+  <data name="EnvironmentSettings" xml:space="preserve">
+    <value>Environment Settings</value>
+  </data>
+  <data name="ExtractSettings" xml:space="preserve">
+    <value>Extract Settings</value>
+  </data>
+  <data name="LoraSettings" xml:space="preserve">
+    <value>Lora Settings</value>
+  </data>
+  <data name="UpscaleSettings" xml:space="preserve">
+    <value>Upscale Settings</value>
+  </data>
+  <data name="ModelSettings" xml:space="preserve">
+    <value>Model Settings</value>
+  </data>
+  <data name="AccessTokens" xml:space="preserve">
+    <value>Access Tokens</value>
+  </data>
+  <data name="HistorySettings" xml:space="preserve">
+    <value>History Settings</value>
+  </data>
+  <data name="OtherSettings" xml:space="preserve">
+    <value>Other Settings</value>
+  </data>
+  <data name="ExperimentalSettings" xml:space="preserve">
+    <value>Experimental</value>
+  </data>
+  <data name="Options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="Seed" xml:space="preserve">
+    <value>Seed</value>
+  </data>
+  <data name="Steps" xml:space="preserve">
+    <value>Steps</value>
+  </data>
+  <data name="Guidance" xml:space="preserve">
+    <value>Guidance</value>
+  </data>
+  <data name="Strength" xml:space="preserve">
+    <value>Strength</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="DurationSeconds" xml:space="preserve">
+    <value>Duration Seconds</value>
+  </data>
+  <data name="TimeSignature" xml:space="preserve">
+    <value>Time Signature</value>
+  </data>
+  <data name="Keyscale" xml:space="preserve">
+    <value>Keyscale</value>
+  </data>
+  <data name="VoiceStyle" xml:space="preserve">
+    <value>Voice Style</value>
+  </data>
+  <data name="Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="Task" xml:space="preserve">
+    <value>Task</value>
+  </data>
+  <data name="LengthPenalty" xml:space="preserve">
+    <value>Length Penalty</value>
+  </data>
+  <data name="ChunkSize" xml:space="preserve">
+    <value>Chunk Size</value>
+  </data>
+  <data name="EarlyStopping" xml:space="preserve">
+    <value>Early Stopping</value>
+  </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="Automation" xml:space="preserve">
+    <value>Automation</value>
+  </data>
+  <data name="ImageCount" xml:space="preserve">
+    <value>Image Count</value>
+  </data>
+  <data name="PromptFolder" xml:space="preserve">
+    <value>Prompt Folder</value>
+  </data>
+  <data name="PromptFile" xml:space="preserve">
+    <value>Prompt File</value>
+  </data>
+  <data name="ImageFolder" xml:space="preserve">
+    <value>Image Folder</value>
+  </data>
+  <data name="VideoFolder" xml:space="preserve">
+    <value>Video Folder</value>
+  </data>
+  <data name="TextFolder" xml:space="preserve">
+    <value>Text Folder</value>
+  </data>
+  <data name="AudioFolder" xml:space="preserve">
+    <value>Audio Folder</value>
+  </data>
+  <data name="OutputFolder" xml:space="preserve">
+    <value>Output Folder</value>
+  </data>
+  <data name="Beams" xml:space="preserve">
+    <value>Beams</value>
+  </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="TopK" xml:space="preserve">
+    <value>TopK</value>
+  </data>
+  <data name="TopP" xml:space="preserve">
+    <value>TopP</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="SubFolderOptional" xml:space="preserve">
+    <value>SubFolder (optional)</value>
+  </data>
+  <data name="Component" xml:space="preserve">
+    <value>Component</value>
+  </data>
+  <data name="ModelFile" xml:space="preserve">
+    <value>Model File</value>
+  </data>
+  <data name="ModelFolder" xml:space="preserve">
+    <value>Model Folder</value>
+  </data>
+  <data name="DownloadFiles" xml:space="preserve">
+    <value>Download Files</value>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="Tokens" xml:space="preserve">
+    <value>Tokens</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="RefreshRate" xml:space="preserve">
+    <value>Refresh Rate</value>
+  </data>
+  <data name="Presets" xml:space="preserve">
+    <value>Presets</value>
+  </data>
+  <data name="NoiseCondition" xml:space="preserve">
+    <value>Noise Condition</value>
+  </data>
+  <data name="StepsStage1" xml:space="preserve">
+    <value>Steps (Stage1)</value>
+  </data>
+  <data name="StepsStage2" xml:space="preserve">
+    <value>Steps (Stage2)</value>
+  </data>
+  <data name="StepsHighNoise" xml:space="preserve">
+    <value>Steps (High Noise)</value>
+  </data>
+  <data name="StepsLowNoise" xml:space="preserve">
+    <value>Steps (Low Noise)</value>
+  </data>
+  <data name="GuidanceModel" xml:space="preserve">
+    <value>Guidance (Model)</value>
+  </data>
+  <data name="GuidanceCFG" xml:space="preserve">
+    <value>Guidance (CFG)</value>
+  </data>
+  <data name="GuidanceHighNoise" xml:space="preserve">
+    <value>Guidance (High Noise)</value>
+  </data>
+  <data name="GuidanceLowNoise" xml:space="preserve">
+    <value>Guidance (Low Noise)</value>
+  </data>
+  <data name="ControlStrength" xml:space="preserve">
+    <value>Control Strength</value>
+  </data>
+  <data name="Prompt" xml:space="preserve">
+    <value>Prompt</value>
+  </data>
+  <data name="NegativePrompt" xml:space="preserve">
+    <value>Negative Prompt</value>
+  </data>
+  <data name="DenoiseStrength" xml:space="preserve">
+    <value>Denoise Strength</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Device" xml:space="preserve">
+    <value>Device</value>
+  </data>
+  <data name="NoDevicesFound" xml:space="preserve">
+    <value>No devices found.</value>
+  </data>
+  <data name="NoModelsFound" xml:space="preserve">
+    <value>No models found.</value>
+  </data>
+  <data name="Memory" xml:space="preserve">
+    <value>Memory</value>
+  </data>
+  <data name="BackgroundMode" xml:space="preserve">
+    <value>Background Mode</value>
+  </data>
+  <data name="MaxDetections" xml:space="preserve">
+    <value>Max Detections</value>
+  </data>
+  <data name="BodyConfidence" xml:space="preserve">
+    <value>Body Confidence</value>
+  </data>
+  <data name="JointConfidence" xml:space="preserve">
+    <value>Joint Confidence</value>
+  </data>
+  <data name="BoneRadius" xml:space="preserve">
+    <value>Bone Radius</value>
+  </data>
+  <data name="BoneThickness" xml:space="preserve">
+    <value>Bone Thickness</value>
+  </data>
+  <data name="JointRadius" xml:space="preserve">
+    <value>Joint Radius</value>
+  </data>
+  <data name="FrameMultiplier" xml:space="preserve">
+    <value>Frame Multiplier</value>
+  </data>
+  <data name="OutputPrefix" xml:space="preserve">
+    <value>Output Prefix</value>
+  </data>
+  <data name="SystemPrompt" xml:space="preserve">
+    <value>System Prompt</value>
+  </data>
+  <data name="RepetitionPenalty" xml:space="preserve">
+    <value>Repetition Penalty</value>
+  </data>
+  <data name="NoRepeatNgrams" xml:space="preserve">
+    <value>No Repeat Ngrams</value>
+  </data>
+  <data name="TopH" xml:space="preserve">
+    <value>TopH</value>
+  </data>
+  <data name="TypicalP" xml:space="preserve">
+    <value>TypicalP</value>
+  </data>
+  <data name="KVCache" xml:space="preserve">
+    <value>KV Cache</value>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="ConversationContext" xml:space="preserve">
+    <value>Conversation Context</value>
+  </data>
+  <data name="AdditionalContext" xml:space="preserve">
+    <value>Additional Context</value>
+  </data>
+  <data name="PleaseSelectLora" xml:space="preserve">
+    <value>Please Select Lora...</value>
+  </data>
+  <data name="TotalUsed" xml:space="preserve">
+    <value>Total Used</value>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>Remaining</value>
+  </data>
+  <data name="CurrentTime" xml:space="preserve">
+    <value>Current Time</value>
+  </data>
+  <data name="TimelineTime" xml:space="preserve">
+    <value>Timeline Time</value>
+  </data>
+  <data name="Segments" xml:space="preserve">
+    <value>Segments</value>
+  </data>
+  <data name="TimelineFrame" xml:space="preserve">
+    <value>Timeline Frame</value>
+  </data>
+  <data name="TimelineFrames" xml:space="preserve">
+    <value>Timeline Frames</value>
+  </data>
+  <data name="ImportVideo" xml:space="preserve">
+    <value>Import Video</value>
+  </data>
+  <data name="ImportAudio" xml:space="preserve">
+    <value>Import Audio</value>
+  </data>
+  <data name="ImportImage" xml:space="preserve">
+    <value>Import Image</value>
+  </data>
+  <data name="ImportOverlay" xml:space="preserve">
+    <value>Import Overlay</value>
+  </data>
+  <data name="FrameWidth" xml:space="preserve">
+    <value>Frame Width</value>
+  </data>
+  <data name="FrameSize" xml:space="preserve">
+    <value>Frame Size</value>
+  </data>
+  <data name="PreviewQuality" xml:space="preserve">
+    <value>Preview Quality</value>
+  </data>
+  <data name="BetaSchedule" xml:space="preserve">
+    <value>Beta Schedule</value>
+  </data>
+  <data name="BetaStart" xml:space="preserve">
+    <value>Beta Start</value>
+  </data>
+  <data name="BetaEnd" xml:space="preserve">
+    <value>Beta End</value>
+  </data>
+  <data name="Prediction" xml:space="preserve">
+    <value>Prediction</value>
+  </data>
+  <data name="TimestepSpacing" xml:space="preserve">
+    <value>Timestep Spacing</value>
+  </data>
+  <data name="StepsOffset" xml:space="preserve">
+    <value>StepsOffset</value>
+  </data>
+  <data name="SigmaMin" xml:space="preserve">
+    <value>Sigma Min</value>
+  </data>
+  <data name="SigmaMax" xml:space="preserve">
+    <value>Sigma Max</value>
+  </data>
+  <data name="FinalSigmasType" xml:space="preserve">
+    <value>Final Sigmas Type</value>
+  </data>
+  <data name="SigmaType" xml:space="preserve">
+    <value>Sigma Type</value>
+  </data>
+  <data name="InterpolationType" xml:space="preserve">
+    <value>Interpolation Type</value>
+  </data>
+  <data name="TimestepType" xml:space="preserve">
+    <value>Timestep Type</value>
+  </data>
+  <data name="ClipSampleRange" xml:space="preserve">
+    <value>Clip Sample Range</value>
+  </data>
+  <data name="SampleMaxValue" xml:space="preserve">
+    <value>Sample Max Value</value>
+  </data>
+  <data name="ThresholdingRatio" xml:space="preserve">
+    <value>Thresholding Ratio</value>
+  </data>
+  <data name="Variance" xml:space="preserve">
+    <value>Variance</value>
+  </data>
+  <data name="TimestepScaling" xml:space="preserve">
+    <value>Timestep Scaling</value>
+  </data>
+  <data name="Shift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="BaseShift" xml:space="preserve">
+    <value>Base Shift</value>
+  </data>
+  <data name="MaxShift" xml:space="preserve">
+    <value>Max Shift</value>
+  </data>
+  <data name="ShiftTerminal" xml:space="preserve">
+    <value>Shift Terminal</value>
+  </data>
+  <data name="TimeShift" xml:space="preserve">
+    <value>TimeShift</value>
+  </data>
+  <data name="Solver" xml:space="preserve">
+    <value>Solver</value>
+  </data>
+  <data name="SolverOrder" xml:space="preserve">
+    <value>Solver Order</value>
+  </data>
+  <data name="FlowShift" xml:space="preserve">
+    <value>Flow Shift</value>
+  </data>
+  <data name="AlgorithmType" xml:space="preserve">
+    <value>Algorithm Type</value>
+  </data>
+  <data name="VarianceType" xml:space="preserve">
+    <value>Variance Type</value>
+  </data>
+  <data name="NoiseSeed" xml:space="preserve">
+    <value>Noise Seed</value>
+  </data>
+  <data name="Rho" xml:space="preserve">
+    <value>Rho</value>
+  </data>
+  <data name="SigmaData" xml:space="preserve">
+    <value>SigmaData</value>
+  </data>
+  <data name="SigmaScheduleType" xml:space="preserve">
+    <value>Sigma Schedule Type</value>
+  </data>
+  <data name="UpscaleMode" xml:space="preserve">
+    <value>Upscale Mode</value>
+  </data>
+  <data name="Gamma" xml:space="preserve">
+    <value>Gamma</value>
+  </data>
+  <data name="TimeShiftType" xml:space="preserve">
+    <value>TimeShiftType</value>
+  </data>
+  <data name="OriginalSteps" xml:space="preserve">
+    <value>Original Steps</value>
+  </data>
+  <data name="Eta" xml:space="preserve">
+    <value>Eta</value>
+  </data>
+  <data name="SNoise" xml:space="preserve">
+    <value>SNoise</value>
+  </data>
+  <data name="Scheduler" xml:space="preserve">
+    <value>Scheduler</value>
+  </data>
+  <data name="SigmaSchedule" xml:space="preserve">
+    <value>Sigma Schedule</value>
+  </data>
+  <data name="NewVersionMessage" xml:space="preserve">
+    <value>There is a new version of Amuse available</value>
+  </data>
+  <data name="TimeRemaining" xml:space="preserve">
+    <value>Time Remaining</value>
+  </data>
+  <data name="Path" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="MainFile" xml:space="preserve">
+    <value>MainFile</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Key</value>
+  </data>
+  <data name="Link" xml:space="preserve">
+    <value>Link</value>
+  </data>
+  <data name="Pipeline" xml:space="preserve">
+    <value>Pipeline</value>
+  </data>
+  <data name="Backend" xml:space="preserve">
+    <value>Backend</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ModelLink" xml:space="preserve">
+    <value>Model Link</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="DiversityLength" xml:space="preserve">
+    <value>Diversity Length</value>
+  </data>
+  <data name="SilenceDuration" xml:space="preserve">
+    <value>Silence Duration</value>
+  </data>
+  <data name="MaxLength2" xml:space="preserve">
+    <value>MaxLength2</value>
+  </data>
+  <data name="Channels" xml:space="preserve">
+    <value>Channels</value>
+  </data>
+  <data name="SampleRate" xml:space="preserve">
+    <value>Sample Rate</value>
+  </data>
+  <data name="FrameOptions" xml:space="preserve">
+    <value>Frame Options</value>
+  </data>
+  <data name="FrameChunkOverlap" xml:space="preserve">
+    <value>Frame Chunk Overlap</value>
+  </data>
+  <data name="FrameChunk" xml:space="preserve">
+    <value>Frame Chunk</value>
+  </data>
+  <data name="Steps2" xml:space="preserve">
+    <value>Steps2</value>
+  </data>
+  <data name="RepositoryLink" xml:space="preserve">
+    <value>Repository Link</value>
+  </data>
+  <data name="AccessToken" xml:space="preserve">
+    <value>Access Token</value>
+  </data>
+  <data name="OriginalModelDataType" xml:space="preserve">
+    <value>Original Model Data Type</value>
+  </data>
+  <data name="MemoryModes" xml:space="preserve">
+    <value>Memory Modes</value>
+  </data>
+  <data name="Quality" xml:space="preserve">
+    <value>Quality</value>
+  </data>
+  <data name="Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="VariantOptional" xml:space="preserve">
+    <value>Variant (optional)</value>
+  </data>
+  <data name="ModelName" xml:space="preserve">
+    <value>Model Name</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>Vendor</value>
+  </data>
+  <data name="Requirements" xml:space="preserve">
+    <value>Requirements</value>
+  </data>
+  <data name="EnvironmentVariables" xml:space="preserve">
+    <value>Environment Variables</value>
+  </data>
+  <data name="SampleSize" xml:space="preserve">
+    <value>Sample Size</value>
+  </data>
+  <data name="OutputChannels" xml:space="preserve">
+    <value>Output Channels</value>
+  </data>
+  <data name="InputNormalization" xml:space="preserve">
+    <value>Input Normalization</value>
+  </data>
+  <data name="OutputNormalization" xml:space="preserve">
+    <value>Output Normalization</value>
+  </data>
+  <data name="MemorySize" xml:space="preserve">
+    <value>Memory Size</value>
+  </data>
+  <data name="AccessTokenTerms" xml:space="preserve">
+    <value>Accept Model Terms &amp; Conditions</value>
+  </data>
+  <data name="AccessTokenMessage" xml:space="preserve">
+    <value>The model is publicly accessible, but you have to accept the conditions to access its files and content.</value>
+  </data>
+  <data name="ModelParametersB" xml:space="preserve">
+    <value>Model Parameters (B)</value>
+  </data>
+  <data name="ModelSizeGB" xml:space="preserve">
+    <value>Model Size (GB)</value>
+  </data>
+  <data name="TriggerWords" xml:space="preserve">
+    <value>Trigger Words</value>
+  </data>
+  <data name="TagOptional" xml:space="preserve">
+    <value>(optional)</value>
+  </data>
+  <data name="TagDefault" xml:space="preserve">
+    <value>(default)</value>
+  </data>
+  <data name="Directory" xml:space="preserve">
+    <value>Directory</value>
+  </data>
+  <data name="NewLocation" xml:space="preserve">
+    <value>New Location</value>
+  </data>
+  <data name="ScaleFactor" xml:space="preserve">
+    <value>Scale Factor</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="DownloadModel" xml:space="preserve">
+    <value>Download Model</value>
+  </data>
+  <data name="RetryDownload" xml:space="preserve">
+    <value>RetryDownload</value>
+  </data>
+  <data name="UpdateModel" xml:space="preserve">
+    <value>Update Model</value>
+  </data>
+  <data name="CancelDownload" xml:space="preserve">
+    <value>Cancel Download</value>
+  </data>
+  <data name="OpenFolder" xml:space="preserve">
+    <value>Open Folder</value>
+  </data>
+  <data name="DeleteFiles" xml:space="preserve">
+    <value>Delete Files</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="EnvironmentSetDefault" xml:space="preserve">
+    <value>Set Default Environment</value>
+  </data>
+  <data name="EnvironmentDefault" xml:space="preserve">
+    <value>Default Environment</value>
+  </data>
+  <data name="SaveChanges" xml:space="preserve">
+    <value>Save Changes</value>
+  </data>
+  <data name="ModelDirectory" xml:space="preserve">
+    <value>Model Directory</value>
+  </data>
+  <data name="UIScale" xml:space="preserve">
+    <value>UI Scale</value>
+  </data>
+  <data name="TempDirectory" xml:space="preserve">
+    <value>Temp Directory</value>
+  </data>
+  <data name="LogDirectory" xml:space="preserve">
+    <value>Log Directory</value>
+  </data>
+  <data name="AudioInput" xml:space="preserve">
+    <value>Audio Input</value>
+  </data>
+  <data name="TextResult" xml:space="preserve">
+    <value>Text Result</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="MediaType" xml:space="preserve">
+    <value>Media Type</value>
+  </data>
+  <data name="ProcessType" xml:space="preserve">
+    <value>Process Type</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>Items</value>
+  </data>
+  <data name="NoItemsFound" xml:space="preserve">
+    <value>No Items Found.</value>
+  </data>
+  <data name="DeleteItem" xml:space="preserve">
+    <value>Delete Item</value>
+  </data>
+  <data name="NoInformationFound" xml:space="preserve">
+    <value>No Information Found.</value>
+  </data>
+  <data name="FrameHeight" xml:space="preserve">
+    <value>Frame Height</value>
+  </data>
+  <data name="Background" xml:space="preserve">
+    <value>Background</value>
+  </data>
+  <data name="Rotation" xml:space="preserve">
+    <value>Rotation</value>
+  </data>
+  <data name="Stretch" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="Style" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Layers" xml:space="preserve">
+    <value>Layers</value>
+  </data>
+  <data name="ModelType" xml:space="preserve">
+    <value>Model Type</value>
+  </data>
+  <data name="PipelineType" xml:space="preserve">
+    <value>Pipeline Type</value>
+  </data>
+  <data name="BackendType" xml:space="preserve">
+    <value>Backend Type</value>
+  </data>
+  <data name="Access" xml:space="preserve">
+    <value>Access</value>
+  </data>
+  <data name="Output" xml:space="preserve">
+    <value>Output</value>
+  </data>
+  <data name="ActiveDownloads" xml:space="preserve">
+    <value>Active Downloads</value>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>Retry</value>
+  </data>
+  <data name="CancelAll" xml:space="preserve">
+    <value>Cancel All</value>
+  </data>
+  <data name="Queued" xml:space="preserve">
+    <value>Queued</value>
+  </data>
+  <data name="Downloading" xml:space="preserve">
+    <value>Downloading</value>
+  </data>
+  <data name="Failed" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="AudioResult" xml:space="preserve">
+    <value>Audio Result</value>
+  </data>
+  <data name="InputText" xml:space="preserve">
+    <value>Input Text</value>
+  </data>
+  <data name="ReferenceAudioOptional" xml:space="preserve">
+    <value>Reference Audio (optional)</value>
+  </data>
+  <data name="Lyrics" xml:space="preserve">
+    <value>Lyrics</value>
+  </data>
+  <data name="LyricTags" xml:space="preserve">
+    <value>Lyric Tags</value>
+  </data>
+  <data name="ReferenceAudio" xml:space="preserve">
+    <value>Reference Audio</value>
+  </data>
+  <data name="LoraModel" xml:space="preserve">
+    <value>Lora Model</value>
+  </data>
+  <data name="ControlNetModel" xml:space="preserve">
+    <value>ControlNet Model</value>
+  </data>
+  <data name="LoraStrength" xml:space="preserve">
+    <value>Lora Strength</value>
+  </data>
+  <data name="ControlNetStrength" xml:space="preserve">
+    <value>ControlNet Strength</value>
+  </data>
+  <data name="Tiled" xml:space="preserve">
+    <value>Tiled</value>
+  </data>
+  <data name="Detections" xml:space="preserve">
+    <value>Detections</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Created</value>
+  </data>
+  <data name="InfoPath" xml:space="preserve">
+    <value>Info Path</value>
+  </data>
+  <data name="OriginalSize" xml:space="preserve">
+    <value>Original Size</value>
+  </data>
+  <data name="Interpolated" xml:space="preserve">
+    <value>Interpolated</value>
+  </data>
+  <data name="Original" xml:space="preserve">
+    <value>Original</value>
+  </data>
+  <data name="Multiplier" xml:space="preserve">
+    <value>Multiplier</value>
+  </data>
+  <data name="Composed" xml:space="preserve">
+    <value>Composed</value>
+  </data>
+  <data name="Generated" xml:space="preserve">
+    <value>Generated</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="DeleteItems" xml:space="preserve">
+    <value>Delete Items</value>
+  </data>
+  <data name="Extracted" xml:space="preserve">
+    <value>Extracted</value>
+  </data>
+  <data name="Upscaled" xml:space="preserve">
+    <value>Upscaled</value>
+  </data>
+  <data name="Recent" xml:space="preserve">
+    <value>Recent</value>
+  </data>
+  <data name="UpdateAvailable" xml:space="preserve">
+    <value>Update Available</value>
+  </data>
+  <data name="Interpolate" xml:space="preserve">
+    <value>Interpolate</value>
+  </data>
+  <data name="ProgressInitialize" xml:space="preserve">
+    <value>Initializing Pipeline...</value>
+  </data>
+  <data name="ProgressTextEncoder" xml:space="preserve">
+    <value>Encoding Prompt...</value>
+  </data>
+  <data name="ProgressTransformer" xml:space="preserve">
+    <value>Generating...</value>
+  </data>
+  <data name="ProgressStep" xml:space="preserve">
+    <value>Step: {5}/{6}</value>
+  </data>
+  <data name="ProgressAutoEncoder" xml:space="preserve">
+    <value>Generating Result...</value>
+  </data>
+  <data name="ProgressComplete" xml:space="preserve">
+    <value>Generating Result...</value>
+  </data>
+  <data name="ActiveDownloadsMessage" xml:space="preserve">
+    <value>There are still have active downloads running, Are you sure you want to cancel and exit?</value>
+  </data>
+  <data name="AutomationStarted" xml:space="preserve">
+    <value>Automation Started</value>
+  </data>
+  <data name="RenderingVideo" xml:space="preserve">
+    <value>Rendering Video</value>
+  </data>
+  <data name="DeleteGalleryItems" xml:space="preserve">
+    <value>Are you sure you want you delete all {0} gallery items?</value>
+  </data>
+  <data name="DeleteGalleryItemsFiltered" xml:space="preserve">
+    <value>Are you sure you want you delete {0} filtered gallery items?</value>
+  </data>
+  <data name="LoadingPipeline" xml:space="preserve">
+    <value>Loading Pipeline</value>
+  </data>
+  <data name="LoadPipeline" xml:space="preserve">
+    <value>Load Pipeline</value>
+  </data>
+  <data name="EncodingVideoFrames" xml:space="preserve">
+    <value>Encoding Video Frames</value>
+  </data>
+  <data name="ProcessingInputFrame" xml:space="preserve">
+    <value>Processing Input Frame</value>
+  </data>
+  <data name="CancellingGeneration" xml:space="preserve">
+    <value>Cancelling Generation</value>
+  </data>
+  <data name="ExtractingImage" xml:space="preserve">
+    <value>Extracting Image</value>
+  </data>
+  <data name="ExtractingVideo" xml:space="preserve">
+    <value>Extracting Video</value>
+  </data>
+  <data name="UpscalingImage" xml:space="preserve">
+    <value>Upscaling Image</value>
+  </data>
+  <data name="UpscalingVideo" xml:space="preserve">
+    <value>Upscaling Video</value>
+  </data>
+  <data name="RenderingImage" xml:space="preserve">
+    <value>Rendering Image</value>
+  </data>
+  <data name="InitializingBackendEnvironment" xml:space="preserve">
+    <value>Initializing {0} Environment</value>
+  </data>
+  <data name="Tile" xml:space="preserve">
+    <value>Tile</value>
+  </data>
+  <data name="GeneratingBeamResults" xml:space="preserve">
+    <value>Generating Beam Results</value>
+  </data>
+  <data name="RemoveComponent" xml:space="preserve">
+    <value>Remove Component</value>
+  </data>
+  <data name="RemoveComponentMessage" xml:space="preserve">
+    <value>Are you sure you want to remove this component?</value>
+  </data>
+  <data name="ImportComponent" xml:space="preserve">
+    <value>Import Component</value>
+  </data>
+  <data name="ExportComponent" xml:space="preserve">
+    <value>Export Component</value>
+  </data>
+  <data name="DeleteComponent" xml:space="preserve">
+    <value>Delete Component</value>
+  </data>
+  <data name="DeleteComponentMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this component?</value>
+  </data>
+  <data name="RemoveModel" xml:space="preserve">
+    <value>Remove Model</value>
+  </data>
+  <data name="RemoveModelMessage" xml:space="preserve">
+    <value>Are you sure you want to remove this model?</value>
+  </data>
+  <data name="ImportModel" xml:space="preserve">
+    <value>Import Model</value>
+  </data>
+  <data name="ExportModel" xml:space="preserve">
+    <value>Export Model</value>
+  </data>
+  <data name="DeleteModel" xml:space="preserve">
+    <value>Delete Model</value>
+  </data>
+  <data name="DeleteModelMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this model?</value>
+  </data>
+  <data name="RemoveEnvironment" xml:space="preserve">
+    <value>Remove Environment</value>
+  </data>
+  <data name="RemoveEnvironmentMessage" xml:space="preserve">
+    <value>Are you sure you want to remove this environment?</value>
+  </data>
+  <data name="ImportEnvironment" xml:space="preserve">
+    <value>Import Environment</value>
+  </data>
+  <data name="ExportEnvironment" xml:space="preserve">
+    <value>Export Environment</value>
+  </data>
+  <data name="DeleteEnvironment" xml:space="preserve">
+    <value>Delete Environment</value>
+  </data>
+  <data name="DeleteEnvironmentMessage" xml:space="preserve">
+    <value>Are you sure you want to delete this environment?</value>
+  </data>
+</root>

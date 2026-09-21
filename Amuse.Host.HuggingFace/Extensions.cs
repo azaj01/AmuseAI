@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using TensorStack.Common;
 using TensorStack.HuggingFace.Config;
 using TensorStack.HuggingFace.Scheduler;
 

@@ -1,4 +1,5 @@
 ﻿using Amuse.App.Common;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Amuse.Common;
 using Microsoft.Extensions.Logging;
@@ -194,7 +195,7 @@ namespace Amuse.App.Views
             catch (Exception ex)
             {
                 Logger.LogError(ex, "[{View}] [LoadPipeline] An exception occurred loading pipeline, Elapsed: {Elapsed:c}", ViewName, Stopwatch.GetElapsedTime(timestamp));
-                await DialogService.ShowErrorAsync("Load Pipeline", ex.Message);
+                await DialogService.ShowErrorAsync(AppErrors.LoadPipelineTitle, ex.Message);
                 return false;
             }
         }
@@ -234,7 +235,7 @@ namespace Amuse.App.Views
             catch (Exception ex)
             {
                 Logger.LogError(ex, "[{View}] [UnloadPipeline] An exception occurred unloading pipeline, Elapsed: {Elapsed:c}", ViewName, Stopwatch.GetElapsedTime(timestamp));
-                await DialogService.ShowErrorAsync("Unload Pipeline", ex.Message);
+                await DialogService.ShowErrorAsync(AppErrors.UnloadPipelineTitle, ex.Message);
                 return false;
             }
         }
@@ -376,7 +377,7 @@ namespace Amuse.App.Views
                 }
                 else
                 {
-                    Progress.Indeterminate($"Initializing {CurrentPipeline.LanguageModel.Backend} Environment...");
+                    Progress.Indeterminate(string.Format(AppDefault.InitializingBackendEnvironment, CurrentPipeline.LanguageModel.Backend));
                     if (!await LoadPipelineAsync())
                         return;// Canceled/Failed to load pipeline
 
@@ -398,9 +399,9 @@ namespace Amuse.App.Views
         protected virtual void OnProgress(RunProgress progress)
         {
             if (progress.Maximum > 1)
-                Progress.Update(progress.Value, progress.Maximum, $"Tile {progress.Value}/{progress.Maximum}");
+                Progress.Update(progress.Value, progress.Maximum, $"{AppDefault.Tile} {progress.Value}/{progress.Maximum}");
             else
-                Progress.Indeterminate("Rendering Image...");
+                Progress.Indeterminate($"{AppDefault.RenderingImage}...");
 
             Logger.LogDebug("[{View}] [OnProgress] Step: {Value}/{Max}, Elapsed: {Elapsed:c}", ViewName, progress.Value, progress.Maximum, progress.Elapsed);
         }
@@ -434,7 +435,7 @@ namespace Amuse.App.Views
                     if (GenerateService.IsExecuting)
                     {
                         var message = progress.Subkey == "Transformer" && Options.Beams > 1
-                            ? "Generating Beam Results..."
+                            ? AppDefault.GeneratingBeamResults
                             : Globalization.GetProgressMessage(progress);
                         Progress.Indeterminate(message);
                     }

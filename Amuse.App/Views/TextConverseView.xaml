@@ -122,7 +122,7 @@
                         <!--Execute/Cancel-->
                         <UniformGrid DockPanel.Dock="Right" Columns="2" Width="260" Margin="0,4,0,0">
                             <DockPanel >
-                                <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand, Mode=OneWay}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" ToolTip="Immediately stops generation by closing the backend process." ToolTipService.InitialShowDelay="200">
+                                <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand, Mode=OneWay}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" ToolTip="{CommonControls:Localize ToolTip_GenerateStop}" ToolTipService.InitialShowDelay="200">
                                     <CommonControls:FontAwesome Icon="f00d" Color="{StaticResource DangerColour}" />
                                 </Button>
                                 <Grid IsEnabled="{Binding GenerateService.IsCanceling, Converter={StaticResource InverseBoolConverter}, Mode=OneWay}">
@@ -132,7 +132,7 @@
                                                 <Setter Property="Content" Value="Cancel" />
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding GenerateService.IsCanceling, Mode=OneWay}" Value="True">
-                                                        <Setter Property="Content" Value="Canceling" />
+                                                        <Setter Property="Content" Value="{CommonControls:Localize Canceling}" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
@@ -141,8 +141,8 @@
                                 </Grid>
                             </DockPanel>
                             <Grid IsEnabled="{Binding IsSelectionValid, ElementName=ModelControl, Mode=OneWay}">
-                                <Button Content="Generate" Command="{Binding ExecuteCommand, Mode=OneWay}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation, Mode=OneWay}"/>
-                                <Button Content="Automate" Command="{Binding ExecuteAutomationCommand, Mode=OneWay}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation, Mode=OneWay}"/>
+                                <Button Content="{CommonControls:Localize Generate}" Command="{Binding ExecuteCommand, Mode=OneWay}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation, Mode=OneWay}"/>
+                                <Button Content="{CommonControls:Localize Automate}" Command="{Binding ExecuteAutomationCommand, Mode=OneWay}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation, Mode=OneWay}"/>
                             </Grid>
                         </UniformGrid>
 

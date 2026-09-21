@@ -37,12 +37,12 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="f1de" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="13"/>
-                        <TextBlock Text="Options" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0" />
+                        <TextBlock Text="{CommonControls:Localize Options}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0" />
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel>
                     <StackPanel VerticalAlignment="Top" Margin="0,4,0,0">
-                        <CommonControls:SliderControl Text="Frame Multiplier" Value="{Binding Options.Multiplier, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="8" TickFrequency="1" ValuePostFix="x" />
+                        <CommonControls:SliderControl Text="{CommonControls:Localize FrameMultiplier}" Value="{Binding Options.Multiplier, UpdateSourceTrigger=PropertyChanged}" Minimum="2" Maximum="8" TickFrequency="1" ValuePostFix="x" />
                     </StackPanel>
                 </DockPanel>
             </TabItem>
@@ -51,7 +51,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="f085" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="12"/>
-                        <TextBlock Text="Advanced" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize Advanced}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel>
@@ -62,7 +62,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="e0b6" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="12"/>
-                        <TextBlock Text="Automation" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize Automation}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel>
@@ -73,7 +73,7 @@
                     <StackPanel VerticalAlignment="Top" Margin="0,4,0,0">
 
                         <!--<StackPanel Margin="0,0,0,10">
-                            <TextBlock Text="Automation" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock Text="{CommonControls:Localize Automation}" Style="{StaticResource FieldTextBlockStyle}" />
                             <ComboBox ItemsSource="{Binding AutomationOptions.Types}" SelectedItem="{Binding AutomationOptions.Type}" Style="{StaticResource EnumComboBox}" />
                         </StackPanel>-->
 
@@ -82,7 +82,7 @@
                             <StackPanel  Visibility="{Binding ViewType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=VideoInterpolate}">
                                 <UniformGrid Margin="0,0,0,0" >
                                     <StackPanel>
-                                        <TextBlock Text="Video Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize VideoFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                     </StackPanel>
                                 </UniformGrid>
@@ -91,14 +91,14 @@
 
 
                         <!--HistoryEnabled-->
-                        <CheckBox Content="Output History" IsChecked="{Binding AutomationOptions.IsHistoryEnabled}" Margin="0,4,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize OutputHistory}" IsChecked="{Binding AutomationOptions.IsHistoryEnabled}" Margin="0,4,0,0"/>
 
                         <!--OutputDirectory-->
-                        <CheckBox  Content="Output Location" IsChecked="{Binding AutomationOptions.UseOutputDirectory}" Margin="0,4,0,0"/>
+                        <CheckBox  Content="{CommonControls:Localize OutputLocation}" IsChecked="{Binding AutomationOptions.UseOutputDirectory}" Margin="0,4,0,0"/>
                         <Grid Visibility="{Binding AutomationOptions.UseOutputDirectory,Converter={StaticResource BooleanToVisibilityConverter}}">
                             <UniformGrid Margin="0,0,0,0" >
                                 <StackPanel>
-                                    <TextBlock Text="Output Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize OutputFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.OutputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                 </StackPanel>
                             </UniformGrid>

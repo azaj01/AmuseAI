@@ -12,9 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TensorStack.Common;
-using TensorStack.Media.Image;
 using TensorStack.WPF;
 using TensorStack.WPF.Controls;
+using TensorStack.WPF.Image;
 using TensorStack.WPF.Services;
 
 

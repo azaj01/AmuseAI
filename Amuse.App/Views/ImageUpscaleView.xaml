@@ -41,10 +41,10 @@
 
                         <!--Execute/Cancel-->
                         <UniformGrid DockPanel.Dock="Bottom" Columns="2" Height="30">
-                            <Button Content="Cancel" Command="{Binding CancelCommand}" />
+                            <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}" />
                             <Grid IsEnabled="{Binding IsSelectionValid, Mode=OneWay, ElementName=ModelControl}">
-                                <Button Content="Generate" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, Mode=OneWay, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
-                                <Button Content="Automate" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, Mode=OneWay, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                <Button Content="{CommonControls:Localize Generate}" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, Mode=OneWay, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                <Button Content="{CommonControls:Localize Automate}" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, Mode=OneWay, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
                             </Grid>
                         </UniformGrid>
 

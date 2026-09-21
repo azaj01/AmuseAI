@@ -41,10 +41,10 @@
                         <Button x:Name="LoadButton" Command="{Binding LoadCommand}" >
                             <Button.Style>
                                 <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
-                                    <Setter Property="Content" Value="Load" />
+                                    <Setter Property="Content" Value="{CommonControls:Localize Load}" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsEnabled, ElementName=LoadButton}" Value="False">
-                                            <Setter Property="Content" Value="Loading" />
+                                            <Setter Property="Content" Value="{CommonControls:Localize Loading}" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -54,7 +54,7 @@
                             <Border Background="{StaticResource ButtonBackground}" BorderBrush="{StaticResource ButtonBorderBrush}" BorderThickness="1" Visibility="{Binding IsPipelineLoaded, Converter={StaticResource BooleanToHiddenConverter}, FallbackValue=Hidden}">
                                 <DockPanel Margin="4,0" HorizontalAlignment="Center" Opacity=".8">
                                     <CommonControls:FontAwesome DockPanel.Dock="Left" Icon="f058" Size="12" Color="{StaticResource SuccessColour}" Margin="0,1,0,0"/>
-                                    <TextBlock Text="Ready" Margin="4,2,0,0" Foreground="{StaticResource SuccessColour}"/>
+                                    <TextBlock Text="{CommonControls:Localize Ready}" Margin="4,2,0,0" Foreground="{StaticResource SuccessColour}"/>
                                 </DockPanel>
                             </Border>
                         </Grid>
@@ -64,10 +64,10 @@
 
                 <!--Options-->
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="1,0,0,0">
-                    <CheckBox Content="LoRA" IsChecked="{Binding IsLoraEnabled}" Visibility="{Binding IsLoraSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
-                    <CheckBox Content="Extract" IsChecked="{Binding IsExtractorEnabled}" Visibility="{Binding IsExtractorSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
-                    <CheckBox Content="Upscale" IsChecked="{Binding IsUpscalerEnabled}" Visibility="{Binding IsUpscalerSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
-                    <CheckBox Content="Control" IsChecked="{Binding IsControlNetEnabled}" Visibility="{Binding IsControlNetSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
+                    <CheckBox Content="{CommonControls:Localize Lora}" IsChecked="{Binding IsLoraEnabled}" Visibility="{Binding IsLoraSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
+                    <CheckBox Content="{CommonControls:Localize Extract}" IsChecked="{Binding IsExtractorEnabled}" Visibility="{Binding IsExtractorSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
+                    <CheckBox Content="{CommonControls:Localize Upscale}" IsChecked="{Binding IsUpscalerEnabled}" Visibility="{Binding IsUpscalerSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
+                    <CheckBox Content="{CommonControls:Localize Control}" IsChecked="{Binding IsControlNetEnabled}" Visibility="{Binding IsControlNetSupported, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,10,0"/>
                 </StackPanel>
 
             </DockPanel>
@@ -76,20 +76,20 @@
 
                 <!--Device-->
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Left" Text="Device" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Device}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <Grid>
                         <ComboBox 
                             DisplayMemberPath="Name"
                             SelectedItem="{Binding SelectedDevice}" 
                             ItemsSource="{Binding DeviceCollectionView}" 
                             SelectionChanged="Device_SelectionChanged" />
-                        <TextBlock Text="No devices found." FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding DeviceCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <TextBlock Text="{CommonControls:Localize NoDevicesFound}" FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding DeviceCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </DockPanel>
 
                 <!--Model-->
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Left" Text="Model" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Model}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <Grid Height="36">
                         <CommonControls:ContentComboBox
                             SelectedItem="{Binding SelectedModel, Mode=TwoWay}"
@@ -103,19 +103,19 @@
                                         <CommonControls:FontAwesome Icon="f013" Size="12"/>
                                     </Button>
                                     <UniformGrid Rows="1">
-                                        <Button Content="Install" Height="26" Command="{Binding InstallCommand}" CommandParameter="Diffusion"/>
-                                        <Button Content="Download" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Diffusion"/>
+                                        <Button Content="{CommonControls:Localize Install}" Height="26" Command="{Binding InstallCommand}" CommandParameter="Diffusion"/>
+                                        <Button Content="{CommonControls:Localize Download}" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Diffusion"/>
                                     </UniformGrid>
                                 </DockPanel>
                             </CommonControls:ContentComboBox.BottomContent>
                         </CommonControls:ContentComboBox>
-                        <TextBlock Text="No models found." FontStyle="Italic" Opacity=".4" Margin="5,-2,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="{Binding ModelCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <TextBlock Text="{CommonControls:Localize NoModelsFound}" FontStyle="Italic" Opacity=".4" Margin="5,-2,0,0" VerticalAlignment="Center" IsHitTestVisible="False" Visibility="{Binding ModelCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
                     </Grid>
                 </DockPanel>
 
                 <!--ControlNet-->
                 <DockPanel Visibility="{Binding IsControlNetEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <TextBox DockPanel.Dock="Left" Text="Control" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Control}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <Grid>
                         <CommonControls:ContentComboBox
                             SelectedItem="{Binding SelectedControlNet}"
@@ -128,19 +128,19 @@
                                         <CommonControls:FontAwesome Icon="f013" Size="12" />
                                     </Button>
                                     <UniformGrid Rows="1">
-                                        <Button Content="Install" Height="26" Command="{Binding InstallCommand}" CommandParameter="ControlNet"/>
-                                        <Button Content="Download" Height="26" Command="{Binding DownloadCommand}" CommandParameter="ControlNet"/>
+                                        <Button Content="{CommonControls:Localize Install}" Height="26" Command="{Binding InstallCommand}" CommandParameter="ControlNet"/>
+                                        <Button Content="{CommonControls:Localize Download}" Height="26" Command="{Binding DownloadCommand}" CommandParameter="ControlNet"/>
                                     </UniformGrid>
                                 </DockPanel>
                             </CommonControls:ContentComboBox.BottomContent>
                         </CommonControls:ContentComboBox>
-                        <TextBlock Text="No models found." FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding ControlNetCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <TextBlock Text="{CommonControls:Localize NoModelsFound}" FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding ControlNetCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </DockPanel>
 
                 <!--Extractor-->
                 <DockPanel Visibility="{Binding IsExtractorEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <TextBox DockPanel.Dock="Left" Text="Extractor" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Extractor}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <Grid>
                         <CommonControls:ContentComboBox
                             SelectedItem="{Binding SelectedExtractor}"
@@ -153,20 +153,20 @@
                                         <CommonControls:FontAwesome Icon="f013" Size="12" />
                                     </Button>
                                     <UniformGrid Rows="1">
-                                        <Button Content="Install" Height="26" Command="{Binding InstallCommand}" CommandParameter="Extract"/>
-                                        <Button Content="Download" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Extract"/>
+                                        <Button Content="{CommonControls:Localize Install}" Height="26" Command="{Binding InstallCommand}" CommandParameter="Extract"/>
+                                        <Button Content="{CommonControls:Localize Download}" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Extract"/>
                                     </UniformGrid>
                                 </DockPanel>
                             </CommonControls:ContentComboBox.BottomContent>
                         </CommonControls:ContentComboBox>
-                        <TextBlock Text="No models found." FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding ExtractCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <TextBlock Text="{CommonControls:Localize NoModelsFound}" FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding ExtractCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </DockPanel>
 
                 <!--LoRA-->
                 <Grid Visibility="{Binding IsLoraSupported, Converter={StaticResource BooleanToVisibilityConverter}}">
                     <DockPanel Visibility="{Binding IsLoraEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <TextBox DockPanel.Dock="Left" Text="LoRA" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                        <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Lora}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                         <Grid>
                             <Controls:LoraAdapterControl 
                                 LoraCollectionView="{Binding LoraCollectionView}"
@@ -177,7 +177,7 @@
 
                 <!--Upscale-->
                 <DockPanel Visibility="{Binding IsUpscalerEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
-                    <TextBox DockPanel.Dock="Left" Text="Upscaler" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Upscaler}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <Grid>
                         <CommonControls:ContentComboBox
                             SelectedItem="{Binding SelectedUpscaler}" 
@@ -190,18 +190,18 @@
                                         <CommonControls:FontAwesome Icon="f013" Size="12" />
                                     </Button>
                                     <UniformGrid Rows="1">
-                                        <Button Content="Install" Height="26" Command="{Binding InstallCommand}" CommandParameter="Upscale"/>
-                                        <Button Content="Download" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Upscale"/>
+                                        <Button Content="{CommonControls:Localize Install}" Height="26" Command="{Binding InstallCommand}" CommandParameter="Upscale"/>
+                                        <Button Content="{CommonControls:Localize Download}" Height="26" Command="{Binding DownloadCommand}" CommandParameter="Upscale"/>
                                     </UniformGrid>
                                 </DockPanel>
                             </CommonControls:ContentComboBox.BottomContent>
                         </CommonControls:ContentComboBox>
-                        <TextBlock Text="No models found." FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding UpscaleCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <TextBlock Text="{CommonControls:Localize NoModelsFound}" FontStyle="Italic" Opacity=".4" Margin="5,2,0,0" IsHitTestVisible="False" Visibility="{Binding UpscaleCollectionView.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </DockPanel>
 
                 <DockPanel>
-                    <TextBox DockPanel.Dock="Left" Text="Memory" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
+                    <TextBox DockPanel.Dock="Left" Text="{CommonControls:Localize Memory}" IsReadOnly="True" IsHitTestVisible="False" Width="60" FontStyle="Italic" FontSize="11" Opacity="0.7" Padding="4,2,0,0"/>
                     <UniformGrid Columns="2">
 
                         <!--MemoryMode-->

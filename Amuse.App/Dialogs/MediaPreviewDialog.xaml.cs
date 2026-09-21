@@ -7,11 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using TensorStack.Common;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
 using TensorStack.WPF;
 using TensorStack.WPF.Controls;
+using TensorStack.WPF.Image;
 
 namespace Amuse.App.Dialogs
 {

@@ -126,19 +126,31 @@
                                         <Run Text="x" />
                                         <Run Text="{Binding Height}" />
                                     </TextBlock>
-                                    <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
+                                    <TextBlock>
+                                        <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                        <Run Text="{Binding Model}"/>
+                                    </TextBlock>
                                     <TextBlock Text="{Binding MediaPath}" />
                                 </StackPanel>
                                 <StackPanel Visibility="{Binding MediaType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Audio}">
-                                    <TextBlock Text="{Binding Source}" /> 
+                                    <TextBlock Text="{Binding Source}" />
                                     <TextBlock Text="{Binding Duration, FallbackValue=00:00:00, StringFormat={}mm\\:ss\\.ff}" />
-                                    <TextBlock Text="{Binding SampleRate, StringFormat={}SampleRate: {0}}" />
-                                    <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
+                                    <TextBlock>
+                                        <Run Text="{CommonControls:Localize SampleRate, Append=:}"/>
+                                        <Run Text="{Binding SampleRate}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                        <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                        <Run Text="{Binding Model}"/>
+                                    </TextBlock>
                                     <TextBlock Text="{Binding MediaPath}" />
                                 </StackPanel>
                                 <StackPanel Visibility="{Binding MediaType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Text}">
                                     <TextBlock Text="{Binding Source}" />
-                                    <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
+                                    <TextBlock>
+                                        <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                        <Run Text="{Binding Model}"/>
+                                    </TextBlock>
                                     <TextBlock Text="{Binding MediaPath}" />
                                 </StackPanel>
                             </Grid>
@@ -223,7 +235,10 @@
                                     <Run Text="x" />
                                     <Run Text="{Binding Height}" />
                                 </TextBlock>
-                                <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
+                                <TextBlock>
+                                    <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                    <Run Text="{Binding Model}"/>
+                                </TextBlock>
                                 <TextBlock Text="{Binding MediaPath}" />
                             </StackPanel>
                         </Border>
@@ -306,7 +321,10 @@
                                     <Run Text="x" />
                                     <Run Text="{Binding Height}" />
                                 </TextBlock>
-                                <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
+                                <TextBlock>
+                                    <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                    <Run Text="{Binding Model}"/>
+                                </TextBlock>
                                 <TextBlock Text="{Binding MediaPath}" />
                             </StackPanel>
                         </Border>
@@ -464,8 +482,14 @@
                         <Border Style="{StaticResource HistoryContainer}" >
                             <StackPanel Margin="6,4,6,6">
                                 <TextBlock Text="{Binding Source}" />
-                                <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
-                                <TextBlock Text="{Binding SampleRate, StringFormat={}SampleRate: {0}}" />
+                                <TextBlock>
+                                    <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                    <Run Text="{Binding Model}"/>
+                                </TextBlock>
+                                <TextBlock>
+                                    <Run Text="{CommonControls:Localize SampleRate, Append=:}"/>
+                                    <Run Text="{Binding SampleRate}"/>
+                                </TextBlock>
                                 <TextBlock Text="{Binding Duration, FallbackValue=00:00:00, StringFormat={}mm\\:ss\\.ff}" />
                                 <TextBlock Text="{Binding MediaPath}" />
                             </StackPanel>
@@ -541,8 +565,14 @@
                         <Border Style="{StaticResource HistoryContainer}" >
                             <StackPanel Margin="6,4,6,6">
                                 <TextBlock Text="{Binding Source}" />
-                                <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
-                                <TextBlock Text="{Binding InputLength, StringFormat={}Length: {0}}" />
+                                <TextBlock>
+                                    <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                    <Run Text="{Binding Model}"/>
+                                </TextBlock>
+                                <TextBlock>
+                                        <Run Text="{CommonControls:Localize Length, Append=:}"/>
+                                        <Run Text="{Binding InputLength}"/>
+                                </TextBlock>
                                 <TextBlock Text="{Binding MediaPath}" />
                             </StackPanel>
                         </Border>
@@ -705,7 +735,7 @@
                             </TextBlock>
                         </StackPanel>
                     </Grid>
-                   
+
                 </DockPanel>
 
 
@@ -729,12 +759,18 @@
                                 <StackPanel Visibility="{Binding MediaType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Audio}">
                                     <TextBlock Text="{Binding Source}" />
                                     <TextBlock Text="{Binding Duration, FallbackValue=00:00:00, StringFormat={}mm\\:ss\\.ff}" />
-                                    <TextBlock Text="{Binding SampleRate, StringFormat={}SampleRate: {0}}" />
-                                    <TextBlock Text="{Binding Model, StringFormat={}Model: {0}}" />
+                                    <TextBlock>
+                                        <Run Text="{CommonControls:Localize SampleRate, Append=:}"/>
+                                        <Run Text="{Binding SampleRate}"/>
+                                    </TextBlock>
+                                    <TextBlock>
+                                        <Run Text="{CommonControls:Localize Model, Append=:}"/>
+                                        <Run Text="{Binding Model}"/>
+                                    </TextBlock>
                                     <TextBlock Text="{Binding MediaPath}" />
                                 </StackPanel>
                             </Grid>
-                         
+
                         </Border>
                     </Border>
                 </Popup>

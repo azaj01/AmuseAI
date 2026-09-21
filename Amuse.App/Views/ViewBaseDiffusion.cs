@@ -1,4 +1,5 @@
 ﻿using Amuse.App.Common;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Amuse.Common;
 using Microsoft.Extensions.Logging;
@@ -7,11 +8,11 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using TensorStack.Common.Pipeline;
 using TensorStack.Common.Tensor;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
 using TensorStack.WPF;
 using TensorStack.WPF.Controls;
+using TensorStack.WPF.Image;
 using TensorStack.WPF.Services;
 
 namespace Amuse.App.Views
@@ -280,7 +281,7 @@ namespace Amuse.App.Views
             catch (Exception ex)
             {
                 Logger.LogError(ex, "[{View}] [LoadPipeline] An exception occurred loading pipeline, Elapsed: {Elapsed:c}", ViewName, Stopwatch.GetElapsedTime(timestamp));
-                await DialogService.ShowErrorAsync("Load Pipeline", ex.Message);
+                await DialogService.ShowErrorAsync(AppErrors.LoadPipelineTitle, ex.Message);
                 return false;
             }
         }
@@ -320,7 +321,7 @@ namespace Amuse.App.Views
             catch (Exception ex)
             {
                 Logger.LogError(ex, "[{View}] [UnloadPipeline] An exception occurred unloading pipeline, Elapsed: {Elapsed:c}", ViewName, Stopwatch.GetElapsedTime(timestamp));
-                await DialogService.ShowErrorAsync("Unload Pipeline", ex.Message);
+                await DialogService.ShowErrorAsync(AppErrors.UnloadPipelineTitle, ex.Message);
                 return false;
             }
         }
@@ -351,7 +352,7 @@ namespace Amuse.App.Views
         /// </summary>
         protected override async Task CancelAsync()
         {
-            Progress.Indeterminate("Cancelling Generation...");
+            Progress.Indeterminate($"{AppDefault.CancellingGeneration}...");
             await base.CancelAsync();
 
             var timestamp = Stopwatch.GetTimestamp();
@@ -527,7 +528,7 @@ namespace Amuse.App.Views
                 return imageInput;
 
             var timestamp = Stopwatch.GetTimestamp();
-            Progress.Indeterminate("Extracting Image...");
+            Progress.Indeterminate($"{AppDefault.ExtractingImage}...");
             Logger.LogInformation("[{View}] [ExecuteImageExtract] Executing extract...", ViewName);
 
             var extractedImage = await ExtractService.ExecuteAsync(new ExtractImageRequest
@@ -551,7 +552,7 @@ namespace Amuse.App.Views
                 return videoInput;
 
             var timestamp = Stopwatch.GetTimestamp();
-            Progress.Indeterminate("Extracting Video...");
+            Progress.Indeterminate($"{AppDefault.ExtractingVideo}...");
             Logger.LogInformation("[{View}] [ExecuteVideoExtract] Executing extract...", ViewName);
 
             videoInput = await ExtractService.ExecuteAsync(new ExtractVideoRequest
@@ -601,7 +602,7 @@ namespace Amuse.App.Views
             var timestamp = Stopwatch.GetTimestamp();
             Logger.LogInformation("[{View}] [ExecuteImageUpscale] Executing upscale...", ViewName);
 
-            Progress.Indeterminate("Upscaling Image...");
+            Progress.Indeterminate($"{AppDefault.UpscalingImage}...");
             imageInput = await UpscaleService.ExecuteAsync(new UpscaleImageRequest
             {
                 Image = imageInput,
@@ -623,7 +624,7 @@ namespace Amuse.App.Views
                 return videoInput;
 
             var timestamp = Stopwatch.GetTimestamp();
-            Progress.Indeterminate("Upscaling Video...");
+            Progress.Indeterminate($"{AppDefault.UpscalingVideo}...");
             Logger.LogInformation("[{View}] [ExecuteVideoUpscale] Executing upscale...", ViewName);
 
             videoInput = await UpscaleService.ExecuteAsync(new UpscaleVideoRequest
@@ -655,7 +656,7 @@ namespace Amuse.App.Views
                 }
                 else
                 {
-                    Progress.Indeterminate($"Initializing {CurrentPipeline.DiffusionModel.Backend} Environment...");
+                    Progress.Indeterminate(string.Format(AppDefault.InitializingBackendEnvironment, CurrentPipeline.DiffusionModel.Backend));
                     if (!await LoadPipelineAsync())
                         return;// Canceled/Failed to load pipeline
 
@@ -679,7 +680,7 @@ namespace Amuse.App.Views
             if (progress.Maximum > 1)
                 Progress.Update(progress.Value, progress.Maximum, $"Tile {progress.Value}/{progress.Maximum}");
             else
-                Progress.Indeterminate("Rendering Image...");
+                Progress.Indeterminate($"{AppDefault.RenderingImage}...");
 
             Logger.LogDebug("[{View}] [OnProgress] Step: {Value}/{Max}, Elapsed: {Elapsed:c}", ViewName, progress.Value, progress.Maximum, progress.Elapsed);
         }

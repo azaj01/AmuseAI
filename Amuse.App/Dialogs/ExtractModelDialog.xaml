@@ -8,7 +8,7 @@
         xmlns:CommonControls="clr-namespace:TensorStack.WPF.Controls;assembly=TensorStack.WPF"
         MinWidth="800"
         MaxWidth="800"
-        Title="Extract Model"
+        Title="{CommonControls:Localize Title_ExtractModel}"
         Icon="/Images/Icon.ico"
         Style="{StaticResource {x:Type CommonControls:DialogControl}}">
     <DockPanel DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:ExtractModelDialog}}}" Margin="15, 15, 15, 10">
@@ -16,8 +16,8 @@
         <!--Save/Cancel/Errors-->
         <DockPanel DockPanel.Dock="Bottom" Height="30" Margin="0,15,0,0">
             <UniformGrid DockPanel.Dock="Right" Columns="2" >
-                <Button Content="Save" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
-                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+                <Button Content="{CommonControls:Localize Save}" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
+                <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}"/>
             </UniformGrid>
             <ItemsControl ItemsSource="{Binding Errors}">
                 <ItemsControl.ItemTemplate>
@@ -32,59 +32,59 @@
         <StackPanel>
 
             <!--Model Settings-->
-            <GroupBox Header="Settings" Padding="4">
+            <GroupBox Header="{CommonControls:Localize Settings}" Padding="4">
                 <StackPanel>
                     <UniformGrid  Rows="1">
                         <StackPanel Margin="0,0,2,0">
-                            <TextBlock Text="Backend" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Backend}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Source={StaticResource BackendType}}" SelectedItem="{Binding ExtractModel.Backend}" IsEnabled="False" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Pipeline" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Pipeline}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Settings.Pipelines}" SelectedItem="{Binding ExtractModel.Pipeline}"  IsEnabled="False" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Name" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Name}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding ExtractModel.Name, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                     </UniformGrid>
 
                     <UniformGrid Columns="4">
                         <StackPanel Margin="0,0,2,0">
-                            <TextBlock Text="Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Type}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox x:Name="ComboBoxExtractorType" ItemsSource="{Binding Source={StaticResource ExtractorType}}" SelectedItem="{Binding ExtractModel.Type}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Channels" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Channels}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding ExtractModel.Channels, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Sample Size" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize SampleSize}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding ExtractModel.SampleSize, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Margin="2,0,0,0">
-                            <TextBlock Text="Output Channels" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize OutputChannels}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding ExtractModel.OutputChannels, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <StackPanel Margin="0,0,2,0">
-                            <TextBlock Text="Input Normalization" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize InputNormalization}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Source={StaticResource NormalizationType}}" SelectedItem="{Binding ExtractModel.Normalization}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Output Normalization" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize OutputNormalization}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Source={StaticResource NormalizationType}}" SelectedItem="{Binding ExtractModel.OutputNormalization}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="MemorySize" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize MemorySize}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding ExtractModel.MemorySize, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Margin="2,0,0,0">
-                            <CheckBox DockPanel.Dock="Right" Content="Dynamic Output Shape" IsChecked="{Binding ExtractModel.IsDynamicOutput}" VerticalAlignment="Bottom" Margin="0,20,0,0"/>
+                            <CheckBox DockPanel.Dock="Right" Content="{CommonControls:Localize DynamicOutputShape}" IsChecked="{Binding ExtractModel.IsDynamicOutput}" VerticalAlignment="Bottom" Margin="0,20,0,0"/>
                         </StackPanel>
                     </UniformGrid>
 
-                    <!--<CheckBox DockPanel.Dock="Right" Content="Default" IsChecked="{Binding ExtractModel.IsDefault}" VerticalAlignment="Bottom" Margin="10,0,0,2"/>-->
+                    <!--<CheckBox DockPanel.Dock="Right" Content="{CommonControls:Localize Default_}" IsChecked="{Binding ExtractModel.IsDefault}" VerticalAlignment="Bottom" Margin="10,0,0,2"/>-->
 
                     <StackPanel Margin="0,2,0,0" DataContext="{Binding ExtractModel.DefaultOptions}">
 
@@ -92,21 +92,21 @@
                         <StackPanel Visibility="{Binding ExtractModel.Type, RelativeSource={RelativeSource AncestorType={x:Type local:ExtractModelDialog}}, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Default}">
                             <UniformGrid Columns="4" Visibility="{Binding IsTileSupported, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}">
                                 <StackPanel Margin="0,0,2,0">
-                                    <TextBlock Text="Tile Overlap" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize TileOverlap}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding TileOverlap}" />
                                 </StackPanel>
                                 <StackPanel IsEnabled="{Binding IsTileEnabled}" Margin="2,0,2,0">
-                                    <TextBlock Text="Tile Size" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize TileSize}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding TileSize}" />
                                 </StackPanel>
                                 <StackPanel IsEnabled="{Binding IsTileEnabled}" Margin="2,0,0,0">
-                                    <CheckBox Content="Enable Tiling" IsChecked="{Binding IsTileEnabled}" Margin="0,20,0,0"/>
+                                    <CheckBox Content="{CommonControls:Localize EnableTiling}" IsChecked="{Binding IsTileEnabled}" Margin="0,20,0,0"/>
                                 </StackPanel>
                             </UniformGrid>
                             <UniformGrid Columns="4" >
 
                                 <StackPanel Margin="-1,6,0,0">
-                                    <CheckBox Content="Invert Output" IsChecked="{Binding IsInverted}" />
+                                    <CheckBox Content="{CommonControls:Localize InvertOutput}" IsChecked="{Binding IsInverted}" />
                                 </StackPanel>
                             </UniformGrid>
                         </StackPanel>
@@ -116,7 +116,7 @@
                         <StackPanel Visibility="{Binding ExtractModel.Type, RelativeSource={RelativeSource AncestorType={x:Type local:ExtractModelDialog}}, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Background, FallbackValue=Collapsed}">
                             <UniformGrid Columns="2">
                                 <StackPanel>
-                                    <TextBlock Text="Background Mode" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize BackgroundMode}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <ComboBox SelectedItem="{Binding Mode}" ItemsSource="{Binding Source={StaticResource BackgroundMode}}" Style="{StaticResource EnumComboBox}"/>
                                 </StackPanel>
                             </UniformGrid>
@@ -126,42 +126,42 @@
                         <StackPanel Visibility="{Binding ExtractModel.Type, RelativeSource={RelativeSource AncestorType={x:Type local:ExtractModelDialog}}, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Pose, FallbackValue=Collapsed}">
                             <UniformGrid Columns="4">
                                 <StackPanel Margin="0,0,2,0">
-                                    <TextBlock Text="Max Detections" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize MaxDetections}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding Detections, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
                                 <StackPanel Margin="2,0,2,0">
-                                    <TextBlock Text="Body Confidence" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize BodyConfidence}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding BodyConfidence, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
                                 <StackPanel Margin="2,0,2,0">
-                                    <TextBlock Text="Joint Confidence" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize JointConfidence}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding JointConfidence, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
                                 <StackPanel Margin="2,0,0,0">
-                                    <TextBlock Text="Bone Radius" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize BoneRadius}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding BoneRadius, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
 
                                 <StackPanel Margin="0,0,2,0">
-                                    <TextBlock Text="Bone Thickness" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize BoneThickness}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding BoneThickness, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
                                 <StackPanel Margin="2,0,2,0">
-                                    <TextBlock Text="Joint Radius" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize JointRadius}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding JointRadius, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
                                 <StackPanel Margin="2,0,2,0">
-                                    <CommonControls:SliderControl Value="{Binding ColorAlpha}" Text="Alpha" Minimum="0" Maximum="1" TickFrequency="0.01" ValueFormat="N2" />
+                                    <CommonControls:SliderControl Value="{Binding ColorAlpha}" Text="{CommonControls:Localize Alpha}" Minimum="0" Maximum="1" TickFrequency="0.01" ValueFormat="N2" />
                                 </StackPanel>
                                 <StackPanel Margin="2,0,0,0">
-                                    <CheckBox Content="IsTransparent" IsChecked="{Binding IsTransparent}" Margin="8, 16, 0, 0" />
+                                    <CheckBox Content="{CommonControls:Localize IsTransparent}" IsChecked="{Binding IsTransparent}" Margin="8, 16, 0, 0" />
                                 </StackPanel>
                             </UniformGrid>
                         </StackPanel>
                     </StackPanel>
 
                     <StackPanel Margin="0,2,0,0">
-                        <TextBlock Text="Model Link" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize ModelLink}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <TextBox Text="{Binding ExtractModel.Link, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </StackPanel>

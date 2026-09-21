@@ -1,4 +1,5 @@
 ﻿using Amuse.App.Common;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Microsoft.Extensions.Logging;
 using System;
@@ -115,7 +116,7 @@ namespace Amuse.App.Views
                 Statistics.Clear();
                 IsPipelineLoaded = GenerateService.IsLoaded;
                 Logger.LogError(ex, "[VideoToVideo] [Execute] An exception occurred executing pipeline, Elapsed: {Elapsed:c}", Stopwatch.GetElapsedTime(timestamp));
-                await DialogService.ShowErrorAsync("Execute Pipeline", ex.Message);
+                await DialogService.ShowErrorAsync(AppErrors.ExecutePipelineTitle, ex.Message);
             }
             finally
             {
@@ -144,7 +145,7 @@ namespace Amuse.App.Views
                 Statistics.Start();
                 CancellationTokenSource = new CancellationTokenSource();
 
-                AutomationProgress.Indeterminate($"Automation Started");
+                AutomationProgress.Indeterminate(AppDefault.AutomationStarted);
                 var cancellationToken = CancellationTokenSource.Token;
                 await foreach (var automationJob in AutomationManager.CreateJobsAsync(AutomationOptions, Options, MediaType.Video, MediaType.Video))
                 {
@@ -171,7 +172,7 @@ namespace Amuse.App.Views
 
                     // Output
                     await automationJob.SaveAsync(ResultVideo);
-                    AutomationProgress.Update(automationJob.Id, automationJob.Count, $"Automation: {automationJob.Id}/{automationJob.Count}");
+                    AutomationProgress.Update(automationJob.Id, automationJob.Count, $"{AppDefault.Automation}: {automationJob.Id}/{automationJob.Count}");
                 }
 
                 Statistics.Stop();
@@ -187,7 +188,7 @@ namespace Amuse.App.Views
                 Statistics.Clear();
                 IsPipelineLoaded = GenerateService.IsLoaded;
                 Logger.LogError(ex, "[VideoToVideo] [ExecuteAutomation] An exception occurred executing pipeline, Elapsed: {Elapsed:c}", Stopwatch.GetElapsedTime(timestamp));
-                await DialogService.ShowErrorAsync("Execute Automation", ex.Message);
+                await DialogService.ShowErrorAsync(AppErrors.ExecuteAutomationTitle, ex.Message);
             }
             finally
             {
@@ -231,10 +232,10 @@ namespace Amuse.App.Views
             var frames = new List<ImageTensor>();
             await foreach (var sourceFrame in _sourceVideo.GetAsync(Options.Width, Options.Height, Options.FrameRate, TensorStack.Common.ResizeMode.Crop).Take(Options.Frames))
             {
-                Progress.Update(sourceFrame.Index, Options.Frames, $"Processing Input Frame: {sourceFrame.Index}/{sourceFrame.Frame}");
+                Progress.Update(sourceFrame.Index, Options.Frames, $"{AppDefault.ProcessingInputFrame}: {sourceFrame.Index}/{sourceFrame.Frame}");
                 frames.Add(sourceFrame.Frame);
             }
-            Progress.Indeterminate("Encoding Video Frames...");
+            Progress.Indeterminate($"{AppDefault.EncodingVideoFrames}...");
             return new VideoSequence([..frames], Options.FrameRate);
         }
     }

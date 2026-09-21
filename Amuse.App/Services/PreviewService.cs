@@ -8,8 +8,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using TensorStack.Common;
 using TensorStack.Common.Tensor;
-using TensorStack.Media.Image;
 using TensorStack.OnnxRuntime;
+using TensorStack.WPF.Image;
 
 namespace Amuse.App.Services
 {

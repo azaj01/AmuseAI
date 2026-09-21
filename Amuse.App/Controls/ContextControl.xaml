@@ -77,7 +77,7 @@
                             </Grid>
 
                             <StackPanel Margin="3">
-                                <TextBlock Text="Document" Visibility="{Binding MediaType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Text}"/>
+                                <TextBlock Text="{CommonControls:Localize Document}" Visibility="{Binding MediaType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Text}"/>
                                 <TextBlock Text="{Binding MediaType}" Visibility="{Binding MediaType, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Text}"/>
                                 <TextBlock Text="{Binding Filename, Converter={StaticResource FullPathToFileNameConverter}}" FontStyle="Italic" Opacity=".8"/>
                             </StackPanel>

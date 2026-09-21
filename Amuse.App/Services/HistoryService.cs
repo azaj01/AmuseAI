@@ -7,10 +7,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using TensorStack.Common;
 using TensorStack.Common.Common;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
 using TensorStack.WPF.Controls;
+using TensorStack.WPF.Image;
 
 namespace Amuse.App.Services
 {

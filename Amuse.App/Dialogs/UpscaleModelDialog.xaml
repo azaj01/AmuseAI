@@ -8,7 +8,7 @@
         xmlns:CommonControls="clr-namespace:TensorStack.WPF.Controls;assembly=TensorStack.WPF"
         MinWidth="800"
         MaxWidth="800"
-        Title="Upscale Model"
+        Title="{CommonControls:Localize Title_UpscaleModel}"
         Icon="/Images/Icon.ico"
         Style="{StaticResource {x:Type CommonControls:DialogControl}}">
     <DockPanel DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:UpscaleModelDialog}}}" Margin="15, 15, 15, 10">
@@ -16,8 +16,8 @@
         <!--Save/Cancel/Errors-->
         <DockPanel DockPanel.Dock="Bottom" Height="30" Margin="0,15,0,0">
             <UniformGrid DockPanel.Dock="Right" Columns="2" >
-                <Button Content="Save" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
-                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+                <Button Content="{CommonControls:Localize Save}" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
+                <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}"/>
             </UniformGrid>
             <ItemsControl ItemsSource="{Binding Errors}">
                 <ItemsControl.ItemTemplate>
@@ -32,60 +32,60 @@
         <StackPanel>
 
             <!--Model Settings-->
-            <GroupBox Header="Settings" Padding="4">
+            <GroupBox Header="{CommonControls:Localize Settings}" Padding="4">
                 <StackPanel>
                     <UniformGrid  Rows="1">
                         <StackPanel Margin="0,0,2,0">
-                            <TextBlock Text="Backend" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Backend}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Source={StaticResource BackendType}}" SelectedItem="{Binding UpscaleModel.Backend}" IsEnabled="False" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Pipeline" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Pipeline}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Settings.Pipelines}" SelectedItem="{Binding UpscaleModel.Pipeline}"  IsEnabled="False" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Name" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Name}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding UpscaleModel.Name, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                     </UniformGrid>
                     <UniformGrid Columns="4">
                         <StackPanel Margin="0,0,2,0">
-                            <TextBlock Text="Scale Factor" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize ScaleFactor}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding UpscaleModel.ScaleFactor, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Sample Size" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize SampleSize}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding UpscaleModel.SampleSize, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
                         <StackPanel Margin="2,0,2,0">
-                            <TextBlock Text="Input Normalization" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize InputNormalization}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Source={StaticResource NormalizationType}}" SelectedItem="{Binding UpscaleModel.Normalization}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="2,0,0,0">
-                            <TextBlock Text="Output Normalization" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize OutputNormalization}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding Source={StaticResource NormalizationType}}" SelectedItem="{Binding UpscaleModel.OutputNormalization}" SelectedIndex="0" Style="{StaticResource EnumComboBox}"/>
                         </StackPanel>
                         <StackPanel Margin="0,0,2,0">
-                            <TextBlock Text="MemorySize" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize MemorySize}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBox Text="{Binding UpscaleModel.MemorySize, UpdateSourceTrigger=PropertyChanged}" />
                         </StackPanel>
 
                         <!--DefaultOptions-->
                         <StackPanel IsEnabled="{Binding UpscaleModel.DefaultOptions.IsTileEnabled}" Margin="2,0,2,0">
-                            <TextBlock Text="Tile Size" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock Text="{CommonControls:Localize TileSize}" Style="{StaticResource FieldTextBlockStyle}" />
                             <TextBox Text="{Binding UpscaleModel.DefaultOptions.TileSize}" />
                         </StackPanel>
                         <StackPanel IsEnabled="{Binding UpscaleModel.DefaultOptions.IsTileEnabled}" Margin="2,0,2,0">
-                            <TextBlock Text="Tile Overlap" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock Text="{CommonControls:Localize TileOverlap}" Style="{StaticResource FieldTextBlockStyle}" />
                             <TextBox Text="{Binding UpscaleModel.DefaultOptions.TileOverlap}" />
                         </StackPanel>
                         <StackPanel Margin="2,0,0,0">
-                            <CheckBox Content="Enable Tiling" IsChecked="{Binding UpscaleModel.DefaultOptions.IsTileEnabled}" Margin="0,19,0,0"/>
+                            <CheckBox Content="{CommonControls:Localize EnableTiling}" IsChecked="{Binding UpscaleModel.DefaultOptions.IsTileEnabled}" Margin="0,19,0,0"/>
                         </StackPanel>
                     </UniformGrid>
 
                     <StackPanel Margin="0,2,0,0">
-                        <TextBlock Text="Model Link" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize ModelLink}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <TextBox Text="{Binding UpscaleModel.Link, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </StackPanel>

@@ -47,7 +47,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="f1de" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="13"/>
-                        <TextBlock Text="Options" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0" />
+                        <TextBlock Text="{CommonControls:Localize Options}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0" />
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel Margin="0,4,0,0" >
@@ -59,7 +59,7 @@
 
                             <!--Seed-->
                             <StackPanel Margin="0,0,2,0">
-                                <TextBlock Text="Seed" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Seed}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <Controls:SeedControl Seed="{Binding Options.Seed}"/>
                             </StackPanel>
 
@@ -72,17 +72,17 @@
 
                         <!--Steps-->
                         <StackPanel>
-                            <CommonControls:SliderControl Text="Steps" Value="{Binding Options.Steps}" Minimum="1" Maximum="100" TickFrequency="1" />
+                            <CommonControls:SliderControl Text="{CommonControls:Localize Steps}" Value="{Binding Options.Steps}" Minimum="1" Maximum="100" TickFrequency="1" />
                         </StackPanel>
 
                         <!--Guidance Scale-->
                         <StackPanel Visibility="{Binding Pipeline.DiffusionModel.DefaultOptions.GuidanceScale, Converter={StaticResource GreaterThanToVisibilityConverter}, ConverterParameter=0}">
-                            <CommonControls:SliderControl Text="Guidance" Value="{Binding Options.GuidanceScale}" Minimum="1" Maximum="20" TickFrequency="0.1" ValueFormat="F2"/>
+                            <CommonControls:SliderControl Text="{CommonControls:Localize Guidance}" Value="{Binding Options.GuidanceScale}" Minimum="1" Maximum="20" TickFrequency="0.1" ValueFormat="F2"/>
                         </StackPanel>
 
                         <!--Strength-->
                         <StackPanel>
-                            <CommonControls:SliderControl Text="Strength" Value="{Binding Options.Strength}"  IsPercent="True"  Minimum="0.01" Maximum="1" TickFrequency="0.01"/>
+                            <CommonControls:SliderControl Text="{CommonControls:Localize Strength}" Value="{Binding Options.Strength}"  IsPercent="True"  Minimum="0.01" Maximum="1" TickFrequency="0.01"/>
                         </StackPanel>
 
                         <!--BPM-->
@@ -98,23 +98,23 @@
                                 </ToggleButton>
                                 <Grid>
                                     <StackPanel Visibility="{Binding IsChecked, ElementName=ToggleButtonDurations, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-                                        <TextBlock Text="Duration" Style="{StaticResource FieldTextBlockStyle}" />
+                                        <TextBlock Text="{CommonControls:Localize Duration}" Style="{StaticResource FieldTextBlockStyle}" />
                                         <ComboBox ItemsSource="{Binding Durations}" SelectedValue="{Binding Options.Duration}" SelectedValuePath="FloatValue" DisplayMemberPath="Label" />
                                     </StackPanel>
                                     <StackPanel Visibility="{Binding IsChecked, ElementName=ToggleButtonDurations, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                        <TextBlock Text="Duration Seconds" Style="{StaticResource FieldTextBlockStyle}" />
+                                        <TextBlock Text="{CommonControls:Localize DurationSeconds}" Style="{StaticResource FieldTextBlockStyle}" />
                                         <TextBox Text="{Binding Options.Duration}" />
                                     </StackPanel>
                                 </Grid>
                             </DockPanel>
 
                             <StackPanel Margin="2,0,0,0">
-                                <TextBlock Text="Time Signature" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize TimeSignature}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <ComboBox ItemsSource="{Binding TimeSignatures}" SelectedValue="{Binding Options.TimeSignature}" SelectedValuePath="Value" DisplayMemberPath="Label"/>
                             </StackPanel>
 
                             <StackPanel Margin="0,0,2,0">
-                                <TextBlock Text="Keyscale" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Keyscale}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <ComboBox ItemsSource="{Binding KeyScales}" SelectedValue="{Binding Options.Keyscale}" SelectedValuePath="Value" DisplayMemberPath="Label" />
                             </StackPanel>
 
@@ -129,7 +129,7 @@
 
                             <!--Seed-->
                             <StackPanel Margin="0,0,2,0">
-                                <TextBlock Text="Seed" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Seed}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <Controls:SeedControl Seed="{Binding Options.Seed}"/>
                             </StackPanel>
 
@@ -140,13 +140,13 @@
 
                             <!--VoiceStyle-->
                             <StackPanel Margin="2,0,0,0" Visibility="{Binding IsSupertonicPipeline, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                <TextBlock Text="Voice Style" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize VoiceStyle}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <ComboBox ItemsSource="{Binding Pipeline.DiffusionModel.DefaultOptions.Tasks}" SelectedItem="{Binding Options.Task}" />
                             </StackPanel>
 
                             <!--Language-->
                             <StackPanel Margin="0,0,2,0" Visibility="{Binding IsSupertonicPipeline, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                <TextBlock Text="Language" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Language}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <ComboBox ItemsSource="{Binding Pipeline.DiffusionModel.DefaultOptions.Languages}" SelectedItem="{Binding Options.Language}" />
                             </StackPanel>
 
@@ -154,17 +154,17 @@
 
                         <!--Steps-->
                         <StackPanel>
-                            <CommonControls:SliderControl Text="Steps" Value="{Binding Options.Steps}" Minimum="1" Maximum="100" TickFrequency="1" />
+                            <CommonControls:SliderControl Text="{CommonControls:Localize Steps}" Value="{Binding Options.Steps}" Minimum="1" Maximum="100" TickFrequency="1" />
                         </StackPanel>
 
                         <!--Guidance Scale-->
                         <StackPanel Visibility="{Binding IsSupertonicPipeline, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-                            <CommonControls:SliderControl Text="Guidance" Value="{Binding Options.GuidanceScale}" Minimum="1" Maximum="20" TickFrequency="0.1" ValueFormat="F2"/>
+                            <CommonControls:SliderControl Text="{CommonControls:Localize Guidance}" Value="{Binding Options.GuidanceScale}" Minimum="1" Maximum="20" TickFrequency="0.1" ValueFormat="F2"/>
                         </StackPanel>
 
                         <!--Speed-->
                         <StackPanel Margin="0,4,0,0" Visibility="{Binding IsSupertonicPipeline, Converter={StaticResource BooleanToVisibilityConverter}}">
-                            <CommonControls:SliderControl Value="{Binding Options.Speed}" Text="Speed" Minimum="0.5" Maximum="5" TickFrequency="0.01" ValuePostFix="x" ValueFormat="N1"/>
+                            <CommonControls:SliderControl Value="{Binding Options.Speed}" Text="{CommonControls:Localize Speed}" Minimum="0.5" Maximum="5" TickFrequency="0.01" ValuePostFix="x" ValueFormat="N1"/>
                         </StackPanel>
 
                         <DockPanel Margin="0,0,0,0" Visibility="{Binding IsSupertonicPipeline, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
@@ -173,11 +173,11 @@
                             </ToggleButton>
                             <Grid>
                                 <StackPanel Visibility="{Binding IsChecked, ElementName=ToggleButtonDurations2, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-                                    <TextBlock Text="Duration" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize Duration}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <ComboBox ItemsSource="{Binding Durations}" SelectedValue="{Binding Options.Duration}" SelectedValuePath="FloatValue" DisplayMemberPath="Label" />
                                 </StackPanel>
                                 <StackPanel Visibility="{Binding IsChecked, ElementName=ToggleButtonDurations2, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <TextBlock Text="Duration Seconds" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize DurationSeconds}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <TextBox Text="{Binding Options.Duration}" />
                                 </StackPanel>
                             </Grid>
@@ -192,45 +192,37 @@
                         <UniformGrid Columns="2" >
                             <DockPanel>
                                 <StackPanel DockPanel.Dock="Right" Width="60" Margin="0,0,2,0">
-                                    <TextBlock Text="Language" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize Language}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <Controls:LanguageControl SupportedLanguages="{Binding Pipeline.DiffusionModel.DefaultOptions.Languages}" SelectedLanguage="{Binding Options.Language}" />
                                 </StackPanel>
                                 <StackPanel>
-                                    <TextBlock Text="Task" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize Task}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <ComboBox ItemsSource="{Binding Pipeline.DiffusionModel.DefaultOptions.Tasks}" SelectedItem="{Binding Options.Task}" />
                                 </StackPanel>
                             </DockPanel>
                             <StackPanel Margin="2,0,0,0">
-                                <TextBlock Text="Seed" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Seed}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <Controls:SeedControl Seed="{Binding Options.Seed}" />
                             </StackPanel>
                         </UniformGrid>
 
-
                         <UniformGrid Columns="2" Margin="0,4,0,0">
-
                             <CommonControls:SliderControl Text="Beams" Value="{Binding Options.Beams}" Minimum="0" Maximum="20" TickFrequency="1" />
                             <CommonControls:SliderControl Text="Temperature" Value="{Binding Options.Temperature}" Minimum="0.1" Maximum="5" TickFrequency="0.01" ValueFormat="N2"/>
                             <CommonControls:SliderControl Text="TopK" Value="{Binding Options.TopK}" Minimum="1" Maximum="100" TickFrequency="1" />
                             <CommonControls:SliderControl Text="TopP" Value="{Binding Options.TopP}" Minimum="0.1" Maximum="1" TickFrequency="0.01" ValueFormat="N2"/>
-                            <CommonControls:SliderControl Text="Min Length" Value="{Binding Options.MinLength}" Minimum="{Binding Pipeline.DiffusionModel.DefaultOptions.MinLength}" Maximum="{Binding Pipeline.DiffusionModel.DefaultOptions.MaxLength}" TickFrequency="1" />
-                            <CommonControls:SliderControl Text="Max Length" Value="{Binding Options.MaxLength}" Minimum="{Binding Pipeline.DiffusionModel.DefaultOptions.MinLength}" Maximum="{Binding Pipeline.DiffusionModel.DefaultOptions.MaxLength}" TickFrequency="1" />
-                            <CommonControls:SliderControl Text="Length Penalty" Value="{Binding Options.LengthPenalty}" Minimum="-5" Maximum="5" TickFrequency="0.05" ValueFormat="N2" />
-                            <CommonControls:SliderControl Text="Chunk Size" Value="{Binding Options.ChunkSize}" Minimum="2" Maximum="30" TickFrequency="1" />
-                            <!--<CommonControls:SliderControl Text="Diversity Length" Value="{Binding Options.DiversityLength}" Minimum="1" Maximum="{Binding Pipeline.DiffusionModel.DefaultOptions.MaxLength}" TickFrequency="1" />-->
-
-                            <!--<StackPanel>
-                                 <TextBlock Text="DiversityLength" Style="{StaticResource FieldTextBlockStyle}" />
-                                 <TextBox Text="{Binding DiversityLength}" />
-                             </StackPanel>-->
+                            <CommonControls:SliderControl Text="{CommonControls:Localize MinLength}" Value="{Binding Options.MinLength}" Minimum="{Binding Pipeline.DiffusionModel.DefaultOptions.MinLength}" Maximum="{Binding Pipeline.DiffusionModel.DefaultOptions.MaxLength}" TickFrequency="1" />
+                            <CommonControls:SliderControl Text="{CommonControls:Localize MaxLength}" Value="{Binding Options.MaxLength}" Minimum="{Binding Pipeline.DiffusionModel.DefaultOptions.MinLength}" Maximum="{Binding Pipeline.DiffusionModel.DefaultOptions.MaxLength}" TickFrequency="1" />
+                            <CommonControls:SliderControl Text="{CommonControls:Localize LengthPenalty}" Value="{Binding Options.LengthPenalty}" Minimum="-5" Maximum="5" TickFrequency="0.05" ValueFormat="N2" />
+                            <CommonControls:SliderControl Text="{CommonControls:Localize ChunkSize}" Value="{Binding Options.ChunkSize}" Minimum="2" Maximum="30" TickFrequency="1" />
                         </UniformGrid>
 
                         <UniformGrid Columns="2"  Margin="0,4,0,0">
                             <StackPanel>
-                                <TextBlock Text="Early Stopping" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize EarlyStopping}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <ComboBox ItemsSource="{Binding Source={StaticResource EarlyStopping}}" SelectedItem="{Binding Options.EarlyStopping}" Style="{StaticResource EnumComboBox}"/>
                             </StackPanel>
-                            <CheckBox Content="All Beams Results" IsChecked="{Binding IsMultipleResult}" Margin="0,21,0,0" HorizontalAlignment="Right"/>
+                            <CheckBox Content="{CommonControls:Localize AllBeamsResults}" IsChecked="{Binding IsMultipleResult}" Margin="0,21,0,0" HorizontalAlignment="Right"/>
                         </UniformGrid>
 
                     </StackPanel>
@@ -241,7 +233,7 @@
                             <DataTemplate>
                                 <Grid>
                                     <TextBlock Text="{Binding Name, StringFormat={}({0})}" FontSize="8" Margin="0,6,0,0" Opacity=".9" HorizontalAlignment="Center"/>
-                                    <CommonControls:SliderControl Text="Lora"  IsPercent="True" Minimum="0.01" Maximum="2" TickFrequency="0.01" Value="{Binding Strength}"/>
+                                    <CommonControls:SliderControl Text="{CommonControls:Localize Lora}"  IsPercent="True" Minimum="0.01" Maximum="2" TickFrequency="0.01" Value="{Binding Strength}"/>
                                 </Grid>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
@@ -272,21 +264,21 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="f085" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="12"/>
-                        <TextBlock Text="Advanced" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize Advanced}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel VerticalAlignment="Top" Margin="0,4,0,0">
 
                     <!--SchedulerOptions-->
-                    <GroupBox Header="Scheduler Options" Margin="0,0,0,10" Visibility="{Binding Options.SchedulerOptions, Converter={StaticResource NullVisibilityConverter}}">
+                    <GroupBox Header="{CommonControls:Localize SchedulerOptions}" Margin="0,0,0,10" Visibility="{Binding Options.SchedulerOptions, Converter={StaticResource NullVisibilityConverter}}">
                         <Controls:SchedulerControl Options="{Binding Schedulers}" SelectedOptions="{Binding Options.SchedulerOptions, Mode=TwoWay}" IsSelectorOnly="False"/>
                     </GroupBox>
 
                     <!--AutoEncoder-->
-                    <GroupBox Header="Auto Encoder" Margin="0,0,0,10" Visibility="{Binding Options.SchedulerOptions, Converter={StaticResource NullVisibilityConverter}}">
+                    <GroupBox Header="{CommonControls:Localize AutoEncoder}" Margin="0,0,0,10" Visibility="{Binding Options.SchedulerOptions, Converter={StaticResource NullVisibilityConverter}}">
                         <UniformGrid Columns="2" Margin="0,6,0,4">
-                            <CheckBox Content="Enable Tiling" IsChecked="{Binding Options.IsVaeTilingEnabled}" />
-                            <CheckBox Content="Enable Slicing" IsChecked="{Binding Options.IsVaeSlicingEnabled}" />
+                            <CheckBox Content="{CommonControls:Localize EnableTiling}" IsChecked="{Binding Options.IsVaeTilingEnabled}" />
+                            <CheckBox Content="{CommonControls:Localize EnableSlicing}" IsChecked="{Binding Options.IsVaeSlicingEnabled}" />
                         </UniformGrid>
                     </GroupBox>
                 </StackPanel>
@@ -318,7 +310,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="e0b6" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="12"/>
-                        <TextBlock Text="Automation" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize Automation}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel>
@@ -329,7 +321,7 @@
                     <StackPanel VerticalAlignment="Top" Margin="0,4,0,0">
 
                         <StackPanel Margin="0,0,0,10">
-                            <TextBlock Text="Automation" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock Text="{CommonControls:Localize Automation}" Style="{StaticResource FieldTextBlockStyle}" />
                             <ComboBox ItemsSource="{Binding AutomationOptions.Types}" SelectedItem="{Binding AutomationOptions.Type}" Style="{StaticResource EnumComboBox}" />
                         </StackPanel>
 
@@ -337,7 +329,7 @@
                         <Grid Visibility="{Binding AutomationOptions.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Seed}">
                             <UniformGrid Margin="0,0,0,0">
                                 <StackPanel>
-                                    <TextBlock Text="Image Count" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize ImageCount}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <TextBox Text="{Binding AutomationOptions.Count, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
                             </UniformGrid>
@@ -347,7 +339,7 @@
                         <Grid Visibility="{Binding AutomationOptions.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=PromptFiles}">
                             <UniformGrid Margin="0,0,0,0" >
                                 <StackPanel>
-                                    <TextBlock Text="Prompt Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize PromptFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                 </StackPanel>
                             </UniformGrid>
@@ -357,7 +349,7 @@
                         <Grid Visibility="{Binding AutomationOptions.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=PromptLines}">
                             <UniformGrid Margin="0,0,0,0" >
                                 <StackPanel>
-                                    <TextBlock Text="Prompt File" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize PromptFile}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsRequired="True" Filter="Text Files|*.txt;" DefaultExt="txt"/>
                                 </StackPanel>
                             </UniformGrid>
@@ -368,16 +360,16 @@
                             <StackPanel Visibility="{Binding ProcessType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=ImageToImage|ImageEdit|ImageToVideo}">
                                 <UniformGrid Margin="0,0,0,0" >
                                     <StackPanel>
-                                        <TextBlock Text="Image Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize ImageFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                     </StackPanel>
                                 </UniformGrid>
-                                <CheckBox Content="Use Input Size" IsChecked="{Binding AutomationOptions.UseInputSize}" Margin="0,4,0,0"/>
+                                <CheckBox Content="{CommonControls:Localize UseInputSize}" IsChecked="{Binding AutomationOptions.UseInputSize}" Margin="0,4,0,0"/>
                             </StackPanel>
                             <StackPanel  Visibility="{Binding ProcessType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=VideoToVideo}">
                                 <UniformGrid Margin="0,0,0,0" >
                                     <StackPanel>
-                                        <TextBlock Text="Video Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize VideoFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                     </StackPanel>
                                 </UniformGrid>
@@ -385,7 +377,7 @@
                             <StackPanel  Visibility="{Binding ProcessType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=TextToAudio}">
                                 <UniformGrid Margin="0,0,0,0" >
                                     <StackPanel>
-                                        <TextBlock Text="Text Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize TextFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                     </StackPanel>
                                 </UniformGrid>
@@ -393,7 +385,7 @@
                             <StackPanel  Visibility="{Binding ProcessType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=AudioToText}">
                                 <UniformGrid Margin="0,0,0,0" >
                                     <StackPanel>
-                                        <TextBlock Text="Audio Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize AudioFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                     </StackPanel>
                                 </UniformGrid>
@@ -402,15 +394,15 @@
 
 
                         <!--HistoryEnabled-->
-                        <CheckBox Content="Output History" IsChecked="{Binding AutomationOptions.IsHistoryEnabled}" Margin="0,4,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize OutputHistory}" IsChecked="{Binding AutomationOptions.IsHistoryEnabled}" Margin="0,4,0,0"/>
 
 
                         <!--OutputDirectory-->
-                        <CheckBox  Content="Output Location" IsChecked="{Binding AutomationOptions.UseOutputDirectory}" Margin="0,4,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize OutputLocation}" IsChecked="{Binding AutomationOptions.UseOutputDirectory}" Margin="0,4,0,0"/>
                         <Grid Visibility="{Binding AutomationOptions.UseOutputDirectory,Converter={StaticResource BooleanToVisibilityConverter}}">
                             <UniformGrid Margin="0,0,0,0" >
                                 <StackPanel>
-                                    <TextBlock Text="Output Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize OutputFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.OutputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                 </StackPanel>
                             </UniformGrid>

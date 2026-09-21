@@ -11,7 +11,7 @@
         MaxWidth="1000"
         MinHeight="620"
         MaxHeight="800"
-        Title="Diffusion Model"
+        Title="{CommonControls:Localize Title_DiffusionModel}"
         Icon="/Images/Icon.ico"
         Style="{StaticResource {x:Type CommonControls:DialogControl}}">
     <DockPanel DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:DiffusionModelDialog}}}" Margin="15, 15, 15, 10">
@@ -19,8 +19,8 @@
         <!--Save/Cancel/Errors-->
         <DockPanel DockPanel.Dock="Bottom" Height="30" Margin="0,15,0,0">
             <UniformGrid DockPanel.Dock="Right" Columns="2" >
-                <Button Content="Save" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
-                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+                <Button Content="{CommonControls:Localize Save}" Command="{Binding SaveCommand}" Width="100" IsDefault="True"/>
+                <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}"/>
             </UniformGrid>
             <ItemsControl ItemsSource="{Binding Errors}">
                 <ItemsControl.ItemTemplate>
@@ -34,18 +34,18 @@
         <StackPanel DockPanel.Dock="Top">
 
             <!--Model Settings-->
-            <GroupBox Header="Model" Margin="0,0,0,0">
+            <GroupBox Header="{CommonControls:Localize Model}" Margin="0,0,0,0">
                 <UniformGrid Rows="1">
                     <StackPanel Margin="0,0,2,0">
-                        <TextBlock Text="Backend" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize Backend}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <ComboBox ItemsSource="{Binding Source={StaticResource BackendType}}" SelectedItem="{Binding DiffusionModel.Backend}" IsEnabled="False" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="2,0,2,0">
-                        <TextBlock Text="Pipeline" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize Pipeline}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <ComboBox ItemsSource="{Binding Settings.Pipelines}" SelectedItem="{Binding DiffusionModel.Pipeline}" IsEnabled="False" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="2,0,2,0">
-                        <TextBlock Text="Name" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize Name}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <TextBox Text="{Binding DiffusionModel.Name, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -60,19 +60,19 @@
                 <Grid Grid.Column="0">
 
                     <!--Memory Settings-->
-                    <GroupBox Header="Memory Profile" Margin="0,0,4,0">
+                    <GroupBox Header="{CommonControls:Localize MemoryProfile}" Margin="0,0,4,0">
                         <StackPanel>
                             <StackPanel>
-                                <TextBlock Text="Original Model Data Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize OriginalModelDataType}" Style="{StaticResource FieldTextBlockStyle}"/>
                                 <ComboBox ItemsSource="{Binding DataTypes}" SelectedItem="{Binding DiffusionModel.BaseType}" Style="{StaticResource EnumComboBox}"/>
                             </StackPanel>
 
-                            <TextBlock Text="Memory Modes" Style="{StaticResource FieldTextBlockStyle}" Margin="0,10,0,0"/>
+                            <TextBlock Text="{CommonControls:Localize MemoryModes}" Style="{StaticResource FieldTextBlockStyle}" Margin="0,10,0,0"/>
                             <UniformGrid Columns="4" >
-                                <TextBlock Text="Quality" Style="{StaticResource FieldTextBlockStyle}"/>
-                                <TextBlock Text="Low" Style="{StaticResource FieldTextBlockStyle}"/>
-                                <TextBlock Text="Medium" Style="{StaticResource FieldTextBlockStyle}"/>
-                                <TextBlock Text="High" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Quality}" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize Low}" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize Medium}" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize High}" Style="{StaticResource FieldTextBlockStyle}" />
                             </UniformGrid>
 
                             <ItemsControl ItemsSource="{Binding DiffusionModel.MemoryProfile}">
@@ -95,28 +95,28 @@
                 <Grid Grid.Column="1">
 
                     <!--Default Settings-->
-                    <GroupBox Header="Default Options" Margin="4,0,0,0">
+                    <GroupBox Header="{CommonControls:Localize DefaultOptions}" Margin="4,0,0,0">
                         <DockPanel>
 
                             <!--DefaultOptions General-->
                             <DockPanel DockPanel.Dock="Bottom" Margin="0,4,0,0">
                                 <DockPanel DockPanel.Dock="Bottom">
                                     <StackPanel DockPanel.Dock="Right" Width="100">
-                                        <TextBlock Text="Access Token" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize AccessToken}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <ComboBox SelectedIndex="0" ItemsSource="{Binding AccessTokens}" SelectedValue="{Binding DiffusionModel.AccessToken}" SelectedValuePath="Value" DisplayMemberPath="Name" />
                                     </StackPanel>
                                     <StackPanel>
-                                        <TextBlock Text="Repository Link" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize RepositoryLink}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <TextBox Text="{Binding DiffusionModel.Link, UpdateSourceTrigger=PropertyChanged}" />
                                     </StackPanel>
                                 </DockPanel>
                                 <DockPanel Visibility="{Binding DiffusionModel.DefaultOptions.Tasks, Converter={StaticResource NullOrEmptyVisibilityConverter}}">
                                     <StackPanel DockPanel.Dock="Left" Width="140">
-                                        <TextBlock Text="Task" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize Task}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <TextBox Text="{Binding DiffusionModel.DefaultOptions.Task, UpdateSourceTrigger=PropertyChanged}"  />
                                     </StackPanel>
                                     <StackPanel>
-                                        <TextBlock Text="Tasks" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock Text="{CommonControls:Localize Tasks}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <TextBox Text="{Binding DiffusionModel.DefaultOptions.Tasks, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringArrayCommaConverter}}"  />
                                     </StackPanel>
                                 </DockPanel>
@@ -130,49 +130,49 @@
                                     <StackPanel>
                                         <DockPanel>
                                             <StackPanel DockPanel.Dock="Left" Width="200">
-                                                <TextBlock Text="Scheduler" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Scheduler}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <ComboBox ItemsSource="{Binding Schedulers}" SelectedValue="{Binding DiffusionModel.DefaultOptions.Scheduler}" SelectedValuePath="Scheduler" DisplayMemberPath="Scheduler"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                                                <CheckBox Content="Vae Slicing" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeSlicingEnabled}" Margin="20, 0,0,0"/>
-                                                <CheckBox Content="Vae Tiling" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeTilingEnabled}" Margin="20, 0,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize VaeSlicing}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeSlicingEnabled}" Margin="20, 0,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize VaeTiling}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeTilingEnabled}" Margin="20, 0,0,0"/>
                                             </StackPanel>
                                         </DockPanel>
                                         <UniformGrid Columns="5">
                                             <StackPanel>
-                                                <TextBlock Text="Steps" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Steps}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Steps, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Steps2" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Steps2}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Steps2, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Guidance (CFG)" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize GuidanceCFG}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.GuidanceScale, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Guidance (Model)" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize GuidanceModel}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.GuidanceScale2, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Strength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Strength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Strength, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="NoiseCondition" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize NoiseCondition}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.NoiseCondition, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MinLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MinLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MinLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MaxLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MaxLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MaxLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MaxLength2" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MaxLength2}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MaxLength2, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                         </UniformGrid>
@@ -184,85 +184,85 @@
                                     <StackPanel>
                                         <DockPanel>
                                             <StackPanel DockPanel.Dock="Left" Width="200">
-                                                <TextBlock Text="Scheduler" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Scheduler}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <ComboBox ItemsSource="{Binding Schedulers}" SelectedValue="{Binding DiffusionModel.DefaultOptions.Scheduler}" SelectedValuePath="Scheduler" DisplayMemberPath="Scheduler"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                                                <CheckBox Content="Vae Slicing" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeSlicingEnabled}" Margin="20, 0,0,0"/>
-                                                <CheckBox Content="Vae Tiling" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeTilingEnabled}" Margin="20, 0,0,0"/>
-                                                <CheckBox Content="FirstFrame LastFrame" IsChecked="{Binding DiffusionModel.DefaultOptions.IsFirstFrameLastFrameEnabled}" Margin="20, 0,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize VaeSlicing}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeSlicingEnabled}" Margin="20, 0,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize VaeTiling}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeTilingEnabled}" Margin="20, 0,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize FirstFrameLastFrame}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsFirstFrameLastFrameEnabled}" Margin="20, 0,0,0"/>
                                             </StackPanel>
                                         </DockPanel>
                                         <UniformGrid Columns="5">
                                             <StackPanel>
-                                                <TextBlock Text="Steps" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Steps}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Steps, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Steps2" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Steps2}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Steps2, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Guidance (CFG)" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize GuidanceCFG}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.GuidanceScale, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Guidance (Model)" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize GuidanceModel}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.GuidanceScale2, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Strength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Strength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Strength, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="NoiseCondition" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize NoiseCondition}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.NoiseCondition, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="FrameRate" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize FrameRate}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.FrameRate, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Channels" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Channels}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Channels, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="SampleRate" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize SampleRate}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.SampleRate, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="FrameChunk" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize FrameChunk}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.FrameChunk, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="FrameChunkOverlap" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize FrameChunkOverlap}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.FrameChunkOverlap, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Duration" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Duration}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Duration, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MinLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MinLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MinLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MaxLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MaxLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MaxLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MaxLength2" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MaxLength2}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MaxLength2, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                         </UniformGrid>
 
                                         <DockPanel>
                                             <StackPanel DockPanel.Dock="Left" Width="60">
-                                                <TextBlock Text="Frames" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Frames}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Frames, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Frame Options" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize FrameOptions}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.FrameOptions, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource IntArrayCommaConverter}}" />
                                             </StackPanel>
                                         </DockPanel>
@@ -274,57 +274,57 @@
                                     <StackPanel>
                                         <DockPanel>
                                             <StackPanel DockPanel.Dock="Left" Width="200" Visibility="{Binding Schedulers, Converter={StaticResource NullOrEmptyVisibilityConverter}}">
-                                                <TextBlock Text="Scheduler" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Scheduler}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <ComboBox ItemsSource="{Binding Schedulers}" SelectedValue="{Binding DiffusionModel.DefaultOptions.Scheduler}" SelectedValuePath="Scheduler" DisplayMemberPath="Scheduler"/>
                                             </StackPanel>
                                             <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                                                <CheckBox Content="Vae Slicing" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeSlicingEnabled}" Margin="20, 0,0,0"/>
-                                                <CheckBox Content="Vae Tiling" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeTilingEnabled}" Margin="20, 0,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize VaeSlicing}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeSlicingEnabled}" Margin="20, 0,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize VaeTiling}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsVaeTilingEnabled}" Margin="20, 0,0,0"/>
                                             </StackPanel>
                                         </DockPanel>
                                         <UniformGrid Columns="6">
                                             <StackPanel>
-                                                <TextBlock Text="Steps" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Steps}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Steps, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Guidance (CFG)" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize GuidanceCFG}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.GuidanceScale, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Strength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Strength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Strength, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="SampleRate" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize SampleRate}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.SampleRate, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Channels" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Channels}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.Channels, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MinLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MinLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MinLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MaxLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MaxLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MaxLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MaxLength2" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MaxLength2}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MaxLength2, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Duration" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Duration}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Duration, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="SilenceDuration" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize SilenceDuration}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.SilenceDuration, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="Speed" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize Speed}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Speed, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
 
@@ -336,7 +336,7 @@
 
                                             <!--WhisperPipeline-->
                                             <StackPanel Visibility="{Binding DiffusionModel.Pipeline, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=WhisperPipeline}">
-                                                <TextBlock Text="ChunkSize" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize ChunkSize}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.ChunkSize, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel Visibility="{Binding DiffusionModel.Pipeline, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=WhisperPipeline}">
@@ -356,19 +356,19 @@
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Temperature, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel Visibility="{Binding DiffusionModel.Pipeline, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=WhisperPipeline}">
-                                                <TextBlock Text="LengthPenalty" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize LengthPenalty}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.LengthPenalty, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel Visibility="{Binding DiffusionModel.Pipeline, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=WhisperPipeline}">
-                                                <TextBlock Text="NoRepeatNgramSize" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize NoRepeatNgrams}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.NoRepeatNgramSize, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel Visibility="{Binding DiffusionModel.Pipeline, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=WhisperPipeline}">
-                                                <TextBlock Text="DiversityLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize DiversityLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.DiversityLength, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel Visibility="{Binding DiffusionModel.Pipeline, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=WhisperPipeline}">
-                                                <TextBlock Text="EarlyStopping" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize EarlyStopping}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <ComboBox ItemsSource="{Binding Source={StaticResource EarlyStopping}}" SelectedItem="{Binding  DiffusionModel.DefaultOptions.EarlyStopping}" Style="{StaticResource EnumComboBox}"/>
                                             </StackPanel>
                                         </UniformGrid>
@@ -382,15 +382,15 @@
                                     <StackPanel>
                                          <UniformGrid Columns="5">
                                             <StackPanel>
-                                                <TextBlock Text="MinLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MinLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MinLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="MaxLength" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize MaxLength}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.MaxLength, UpdateSourceTrigger=PropertyChanged}" />
                                             </StackPanel>
                                            <StackPanel>
-                                                <TextBlock Text="ChunkSize" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize ChunkSize}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.ChunkSize, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
@@ -418,19 +418,19 @@
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.Temperature, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="LengthPenalty" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize LengthPenalty}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.LengthPenalty, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="RepetitionPenalty" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize RepetitionPenalty}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <CommonControls:FloatBox FloatValue="{Binding DiffusionModel.DefaultOptions.RepetitionPenalty, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <TextBlock Text="NoRepeatNgramSize" Style="{StaticResource FieldTextBlockStyle}"/>
+                                                <TextBlock Text="{CommonControls:Localize NoRepeatNgrams}" Style="{StaticResource FieldTextBlockStyle}"/>
                                                 <TextBox Text="{Binding DiffusionModel.DefaultOptions.NoRepeatNgramSize, UpdateSourceTrigger=PropertyChanged}"  />
                                             </StackPanel>
                                             <StackPanel>
-                                                <CheckBox Content="Sampling Enabled" IsChecked="{Binding IsSamplingEnabled}" Margin="4,20,0,0"/>
+                                                <CheckBox Content="{CommonControls:Localize SamplingEnabled}" IsChecked="{Binding DiffusionModel.DefaultOptions.IsSamplingEnabled}" Margin="4,20,0,0"/>
                                             </StackPanel>
                                         </UniformGrid>
 
@@ -444,7 +444,7 @@
             </Grid>
 
             <!--Resolution Settings-->
-            <GroupBox Header="Resolutions" Visibility="{Binding DiffusionModel.MediaType, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Audio|Text}" Margin="0,6,0,0">
+            <GroupBox Header="{CommonControls:Localize Resolutions}" Visibility="{Binding DiffusionModel.MediaType, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Audio|Text}" Margin="0,6,0,0">
                 <DockPanel>
                     <DockPanel DockPanel.Dock="Top">
                         <Button DockPanel.Dock="Right" Command="{Binding AddSizeCommand}" Height="23" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right">
@@ -452,15 +452,15 @@
                         </Button>
                         <UniformGrid Columns="3">
                             <StackPanel Margin="0,0,1,0">
-                                <TextBlock Text="Width" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize Width}" Style="{StaticResource FieldTextBlockStyle}"/>
                                 <TextBox Text="{Binding SelectedSize.Width, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel  Margin="1,0,0,0">
-                                <TextBlock Text="Height" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize Height}" Style="{StaticResource FieldTextBlockStyle}"/>
                                 <TextBox  Text="{Binding SelectedSize.Height, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel VerticalAlignment="Bottom">
-                                <CheckBox Content="Default" IsChecked="{Binding SelectedSize.IsDefault, UpdateSourceTrigger=PropertyChanged}" Margin="3,0,0,3"/>
+                                <CheckBox Content="{CommonControls:Localize Default_}" IsChecked="{Binding SelectedSize.IsDefault, UpdateSourceTrigger=PropertyChanged}" Margin="3,0,0,3"/>
                             </StackPanel>
                         </UniformGrid>
                     </DockPanel>
@@ -478,8 +478,8 @@
                                             <CommonControls:FontAwesome Icon="f00d" Color="{StaticResource DangerColour}" />
                                         </Button>
                                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="4,0,2,0">
-                                            <TextBlock Text="{Binding}"/>
-                                            <TextBlock Text=" (default)" Visibility="{Binding IsDefault, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="9" FontStyle="Italic" VerticalAlignment="Center" />
+                                            <TextBlock Text="{Binding}" Margin="0,0,4,0"/>
+                                            <TextBlock Text="{CommonControls:Localize TagDefault}" Visibility="{Binding IsDefault, Converter={StaticResource BooleanToVisibilityConverter}}" FontSize="9" FontStyle="Italic" VerticalAlignment="Center" />
                                         </StackPanel>
                                     </DockPanel>
                                 </Border>
@@ -493,7 +493,7 @@
             <UniformGrid Rows="1" Margin="0,6,0,0">
 
                 <!--Process Settings-->
-                <GroupBox DockPanel.Dock="Top" Header="Supported Functions" Margin="0,0,4,0">
+                <GroupBox DockPanel.Dock="Top" Header="{CommonControls:Localize SupportedFunctions}" Margin="0,0,4,0">
                     <Grid Margin="4">
                         <StackPanel VerticalAlignment="Top"  Visibility="{Binding DiffusionModel.MediaType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Image}">
                             <UniformGrid Columns="3" >
@@ -528,7 +528,7 @@
                 </GroupBox>
 
                 <!--View Filters-->
-                <GroupBox DockPanel.Dock="Top" Header="View Filter" Margin="4,0,0,0">
+                <GroupBox DockPanel.Dock="Top" Header="{CommonControls:Localize ViewFilter}" Margin="4,0,0,0">
                     <Grid Margin="4">
                         <StackPanel VerticalAlignment="Top"  Visibility="{Binding DiffusionModel.MediaType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Image}">
                             <UniformGrid Columns="3" >

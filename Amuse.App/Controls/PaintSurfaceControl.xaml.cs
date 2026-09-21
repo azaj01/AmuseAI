@@ -11,10 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using TensorStack.Common;
-using TensorStack.Media.Image;
 using TensorStack.WPF;
 using TensorStack.WPF.Controls;
 using TensorStack.WPF.Dialogs;
+using TensorStack.WPF.Image;
 using TensorStack.WPF.Services;
 
 namespace Amuse.App.Controls

@@ -47,7 +47,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="f1de" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="13"/>
-                        <TextBlock Text="Options" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0" />
+                        <TextBlock Text="{CommonControls:Localize Options}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0" />
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel Margin="0,4,0,0" >
@@ -55,7 +55,7 @@
                     <StackPanel DockPanel.Dock="Top"  >
                         <UniformGrid Columns="2">
                             <StackPanel Margin="0,0,2,0" IsEnabled="False">
-                                <TextBlock Text="Presets" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Presets}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <DockPanel>
                                     <UniformGrid DockPanel.Dock="Right" Columns="2">
                                         <CommonControls:AddOnButton Icon="f00c" IconSize="12" IconColor="{StaticResource DefaultForeground}" Width="25" IconOpacity=".8"/>
@@ -65,22 +65,22 @@
                                 </DockPanel>
                             </StackPanel>
                             <StackPanel Margin="2,0,0,0">
-                                <TextBlock Text="Seed" Style="{StaticResource FieldTextBlockStyle}" />
+                                <TextBlock Text="{CommonControls:Localize Seed}" Style="{StaticResource FieldTextBlockStyle}" />
                                 <Controls:SeedControl Seed="{Binding Options.Seed}"/>
                             </StackPanel>
                         </UniformGrid>
                         <UniformGrid Columns="2" Margin="0,2,0,0">
-                            <CommonControls:SliderControl Text="Min Length" Value="{Binding Options.MinLength}" Maximum="{Binding Pipeline.LanguageModel.DefaultOptions.MaxLength}" TickFrequency="1" />
-                            <CommonControls:SliderControl Text="Max Length" Value="{Binding Options.MaxLength}" Maximum="{Binding Pipeline.LanguageModel.DefaultOptions.MaxLength}" TickFrequency="1024" />
+                            <CommonControls:SliderControl Text="{CommonControls:Localize MinLength}" Value="{Binding Options.MinLength}" Maximum="{Binding Pipeline.LanguageModel.DefaultOptions.MaxLength}" TickFrequency="1" />
+                            <CommonControls:SliderControl Text="{CommonControls:Localize MaxLength}" Value="{Binding Options.MaxLength}" Maximum="{Binding Pipeline.LanguageModel.DefaultOptions.MaxLength}" TickFrequency="1024" />
                         </UniformGrid>
 
-                        <CheckBox Content="Thinking Enabled" IsChecked="{Binding Options.IsThinkingEnabled}" Margin="-1,8,0,4" FontStyle="Italic" FontSize="11" Opacity=".9"/>
+                        <CheckBox Content="{CommonControls:Localize ThinkingEnabled}" IsChecked="{Binding Options.IsThinkingEnabled}" Margin="-1,8,0,4" FontStyle="Italic" FontSize="11" Opacity=".9"/>
                     </StackPanel>
 
     
                     <!--Image Select-->
                     <StackPanel DockPanel.Dock="Top"  Visibility="{Binding IsInputImagesEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
-                        <TextBlock Text="Inputs" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Inputs}" Style="{StaticResource FieldTextBlockStyle}" />
                         <Controls:SourceSelectControl 
                             Height="22"
                             FontSize="12"
@@ -101,7 +101,7 @@
 
                         <!--Prompt-->
                         <DockPanel Visibility="{Binding IsPromptEnabled, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="0,0,0,8">
-                            <TextBlock DockPanel.Dock="Top" Text="Prompt" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize Prompt}" Style="{StaticResource FieldTextBlockStyle}" />
                             <Border Style="{StaticResource TextDropZoneStyle}" >
                                 <CommonControls:PlaceholderTextBox Text="{Binding Options.Prompt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" />
                             </Border>
@@ -111,8 +111,8 @@
                         <Border Visibility="{Binding IsPromptEnabled, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
                             <DockPanel>
                                 <StackPanel DockPanel.Dock="Top">
-                                    <TextBlock Text="Conversation Context" Style="{StaticResource FieldTextBlockStyle}" Visibility="{Binding ViewType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=TextConverse}"/>
-                                    <TextBlock Text="Additional Context" Style="{StaticResource FieldTextBlockStyle}" Visibility="{Binding ViewType, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=TextConverse}"/>
+                                    <TextBlock Text="{CommonControls:Localize ConversationContext}" Style="{StaticResource FieldTextBlockStyle}" Visibility="{Binding ViewType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=TextConverse}"/>
+                                    <TextBlock Text="{CommonControls:Localize AdditionalContext}" Style="{StaticResource FieldTextBlockStyle}" Visibility="{Binding ViewType, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=TextConverse}"/>
                                 </StackPanel>
                                 <Controls:ContextControl x:Name="ContextControlElement" IsControlBusy="{Binding IsControlBusy, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                             </DockPanel>
@@ -129,7 +129,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="f085" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="12"/>
-                        <TextBlock Text="Advanced" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize Advanced}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel Margin="0,4,0,8">
@@ -141,29 +141,29 @@
                         <CommonControls:SliderControl Text="TopP" Value="{Binding Options.TopP}" Minimum="0.01" Maximum="1" TickFrequency="0.01" ValueFormat="N2"/>
                         <CommonControls:SliderControl Text="TopH" Value="{Binding Options.TopH}" Minimum="0.01" Maximum="1" TickFrequency="0.01" ValueFormat="N2"/>
                         <CommonControls:SliderControl Text="TypicalP" Value="{Binding Options.TypicalP}" Minimum="0.01" Maximum="1" TickFrequency="0.01" ValueFormat="N2"/>
-                        <CommonControls:SliderControl Text="Length Penalty" Value="{Binding Options.LengthPenalty}" Minimum="-5" Maximum="5" TickFrequency="0.05" ValueFormat="N2" />
-                        <CommonControls:SliderControl Text="Repetition Penalty" Value="{Binding Options.RepetitionPenalty}" Minimum="0.05" Maximum="5" TickFrequency="0.05" ValueFormat="N2" />
-                        <CommonControls:SliderControl Text="No Repeat Ngrams" Value="{Binding Options.NoRepeatNgramSize}" Minimum="0" Maximum="10" TickFrequency="1" ValueFormat="N0" />
-                        <CheckBox Content="Sampling Enabled" IsChecked="{Binding Options.IsSamplingEnabled}" Margin="4,13,0,0" FontStyle="Italic" FontSize="11" Opacity=".9"/>
+                        <CommonControls:SliderControl Text="{CommonControls:Localize LengthPenalty}" Value="{Binding Options.LengthPenalty}" Minimum="-5" Maximum="5" TickFrequency="0.05" ValueFormat="N2" />
+                        <CommonControls:SliderControl Text="{CommonControls:Localize RepetitionPenalty}" Value="{Binding Options.RepetitionPenalty}" Minimum="0.05" Maximum="5" TickFrequency="0.05" ValueFormat="N2" />
+                        <CommonControls:SliderControl Text="{CommonControls:Localize NoRepeatNgrams}" Value="{Binding Options.NoRepeatNgramSize}" Minimum="0" Maximum="10" TickFrequency="1" ValueFormat="N0" />
+                        <CheckBox Content="{CommonControls:Localize SamplingEnabled}" IsChecked="{Binding Options.IsSamplingEnabled}" Margin="4,13,0,0" FontStyle="Italic" FontSize="11" Opacity=".9"/>
                     </UniformGrid>
 
                     <UniformGrid DockPanel.Dock="Top" Columns="2">
                         <StackPanel>
-                            <TextBlock Text="KV Cache" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock Text="{CommonControls:Localize KVCache}" Style="{StaticResource FieldTextBlockStyle}" />
                             <ComboBox ItemsSource="{Binding Source={StaticResource CacheType}}" SelectedItem="{Binding Options.CacheType}" Style="{StaticResource EnumComboBox}" />
                         </StackPanel>
                     </UniformGrid>
 
                     <Grid DockPanel.Dock="Bottom" Visibility="{Binding Options.Beams, Converter={StaticResource GreaterThanToVisibilityConverter}, ConverterParameter=1}">
                         <TextBlock FontSize="11" Foreground="{StaticResource WarningColour}" TextAlignment="Center" Opacity=".8" Margin="0,10,0,0" >
-                            <Run Text="Note:" FontWeight="SemiBold" />
+                            <Run Text="{CommonControls:Localize Note, Append=:}" FontWeight="SemiBold" />
                             <Run Text="Beam results won't be displayed until all beams have completed"/>
                         </TextBlock>
                     </Grid>
 
                     <!--System Prompt-->
                     <DockPanel>
-                        <TextBlock DockPanel.Dock="Top" Text="System Prompt" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SystemPrompt}" Style="{StaticResource FieldTextBlockStyle}" />
                         <Border Style="{StaticResource TextDropZoneStyle}" >
                             <CommonControls:PlaceholderTextBox Text="{Binding Options.Prompt2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
                         </Border>
@@ -177,7 +177,7 @@
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <CommonControls:FontAwesome Icon="e0b6" IconStyle="Solid" Color="{StaticResource AccentColour2}" Size="12"/>
-                        <TextBlock Text="Automation" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
+                        <TextBlock Text="{CommonControls:Localize Automation}" FontSize="11" FontWeight="DemiBold" Opacity=".9" Margin="5,0,0,0"/>
                     </StackPanel>
                 </TabItem.Header>
                 <DockPanel Margin="0,0,0,8">
@@ -185,7 +185,7 @@
                     <CommonControls:ProgressElement DockPanel.Dock="Bottom" Progress="{Binding AutomationProgress}" />
                     <StackPanel VerticalAlignment="Top" Margin="0,4,0,0">
                         <StackPanel Margin="0,0,0,10">
-                            <TextBlock Text="Automation" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock Text="{CommonControls:Localize Automation}" Style="{StaticResource FieldTextBlockStyle}" />
                             <ComboBox ItemsSource="{Binding AutomationOptions.Types}" SelectedItem="{Binding AutomationOptions.Type}" Style="{StaticResource EnumComboBox}" />
                         </StackPanel>
 
@@ -193,7 +193,7 @@
                         <Grid Visibility="{Binding AutomationOptions.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=PromptFiles}">
                             <UniformGrid Margin="0,0,0,0" >
                                 <StackPanel>
-                                    <TextBlock Text="Prompt Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize PromptFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                 </StackPanel>
                             </UniformGrid>
@@ -203,7 +203,7 @@
                         <Grid Visibility="{Binding AutomationOptions.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=PromptLines}">
                             <UniformGrid Margin="0,0,0,0" >
                                 <StackPanel>
-                                    <TextBlock Text="Prompt File" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize PromptFile}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputFile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsRequired="True" Filter="Text Files|*.txt;" DefaultExt="txt"/>
                                 </StackPanel>
                             </UniformGrid>
@@ -213,26 +213,26 @@
                         <Grid Visibility="{Binding AutomationOptions.Type, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=InputFiles}">
                             <StackPanel Visibility="{Binding ProcessType, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=ImageToText}">
                                 <StackPanel>
-                                    <TextBlock Text="Image Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize ImageFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.InputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                 </StackPanel>
                                 <StackPanel  Margin="0,4,0,0">
-                                    <TextBlock Text="Output Prefix" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize OutputPrefix}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <TextBox Text="{Binding AutomationOptions.OutputPrefix, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                 </StackPanel>
-                                <CheckBox Content="Output Seed" IsChecked="{Binding AutomationOptions.OutputPostFixSeed}"  Margin="0,4,0,0"/>
+                                <CheckBox Content="{CommonControls:Localize OutputSeed}" IsChecked="{Binding AutomationOptions.OutputPostFixSeed}"  Margin="0,4,0,0"/>
                             </StackPanel>
                         </Grid>
                     
                         <!--HistoryEnabled-->
-                        <CheckBox Content="Output History" IsChecked="{Binding AutomationOptions.IsHistoryEnabled}" Margin="0,4,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize OutputHistory}" IsChecked="{Binding AutomationOptions.IsHistoryEnabled}" Margin="0,4,0,0"/>
 
                         <!--OutputDirectory-->
-                        <CheckBox  Content="Output Location" IsChecked="{Binding AutomationOptions.UseOutputDirectory}" Margin="0,4,0,0"/>
+                        <CheckBox  Content="{CommonControls:Localize OutputLocation}" IsChecked="{Binding AutomationOptions.UseOutputDirectory}" Margin="0,4,0,0"/>
                         <Grid Visibility="{Binding AutomationOptions.UseOutputDirectory,Converter={StaticResource BooleanToVisibilityConverter}}">
                             <UniformGrid Margin="0,0,0,0" >
                                 <StackPanel>
-                                    <TextBlock Text="Output Folder" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock Text="{CommonControls:Localize OutputFolder}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:FilePickerTextBox FileName="{Binding AutomationOptions.OutputDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
                                 </StackPanel>
                             </UniformGrid>

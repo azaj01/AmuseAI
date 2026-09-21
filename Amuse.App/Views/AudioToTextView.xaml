@@ -51,7 +51,7 @@
                             <!--Execute/Cancel-->
                             <UniformGrid DockPanel.Dock="Bottom" Columns="2" Height="30" >
                                 <DockPanel>
-                                    <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="Immediately stops generation by closing the backend process." ToolTipService.InitialShowDelay="200">
+                                    <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="{CommonControls:Localize ToolTip_GenerateStop}" ToolTipService.InitialShowDelay="200">
                                         <CommonControls:FontAwesome Icon="f00d" Color="{StaticResource DangerColour}" />
                                     </Button>
                                     <Grid IsEnabled="{Binding GenerateService.IsCanceling, Converter={StaticResource InverseBoolConverter}}">
@@ -61,7 +61,7 @@
                                                     <Setter Property="Content" Value="Cancel" />
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding GenerateService.IsCanceling}" Value="True">
-                                                            <Setter Property="Content" Value="Canceling" />
+                                                            <Setter Property="Content" Value="{CommonControls:Localize Canceling}" />
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
@@ -70,15 +70,15 @@
                                     </Grid>
                                 </DockPanel>
                                 <Grid IsEnabled="{Binding IsSelectionValid, ElementName=ModelControl}">
-                                    <Button Content="Generate" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
-                                    <Button Content="Automate" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                    <Button Content="{CommonControls:Localize Generate}" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                    <Button Content="{CommonControls:Localize Automate}" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
                                 </Grid>
                             </UniformGrid>
 
                             <!--InputControl-->
                             <StackPanel >
                                 <StackPanel IsEnabled="{Binding IsAutomating, Converter={StaticResource InverseBoolConverter}}">
-                                    <TextBlock Text="Audio Input" Style="{StaticResource FieldTextBlockStyle}" />
+                                    <TextBlock Text="{CommonControls:Localize AudioInput}" Style="{StaticResource FieldTextBlockStyle}" />
                                     <Border Style="{StaticResource AudioDropZoneStyle}" IsEnabled="{Binding GenerateService.IsExecuting, Converter={StaticResource InverseBoolConverter}}">
                                         <CommonControls:AudioStreamElement 
                                             x:Name="InputAudioControl"
@@ -136,7 +136,7 @@
                     <Border Margin="4" IsEnabled="{Binding IsViewBusy, Converter={StaticResource InverseBoolConverter}}">
 
                         <DockPanel Margin="10,0,10,2">
-                            <TextBlock DockPanel.Dock="Top" Text="Text Result" Style="{StaticResource FieldTextBlockStyle}" />
+                            <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize TextResult}" Style="{StaticResource FieldTextBlockStyle}" />
 
                             <Grid >
                                 <Grid Visibility="{Binding GenerateService.IsExecuting, Converter={StaticResource InverseBooleanToHiddenConverter}}">
@@ -144,8 +144,14 @@
                                         <TabControl.ItemTemplate>
                                             <DataTemplate>
                                                 <StackPanel>
-                                                    <TextBlock Text="{Binding Beam, StringFormat={}Beam {0}}" MinWidth="100"/>
-                                                    <TextBlock Text="{Binding Score, StringFormat={}Score: {0:F4}}" FontSize="8" FontStyle="Italic" Opacity=".6" />
+                                                    <TextBlock MinWidth="100">
+                                                        <Run Text="Beam:"/>
+                                                        <Run Text="{Binding Beam}"/>
+                                                    </TextBlock>
+                                                    <TextBlock FontSize="8" FontStyle="Italic" Opacity=".6" >
+                                                        <Run Text="{CommonControls:Localize Score, Append=:}"/>
+                                                        <Run Text="{Binding Score, StringFormat={}{0:F4}}"/>
+                                                    </TextBlock>
                                                 </StackPanel>
                                             </DataTemplate>
                                         </TabControl.ItemTemplate>

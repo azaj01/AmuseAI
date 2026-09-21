@@ -1,4 +1,5 @@
 ﻿using Amuse.App.Common;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,11 +13,11 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using TensorStack.Common;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
 using TensorStack.WPF;
 using TensorStack.WPF.Controls;
+using TensorStack.WPF.Image;
 using TensorStack.WPF.Services;
 
 namespace Amuse.App.Views
@@ -218,9 +219,9 @@ namespace Amuse.App.Views
         private async Task RemoveItemsAsync()
         {
             var message = HistoryCollection.Count < HistoryService.HistoryCollection.Count
-                ? $"Are you sure you want you delete {HistoryCollection.Count} filtered gallery items?"
-                : $"Are you sure you want you delete all {HistoryCollection.Count} gallery items?";
-            if (await DialogService.ShowMessageAsync("Delete Items?", message, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Question, TensorStack.WPF.Dialogs.MessageBoxStyleType.Warning))
+                ? string.Format(AppDefault.DeleteGalleryItemsFiltered, HistoryCollection.Count)
+                : string.Format(AppDefault.DeleteGalleryItems, HistoryCollection.Count);
+            if (await DialogService.ShowMessageAsync(AppDefault.DeleteItems, message, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Question, TensorStack.WPF.Dialogs.MessageBoxStyleType.Warning))
             {
                 var toRemove = new List<IHistoryItem>();
                 foreach (var item in HistoryCollection)

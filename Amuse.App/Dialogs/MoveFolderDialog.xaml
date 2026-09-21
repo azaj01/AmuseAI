@@ -14,12 +14,12 @@
 
         <StackPanel DockPanel.Dock="Top" VerticalAlignment="Bottom" Margin="0,0,0,4">
             <StackPanel IsEnabled="{Binding IsMoving, Converter={StaticResource InverseBoolConverter}}">
-                <TextBlock Text="Directory" Style="{StaticResource FieldTextBlockStyle}"/>
+                <TextBlock Text="{CommonControls:Localize Directory}" Style="{StaticResource FieldTextBlockStyle}"/>
                 <CommonControls:FilePickerTextBox FileName="{Binding UserDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsFolderPicker="True" IsRequired="True" />
             </StackPanel>
 
             <DockPanel Margin="0, 10">
-                <TextBlock DockPanel.Dock="Left" Text="New Location: " Opacity=".78" Margin="0,0,3,0" />
+                <TextBlock DockPanel.Dock="Left" Text="{CommonControls:Localize NewLocation}" Opacity=".78" Margin="0,0,3,0" />
                 <TextBlock Text="{Binding DestinationDirectory}" FontSize="13" FontWeight="DemiBold" Opacity=".9"/>
             </DockPanel>
 
@@ -40,8 +40,8 @@
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0"  Height="30">
             <UniformGrid Columns="2">
-                <Button Content="Move" Command="{Binding MoveCommand}" Width="100" IsDefault="True"/>
-                <Button Content="Cancel" Command="{Binding CancelCommand}"/>
+                <Button Content="{CommonControls:Localize Move}" Command="{Binding MoveCommand}" Width="100" IsDefault="True"/>
+                <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}"/>
             </UniformGrid>
         </StackPanel>
     </DockPanel>

@@ -1,5 +1,6 @@
 ﻿using Amuse.App.Common;
 using Amuse.App.Dialogs;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Amuse.App.Views;
 using System.ComponentModel;
@@ -172,7 +173,7 @@ namespace Amuse.App
         {
             if (DownloadService.IsDownloading)
             {
-                if (!await DialogService.ShowMessageAsync("Active Downloads", "There are still have active downloads running, Are you sure you want to cancel and exit?", TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Question, TensorStack.WPF.Dialogs.MessageBoxStyleType.Info))
+                if (!await DialogService.ShowMessageAsync(AppDefault.ActiveDownloads, AppDefault.ActiveDownloadsMessage, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Question, TensorStack.WPF.Dialogs.MessageBoxStyleType.Info))
                 {
                     e.Cancel = true;
                 }

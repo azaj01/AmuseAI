@@ -34,7 +34,6 @@
     <ProjectReference Include="..\..\TensorStack.WPF\TensorStack.WPF.csproj" />
     <ProjectReference Include="..\..\TensorStack.Common\TensorStack.Common.csproj" />
     <ProjectReference Include="..\..\TensorStack.Media\TensorStack.Media.csproj" />
-    <ProjectReference Include="..\..\TensorStack.Media.BitmapImage\TensorStack.Media.BitmapImage.csproj" />
     <ProjectReference Include="..\..\TensorStack.OnnxRuntime\TensorStack.OnnxRuntime.csproj" />
     <ProjectReference Include="..\..\TensorStack.OnnxRuntime.Vision\TensorStack.OnnxRuntime.Vision.csproj" />
     <ProjectReference Include="..\..\TensorStack.OnnxRuntime.LLM\TensorStack.OnnxRuntime.LLM.csproj" />
@@ -94,6 +93,37 @@
     <Resource Include="Fonts\Sharp-Thin-100.otf" />
     <Resource Include="Fonts\Solid-900.otf" />
     <Resource Include="Fonts\Thin-100.otf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\AppDefault.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppDefault.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\AppErrors.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppErrors.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\AppToolTips.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AppToolTips.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\AppDefault.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppDefault.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\AppErrors.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppErrors.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\AppToolTips.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppToolTips.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <!--Settings-->

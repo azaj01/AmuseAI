@@ -13,9 +13,7 @@
              xmlns:Controls="clr-namespace:Amuse.App.Controls"
              xmlns:Common="clr-namespace:Amuse.App.Common"
              xmlns:Views="clr-namespace:Amuse.App.Views">
-
     <CommonControls:BaseControl.Resources>
-
 
         <DataTemplate DataType="{x:Type Common:SchedulerInputOptions}" x:Key="DefaultLayout" >
             <TextBlock />
@@ -26,15 +24,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -42,22 +40,22 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -75,15 +73,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -91,15 +89,15 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -107,36 +105,36 @@
                 <!--Sigmas Min/Max-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sigma Min" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMin}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMin, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Sigma Max" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMax}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMax, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Final Sigmas Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FinalSigmasType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource FinalSigmasType}}" SelectedItem="{Binding FinalSigmasType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Interpolation Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize InterpolationType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource InterpolationType}}" SelectedItem="{Binding InterpolationType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepType}}" SelectedItem="{Binding TimestepType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="4,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="4,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -153,15 +151,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -169,15 +167,15 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -185,7 +183,7 @@
                 <!--RescaleBetasZeroSNR-->
                 <UniformGrid  Columns="2">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,8,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,8,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
@@ -197,15 +195,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -213,15 +211,15 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -229,14 +227,14 @@
                 <!--ClipSample-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Clip Sample" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize ClipSample}" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Clip Sample Range" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ClipSampleRange}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding ClipSampleRange, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample Max Value" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -244,14 +242,14 @@
                 <!--ClipSample-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Variance" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Variance}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource VarianceType}}" SelectedItem="{Binding VarianceType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
@@ -259,7 +257,7 @@
                 <!--RescaleBetasZeroSNR-->
                 <UniformGrid  Columns="2">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,8,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,8,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
@@ -271,15 +269,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -287,15 +285,15 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -303,14 +301,14 @@
                 <!--ClipSample-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Clip Sample" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize ClipSample}" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Clip Sample Range" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ClipSampleRange}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding ClipSampleRange, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample Max Value" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -318,21 +316,21 @@
                 <!--ClipSample-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Set Alpha To One" IsChecked="{Binding SetAlphaToOne}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize SetAlphaToOne}" IsChecked="{Binding SetAlphaToOne}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <!--RescaleBetasZeroSNR-->
                 <UniformGrid  Columns="2">
                     <StackPanel Margin="0,8,0,0">
-                        <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}" />
+                        <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" />
                     </StackPanel>
                 </UniformGrid>
 
@@ -359,15 +357,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -375,15 +373,15 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -391,14 +389,14 @@
                 <!--ClipSample-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Clip Sample" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize ClipSample}" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Clip Sample Range" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ClipSampleRange}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding ClipSampleRange, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample Max Value" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -406,14 +404,14 @@
                 <!--ClipSample-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Timestep Scaling" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepScaling}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding TimestepScaling, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -421,8 +419,8 @@
                 <!--RescaleBetasZeroSNR-->
                 <UniformGrid  Columns="2">
                     <StackPanel Margin="0,8,0,0">
-                        <CheckBox Content="Set Alpha To One" IsChecked="{Binding SetAlphaToOne}" />
-                        <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}" />
+                        <CheckBox Content="{CommonControls:Localize SetAlphaToOne}" IsChecked="{Binding SetAlphaToOne}" />
+                        <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" />
                     </StackPanel>
                 </UniformGrid>
 
@@ -433,53 +431,42 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Shift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Shift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Base Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BaseShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BaseShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Max Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize MaxShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding MaxShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Shift Terminal" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ShiftTerminal}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding ShiftTerminal, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="TimeShift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimeShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimeShiftType}}" SelectedItem="{Binding TimeShiftType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Dynamic Shifting" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize DynamicShifting}" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
-                <!--<UniformGrid Columns="3" Margin="0,4,0,0">
-                    <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Base SeqLen" Style="{StaticResource FieldTextBlockStyle}" />
-                        <TextBox Text="{Binding BaseImageSeqLen, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Max SeqLen" Style="{StaticResource FieldTextBlockStyle}" />
-                        <TextBox Text="{Binding MaxImageSeqLen, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </UniformGrid>-->
-
                 <!--InvertSigmas-->
                 <UniformGrid  Columns="2" Margin="0,8,0,0">
-                    <CheckBox Content="Invert Sigmas" IsChecked="{Binding InvertSigmas}" />
-                    <CheckBox Content="Stochastic Sampling" IsChecked="{Binding StochasticSampling}" />
+                    <CheckBox Content="{CommonControls:Localize InvertSigmas}" IsChecked="{Binding InvertSigmas}" />
+                    <CheckBox Content="{CommonControls:Localize StochasticSampling}" IsChecked="{Binding StochasticSampling}" />
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -494,7 +481,7 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Shift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Shift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -506,15 +493,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -522,23 +509,23 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <!--SetAlphaToOne-->
                 <UniformGrid  Columns="2" Margin="0,8,0,0">
-                    <CheckBox Content="Set Alpha To One" IsChecked="{Binding SetAlphaToOne}" />
-                    <CheckBox Content="Skip Prk Steps" IsChecked="{Binding SkipPrkSteps}" />
+                    <CheckBox Content="{CommonControls:Localize SetAlphaToOne}" IsChecked="{Binding SetAlphaToOne}" />
+                    <CheckBox Content="{CommonControls:Localize SkipPrkSteps}" IsChecked="{Binding SkipPrkSteps}" />
                 </UniformGrid>
             </StackPanel>
         </DataTemplate>
@@ -548,15 +535,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -564,32 +551,32 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Clip Sample" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize ClipSample}" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Clip Sample Range" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ClipSampleRange}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding ClipSampleRange, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -605,15 +592,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -621,15 +608,15 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -637,14 +624,14 @@
                 <!--Thresholding-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample MaxValue" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -652,15 +639,15 @@
                 <!--Sigmas Min/Max-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sigma Min" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMin}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMin, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Sigma Max" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMax}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMax, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Final Sigmas Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FinalSigmasType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource FinalSigmasType}}" SelectedItem="{Binding FinalSigmasType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
@@ -668,48 +655,48 @@
                 <!--SolverType-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Solver" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Solver}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SolverType}}" SelectedItem="{Binding SolverType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Solver Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SolverOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SolverOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Lower Order Final" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize LowerOrderFinal}" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Shift Terminal" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ShiftTerminal}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding ShiftTerminal, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="TimeShift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimeShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimeShiftType}}" SelectedItem="{Binding TimeShiftType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Dynamic Shifting" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize DynamicShifting}" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Flow Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FlowShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding FlowShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <CheckBox Content="Predict x0" IsChecked="{Binding PredictX0}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Predictx0}" IsChecked="{Binding PredictX0}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Use FlowSigmas" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize UseFlowSigmas}" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -719,7 +706,7 @@
                 </DockPanel>
 
                 <StackPanel Margin="0,8,0,0">
-                    <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}"/>
+                    <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
@@ -729,15 +716,15 @@
                 <!--Beta Schedule-->
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -745,15 +732,15 @@
                 <!--Prediction/TimestepSpacing-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -761,14 +748,14 @@
                 <!--Thresholding-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample MaxValue" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -776,53 +763,53 @@
                 <!--SolverType-->
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Solver" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Solver}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SolverType}}" SelectedItem="{Binding SolverType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Solver Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SolverOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SolverOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Lower Order Final" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize LowerOrderFinal}" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Flow Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FlowShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding FlowShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="TimeShift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimeShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimeShiftType}}" SelectedItem="{Binding TimeShiftType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Final Sigmas Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FinalSigmasType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource FinalSigmasType}}" SelectedItem="{Binding FinalSigmasType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,8,0,0">
-                    <CheckBox Content="Dynamic Shifting" IsChecked="{Binding UseDynamicShifting}" />
-                    <CheckBox Content="Flow Sigmas" IsChecked="{Binding UseFlowSigmas}" />
-                    <CheckBox Content="Euler At Final" IsChecked="{Binding EulerAtFinal}" />
+                    <CheckBox Content="{CommonControls:Localize DynamicShifting}" IsChecked="{Binding UseDynamicShifting}" />
+                    <CheckBox Content="{CommonControls:Localize FlowSigmas}" IsChecked="{Binding UseFlowSigmas}" />
+                    <CheckBox Content="{CommonControls:Localize EulerAtFinal}" IsChecked="{Binding EulerAtFinal}" />
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Algorithm Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize AlgorithmType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource AlgorithmType}}" SelectedItem="{Binding AlgorithmType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                   
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Lu Lambdas" IsChecked="{Binding UseLuLambdas}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize LuLambdas}" IsChecked="{Binding UseLuLambdas}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -832,7 +819,7 @@
                 </DockPanel>
 
                 <StackPanel Margin="0,8,0,0">
-                    <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}"/>
+                    <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}"/>
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
@@ -841,73 +828,73 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample MaxValue" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Solver" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Solver}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SolverType}}" SelectedItem="{Binding SolverType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Solver Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SolverOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SolverOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Lower Order Final" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize LowerOrderFinal}" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Flow Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FlowShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding FlowShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Variance Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize VarianceType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource VarianceType}}" SelectedItem="{Binding VarianceType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Algorithm Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize AlgorithmType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource AlgorithmType}}" SelectedItem="{Binding AlgorithmType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
@@ -915,17 +902,17 @@
                 <UniformGrid Columns="3" Margin="0,4,0,0">
 
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Final Sigmas Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FinalSigmasType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource FinalSigmasType}}" SelectedItem="{Binding FinalSigmasType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Flow Sigmas" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize FlowSigmas}" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -940,37 +927,37 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Noise Seed" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize NoiseSeed}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding NoiseSamplerSeed, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
@@ -981,7 +968,7 @@
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -996,85 +983,85 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample MaxValue" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Solver" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Solver}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SolverType}}" SelectedItem="{Binding SolverType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Solver Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SolverOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SolverOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Lower Order Final" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize LowerOrderFinal}" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Flow Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FlowShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding FlowShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="TimeShift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimeShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimeShiftType}}" SelectedItem="{Binding TimeShiftType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Algorithm Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize AlgorithmType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource AlgorithmType}}" SelectedItem="{Binding AlgorithmType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,8,0,0">
-                    <CheckBox Content="Dynamic Shifting" IsChecked="{Binding UseDynamicShifting}" />
-                    <CheckBox Content="Flow Sigmas" IsChecked="{Binding UseFlowSigmas}" />
+                    <CheckBox Content="{CommonControls:Localize DynamicShifting}" IsChecked="{Binding UseDynamicShifting}" />
+                    <CheckBox Content="{CommonControls:Localize FlowSigmas}" IsChecked="{Binding UseFlowSigmas}" />
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -1089,36 +1076,36 @@
         <DataTemplate DataType="{x:Type Common:SchedulerInputOptions}" x:Key="EDMEulerLayout">
             <StackPanel>
                 <StackPanel Margin="0,0,0,0">
-                    <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                     <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                 </StackPanel>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sigma Min" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMin}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMin, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Sigma Max" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMax}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMax, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Final Sigmas Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FinalSigmasType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource FinalSigmasType}}" SelectedItem="{Binding FinalSigmasType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Rho" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Rho}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Rho, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="SigmaData" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaData}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaData, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sigma Schedule Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaScheduleType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SigmaScheduleType}}" SelectedItem="{Binding SigmaScheduleType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
@@ -1129,73 +1116,73 @@
             <StackPanel>
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Algorithm Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize AlgorithmType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource AlgorithmType}}" SelectedItem="{Binding AlgorithmType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Euler At Final" IsChecked="{Binding EulerAtFinal}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize EulerAtFinal}" IsChecked="{Binding EulerAtFinal}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sigma Min" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMin}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMin, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Sigma Max" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaMax}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaMax, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Final Sigmas Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FinalSigmasType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource FinalSigmasType}}" SelectedItem="{Binding FinalSigmasType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Rho" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Rho}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Rho, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="SigmaData" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaData}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaData, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sigma Schedule Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaScheduleType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SigmaScheduleType}}" SelectedItem="{Binding SigmaScheduleType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample MaxValue" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Solver" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Solver}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SolverType}}" SelectedItem="{Binding SolverType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Solver Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SolverOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SolverOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Lower Order Final" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize LowerOrderFinal}" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
             </StackPanel>
@@ -1205,54 +1192,43 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Shift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Shift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Base Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BaseShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BaseShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Max Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize MaxShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding MaxShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Shift Terminal" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ShiftTerminal}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding ShiftTerminal, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="TimeShift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimeShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimeShiftType}}" SelectedItem="{Binding TimeShiftType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Upscale Mode" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize UpscaleMode}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource UpscaleModeType}}" SelectedItem="{Binding UpscaleMode}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
 
-                <!--<UniformGrid Columns="3" Margin="0,4,0,0">
-                    <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Base SeqLen" Style="{StaticResource FieldTextBlockStyle}" />
-                        <TextBox Text="{Binding BaseImageSeqLen, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                    <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Max SeqLen" Style="{StaticResource FieldTextBlockStyle}" />
-                        <TextBox Text="{Binding MaxImageSeqLen, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </UniformGrid>-->
-
                 <!--InvertSigmas-->
                 <UniformGrid  Columns="2" Margin="0,8,0,0">
-                    <CheckBox Content="Invert Sigmas" IsChecked="{Binding InvertSigmas}" />
-                    <CheckBox Content="Dynamic Shifting" IsChecked="{Binding UseDynamicShifting}" />
+                    <CheckBox Content="{CommonControls:Localize InvertSigmas}" IsChecked="{Binding InvertSigmas}" />
+                    <CheckBox Content="{CommonControls:Localize DynamicShifting}" IsChecked="{Binding UseDynamicShifting}" />
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -1270,52 +1246,52 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Clip Sample" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize ClipSample}" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Clip Sample Range" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ClipSampleRange}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding ClipSampleRange, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample Max Value" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3" Margin="0,8,0,0">
-                    <CheckBox Content="SetAlphaToOne" IsChecked="{Binding SetAlphaToOne}" />
-                    <CheckBox Content="SNRShiftScale" IsChecked="{Binding SNRShiftScale}" Margin="0,20,0,0"/>
-                    <CheckBox Content="RescaleBetasZeroSNR" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,20,0,0"/>
+                    <CheckBox Content="{CommonControls:Localize SetAlphaToOne}" IsChecked="{Binding SetAlphaToOne}" />
+                    <CheckBox Content="{CommonControls:Localize SNRShiftScale}" IsChecked="{Binding SNRShiftScale}" Margin="0,20,0,0"/>
+                    <CheckBox Content="{CommonControls:Localize RescaleBetasZeroSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,20,0,0"/>
                 </UniformGrid>
             </StackPanel>
         </DataTemplate>
@@ -1324,52 +1300,52 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Clip Sample" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize ClipSample}" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Clip Sample Range" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ClipSampleRange}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding ClipSampleRange, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample Max Value" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3" Margin="0,8,0,0">
-                    <CheckBox Content="SetAlphaToOne" IsChecked="{Binding SetAlphaToOne}" />
-                    <CheckBox Content="SNRShiftScale" IsChecked="{Binding SNRShiftScale}" Margin="0,20,0,0"/>
-                    <CheckBox Content="RescaleBetasZeroSNR" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,20,0,0"/>
+                    <CheckBox Content="{CommonControls:Localize SetAlphaToOne}" IsChecked="{Binding SetAlphaToOne}" />
+                    <CheckBox Content="{CommonControls:Localize SNRShiftScale}" IsChecked="{Binding SNRShiftScale}" Margin="0,20,0,0"/>
+                    <CheckBox Content="{CommonControls:Localize RescaleBetasZeroSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,20,0,0"/>
                 </UniformGrid>
             </StackPanel>
         </DataTemplate>
@@ -1378,49 +1354,49 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Shift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Shift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Gamma" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Gamma}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Gamma, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Solver" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Solver}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource SolverType}}" SelectedItem="{Binding SolverType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Solver Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SolverOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SolverOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Lower Order Final" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize LowerOrderFinal}" IsChecked="{Binding LowerOrderFinal}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="TimeShiftType" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimeShiftType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimeShiftType}}" SelectedItem="{Binding TimeShiftType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <CheckBox Content="Dynamic Shifting" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize DynamicShifting}" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Flow Sigmas" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize FlowSigmas}" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3" Margin="0,8,0,0">
-                    <CheckBox Content="Predict x0" IsChecked="{Binding PredictX0}" />
-                    <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" />
+                    <CheckBox Content="{CommonControls:Localize Predictx0}" IsChecked="{Binding PredictX0}" />
+                    <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" />
                 </UniformGrid>
             </StackPanel>
         </DataTemplate>
@@ -1429,29 +1405,29 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Shift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Shift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Gamma" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Gamma}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Gamma, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="TimeShiftType" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimeShiftType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimeShiftType}}" SelectedItem="{Binding TimeShiftType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <CheckBox Content="Dynamic Shifting" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize DynamicShifting}" IsChecked="{Binding UseDynamicShifting}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Flow Sigmas" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize FlowSigmas}" IsChecked="{Binding UseFlowSigmas}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
 
@@ -1462,72 +1438,72 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Clip Sample" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize ClipSample}" IsChecked="{Binding ClipSample}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Clip Sample Range" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ClipSampleRange}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding ClipSampleRange, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample Max Value" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Timestep Scaling" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepScaling}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding TimestepScaling, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Original Steps" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize OriginalSteps}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding OriginalInferenceSteps, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <CheckBox Content="Set Alpha To One" IsChecked="{Binding SetAlphaToOne}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize SetAlphaToOne}" IsChecked="{Binding SetAlphaToOne}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Rescale Betas SNR" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize RescaleBetasSNR}" IsChecked="{Binding RescaleBetasZeroSNR}" Margin="0,20,0,0"/>
                     </StackPanel>
                 </UniformGrid>
             </StackPanel>
@@ -1537,11 +1513,11 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Sigma Data" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SigmaData}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SigmaData, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -1552,59 +1528,59 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource BetaScheduleType}}" SelectedItem="{Binding BetaSchedule}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Beta Start" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaStart}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaStart, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Beta End" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize BetaEnd}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding BetaEnd, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Prediction" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Prediction}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource PredictionType}}" SelectedItem="{Binding PredictionType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Timestep Spacing" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize TimestepSpacing}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource TimestepSpacingType}}" SelectedItem="{Binding TimestepSpacing}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="StepsOffset" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize StepsOffset}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding StepsOffset, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid  Columns="3">
                     <StackPanel Margin="0,0,0,0">
-                        <CheckBox Content="Thresholding" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
+                        <CheckBox Content="{CommonControls:Localize Thresholding}" IsChecked="{Binding Thresholding}" Margin="0,20,0,0"/>
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Thresholding Ratio" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize ThresholdingRatio}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding DynamicThresholdingRatio, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Sample MaxValue" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SampleMaxValue}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SampleMaxValue, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Flow Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize FlowShift}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding FlowShift, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Algorithm Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize AlgorithmType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource AlgorithmType}}" SelectedItem="{Binding AlgorithmType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Variance Type" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize VarianceType}" Style="{StaticResource FieldTextBlockStyle}" />
                         <ComboBox ItemsSource="{Binding Source={StaticResource VarianceType}}" SelectedItem="{Binding VarianceType}" Style="{StaticResource EnumComboBox}"/>
                     </StackPanel>
                 </UniformGrid>
@@ -1612,23 +1588,23 @@
                 <UniformGrid Columns="3" Margin="0,4,0,0">
 
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Predictor Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize PredictorOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding PredictorOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="0,0,0,0">
-                        <TextBlock Text="Corrector Order" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize CorrectorOrder}" Style="{StaticResource FieldTextBlockStyle}" />
                         <TextBox Text="{Binding CorrectorOrder, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
 
                 <UniformGrid Columns="3" Margin="0,8,0,0">
-                    <CheckBox Content="Flow Sigmas" IsChecked="{Binding UseFlowSigmas}" />
-                    <CheckBox Content="Lower Order Final" IsChecked="{Binding LowerOrderFinal}" />
+                    <CheckBox Content="{CommonControls:Localize FlowSigmas}" IsChecked="{Binding UseFlowSigmas}" />
+                    <CheckBox Content="{CommonControls:Localize LowerOrderFinal}" IsChecked="{Binding LowerOrderFinal}" />
                 </UniformGrid>
 
                 <!--SigmasType-->
                 <DockPanel Margin="0,4,0,0">
-                    <TextBlock DockPanel.Dock="Top" Text="Sigma Type" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize SigmaType}" Style="{StaticResource FieldTextBlockStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
                         <RadioButton GroupName="SigmasType" IsChecked="True" Content="Default"/>
                         <RadioButton GroupName="SigmasType" IsChecked="{Binding UseKarrasSigmas}" Content="Karras" Margin="20,0,0,0"/>
@@ -1644,11 +1620,11 @@
             <StackPanel>
                 <UniformGrid Columns="3" Margin="0,4,0,0">
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="Eta" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize Eta}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding Eta, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                     <StackPanel Margin="4,0,4,0">
-                        <TextBlock Text="SNoise" Style="{StaticResource FieldTextBlockStyle}" />
+                        <TextBlock Text="{CommonControls:Localize SNoise}" Style="{StaticResource FieldTextBlockStyle}" />
                         <CommonControls:FloatBox FloatValue="{Binding SNoise, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </UniformGrid>
@@ -1662,7 +1638,7 @@
 
             <!--Scheduler Type-->
             <StackPanel DockPanel.Dock="Top">
-                <TextBlock Text="Scheduler" Style="{StaticResource FieldTextBlockStyle}" />
+                <TextBlock Text="{CommonControls:Localize Scheduler}" Style="{StaticResource FieldTextBlockStyle}" />
                 <ComboBox SelectedItem="{Binding SelectedOptions}" ItemsSource="{Binding Options}"/>
             </StackPanel>
 
@@ -1776,22 +1752,22 @@
 
                 <!--Scheduler Type-->
                 <StackPanel>
-                    <TextBlock Text="Scheduler" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock Text="{CommonControls:Localize Scheduler}" Style="{StaticResource FieldTextBlockStyle}" />
                     <ComboBox SelectedItem="{Binding SelectedOptions}" ItemsSource="{Binding Options}"/>
                 </StackPanel>
 
                 <!--SigmaSchedule Type-->
                 <StackPanel Visibility="{Binding IsSelectorOnly, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
-                    <TextBlock Text="Sigma Schedule" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock Text="{CommonControls:Localize SigmaSchedule}" Style="{StaticResource FieldTextBlockStyle}" />
                     <ComboBox SelectedItem="{Binding SelectedOptions.SigmaScheduleType}" ItemsSource="{Binding Source={StaticResource SigmaScheduleType}}"/>
                 </StackPanel>
 
                 <StackPanel Margin="0,0,0,0">
-                    <TextBlock Text="Flow Shift" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock Text="{CommonControls:Localize FlowShift}" Style="{StaticResource FieldTextBlockStyle}" />
                     <CommonControls:FloatBox FloatValue="{Binding SelectedOptions.FlowShift, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Margin="4,0,4,0">
-                    <TextBlock Text="Eta" Style="{StaticResource FieldTextBlockStyle}" />
+                    <TextBlock Text="{CommonControls:Localize Eta}" Style="{StaticResource FieldTextBlockStyle}" />
                     <CommonControls:FloatBox FloatValue="{Binding SelectedOptions.Eta, UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
             </UniformGrid>

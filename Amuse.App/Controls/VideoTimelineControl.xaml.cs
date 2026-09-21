@@ -11,15 +11,15 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
 using TensorStack.Common;
+using TensorStack.Common.Audio;
 using TensorStack.Common.Tensor;
 using TensorStack.Common.Video;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
 using TensorStack.WPF;
 using TensorStack.WPF.Controls;
+using TensorStack.WPF.Image;
 using TensorStack.WPF.Services;
-using TensorStack.Common.Audio;
 
 namespace Amuse.App.Controls
 {
@@ -668,8 +668,8 @@ namespace Amuse.App.Controls
         private async Task CreateVideoTimelineAsync(VideoInputStream videoStream)
         {
             IsControlBusy = true;
-            var isAudioPresent = await AudioManager.HasAudioAsync(videoStream.SourceFile);
-            var timelineSegment = new TimelineSegment(videoStream, isAudioPresent);
+            var audioInfo = await AudioManager.LoadInfoAsync(videoStream.SourceFile);
+            var timelineSegment = new TimelineSegment(videoStream, audioInfo != null);
             try
             {
                 using (CancellationTokenSource = new CancellationTokenSource())

@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    
     xmlns:local="clr-namespace:Amuse.App.Views"
     xmlns:CommonControls="clr-namespace:TensorStack.WPF.Controls;assembly=TensorStack.WPF"
     xmlns:Controls="clr-namespace:Amuse.App.Controls"
@@ -27,23 +26,23 @@
                     <DockPanel>
                         <StackPanel DockPanel.Dock="Right">
                             <TextBlock Text="" Style="{StaticResource FieldTextBlockStyle}"/>
-                            <CommonControls:IconButton  Icon="f00d" IconColor="{StaticResource DangerColour}" Text="Clear" Command="{Binding RemoveFiltersCommand}" Width="70" Height="22" FontSize="11"/>
+                            <CommonControls:IconButton  Icon="f00d" IconColor="{StaticResource DangerColour}" Text="{CommonControls:Localize Clear}" Command="{Binding RemoveFiltersCommand}" Width="70" Height="22" FontSize="11"/>
                         </StackPanel>
                         <UniformGrid Rows="1">
                             <StackPanel>
-                                <TextBlock Text="Search" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize Search}" Style="{StaticResource FieldTextBlockStyle}"/>
                                 <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" />
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock Text="Media Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize MediaType}" Style="{StaticResource FieldTextBlockStyle}"/>
                                 <CommonControls:NullableComboBox ItemsSource="{Binding Source={StaticResource MediaType}}" SelectedItem="{Binding FilterMediaType}" NullPrefix="All Media" />
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock Text="Model" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize Model}" Style="{StaticResource FieldTextBlockStyle}"/>
                                 <ComboBox ItemsSource="{Binding FilterModelNames}" SelectedItem="{Binding FilterModelName}"  />
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock Text="Process Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                                <TextBlock Text="{CommonControls:Localize ProcessType}" Style="{StaticResource FieldTextBlockStyle}"/>
                                 <CommonControls:NullableComboBox ItemsSource="{Binding FilterProcessTypes}" SelectedItem="{Binding FilterProcessType}" NullPrefix="All Processes" />
                             </StackPanel>
                         </UniformGrid>
@@ -54,13 +53,13 @@
                 <Border DockPanel.Dock="Bottom" BorderBrush="{StaticResource DefaultBorderColor}" BorderThickness="1" Padding="4,0,4,0" >
                     <DockPanel Height="30">
                         <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center">
-                            <TextBlock Text="Items: " />
+                            <TextBlock Text="{CommonControls:Localize Items, Append=:}" Margin="0,0,3,0"/>
                             <TextBlock Text="{Binding HistoryCollection.Count}" />
                             <TextBlock Text=" / " />
                             <TextBlock Text="{Binding HistoryCollection.SourceCollection.Count}" />
                         </StackPanel>
                         <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
-                            <CommonControls:IconButton  Icon="f2ed" IconSize="13" IconColor="{StaticResource DangerColour}" Text="{Binding HistoryCollection.Count, StringFormat={}Delete {0} Items}" Command="{Binding DeleteItemsCommand}" Width="150" Height="26" />
+                            <CommonControls:IconButton  Icon="f2ed" IconSize="13" IconColor="{StaticResource DangerColour}" Text="{CommonControls:Localize DeleteItems}" Command="{Binding DeleteItemsCommand}" Width="150" Height="26" />
                         </StackPanel>
                         <TextBlock />
                     </DockPanel>
@@ -285,7 +284,7 @@
 
                             <Grid Visibility="{Binding HistoryCollection.Count, Converter={StaticResource LessOrEqualThanToVisibilityConverter}, ConverterParameter=0}">
                                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <TextBlock Text="No Items Found." FontSize="18" Opacity="0.6"/>
+                                    <TextBlock Text="{CommonControls:Localize NoItemsFound}" FontSize="18" Opacity="0.6"/>
                                 </StackPanel>
                             </Grid>
 
@@ -365,13 +364,13 @@
                     </Grid>
 
                     <DockPanel Grid.Row="2">
-                        <CommonControls:IconButton  Icon="f2ed" Text="Delete Item" IconSize="13" IconColor="{StaticResource DangerColour}" Command="{Binding DeleteItemCommand}" CommandParameter="{Binding SelectedItem}" Width="150" Height="26" HorizontalAlignment="Right" Margin="4,2"/>
+                        <CommonControls:IconButton  Icon="f2ed" Text="{CommonControls:Localize DeleteItem}" IconSize="13" IconColor="{StaticResource DangerColour}" Command="{Binding DeleteItemCommand}" CommandParameter="{Binding SelectedItem}" Width="150" Height="26" HorizontalAlignment="Right" Margin="4,2"/>
                     </DockPanel>
                 </Grid>
 
                 <Grid Visibility="{Binding SelectedItem, Converter={StaticResource InverseNullVisibilityConverter}}">
                     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <TextBlock Text="No Information Found." FontSize="18" Opacity="0.6"/>
+                        <TextBlock Text="{CommonControls:Localize NoInformationFound}" FontSize="18" Opacity="0.6"/>
                     </StackPanel>
                 </Grid>
 

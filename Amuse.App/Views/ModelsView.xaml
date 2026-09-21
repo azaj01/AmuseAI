@@ -12,32 +12,32 @@
         <Style x:Key="StatusIcon" TargetType="{x:Type CommonControls:FontAwesome}" >
             <Setter Property="Opacity" Value=".6"/>
             <Setter Property="Color" Value="{StaticResource DefaultForeground}"/>
-            <Setter Property="ToolTip" Value="Model Not Installed"/>
+            <Setter Property="ToolTip" Value="{CommonControls:Localize ToolTip_ModelStatus_NotInstalled}"/>
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}"  Value="Installed">
                     <Setter Property="Color" Value="{StaticResource SuccessColour}"/>
-                    <Setter Property="ToolTip" Value="Model Installed"/>
+                    <Setter Property="ToolTip" Value="{CommonControls:Localize ToolTip_ModelStatus_Installed}"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="Available">
                     <Setter Property="Opacity" Value=".2"/>
                     <Setter Property="Color" Value="{StaticResource DefaultForeground}"/>
-                    <Setter Property="ToolTip" Value="Available For Download"/>
+                    <Setter Property="ToolTip" Value="{CommonControls:Localize ToolTip_ModelStatus_Available}"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="Unknown">
                     <Setter Property="Color" Value="{StaticResource WarningColour}"/>
-                    <Setter Property="ToolTip" Value="Model Update Required"/>
+                    <Setter Property="ToolTip" Value="{CommonControls:Localize ToolTip_ModelStatus_Unknown}"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="DownloadQueue">
                     <Setter Property="Color" Value="{StaticResource WarningColour}"/>
-                    <Setter Property="ToolTip" Value="Model Download Queued..."/>
+                    <Setter Property="ToolTip" Value="{CommonControls:Localize ToolTip_ModelStatus_DownloadQueue}"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="Downloading">
                     <Setter Property="Color" Value="{StaticResource InfoColour}"/>
-                    <Setter Property="ToolTip" Value="Model Downloading..."/>
+                    <Setter Property="ToolTip" Value="{CommonControls:Localize ToolTip_ModelStatus_Downloading}"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}}" Value="DownloadFailed">
                     <Setter Property="Color" Value="{StaticResource DangerColour}"/>
-                    <Setter Property="ToolTip" Value="Model Download Failed"/>
+                    <Setter Property="ToolTip" Value="{CommonControls:Localize ToolTip_ModelStatus_DownloadFailed}"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
@@ -63,25 +63,25 @@
                     </StackPanel>
                     <UniformGrid DockPanel.Dock="Right" Rows="1" Width="780">
                         <StackPanel>
-                            <TextBlock Text="Model Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize ModelType}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <CommonControls:NullableComboBox ItemsSource="{Binding Source={StaticResource ModelCategoryType}}" SelectedItem="{Binding FilterCategoryType}" NullPrefix="All Models"/>
                         </StackPanel>
                         <StackPanel>
-                            <TextBlock Text="Media Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize MediaType}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <CommonControls:NullableComboBox ItemsSource="{Binding Source={StaticResource MediaType}}" SelectedItem="{Binding FilterMediaType}" NullPrefix="All Media" />
                         </StackPanel>
                         <StackPanel>
-                            <TextBlock Text="Pipeline Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize PipelineType}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <ComboBox ItemsSource="{Binding FilterPipelines}" SelectedItem="{Binding FilterPipeline}" />
                         </StackPanel>
                         <StackPanel>
-                            <TextBlock Text="Backend Type" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize BackendType}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <CommonControls:NullableComboBox ItemsSource="{Binding Source={StaticResource BackendType}}" SelectedItem="{Binding FilterBackendType}" NullPrefix="All Backends"/>
                         </StackPanel>
 
                     </UniformGrid>
                     <StackPanel>
-                        <TextBlock Text="Search" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize Search}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </DockPanel>
@@ -91,14 +91,14 @@
             <Border DockPanel.Dock="Bottom" BorderBrush="{StaticResource DefaultBorderColor}" BorderThickness="1" Padding="4,0,4,0" >
                 <DockPanel Height="30">
                     <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" VerticalAlignment="Center">
-                        <TextBlock Text="Items: " />
+                        <TextBlock Text="{CommonControls:Localize Items, Append=:}" Margin="0,0,3,0"/>
                         <TextBlock Text="{Binding ModelCollection.Count}" />
                         <TextBlock Text=" / " />
                         <TextBlock Text="{Binding ModelCollection.SourceCollection.Count}" />
                     </StackPanel>
                     <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center">
                         <StackPanel>
-                            <CheckBox Content="Show Installed" IsChecked="{Binding FilterInstalled}" Margin="0,0,0,0" HorizontalAlignment="Center"/>
+                            <CheckBox Content="{CommonControls:Localize ShowInstalled}" IsChecked="{Binding FilterInstalled}" Margin="0,0,0,0" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </StackPanel>
                     <TextBlock />
@@ -181,7 +181,7 @@
                                             <TextBlock DockPanel.Dock="Bottom" Text="{Binding Name}" FontSize="13" FontWeight="DemiBold" TextWrapping="Wrap" Margin="4,0,0,10"/>
                                             <StackPanel Margin="4,6,0,0" Opacity=".7">
                                                 <TextBlock Text="{Binding Pipeline, Converter={StaticResource EnumShortNameConverter}}"/>
-                                                <TextBlock Text="Lora Adapter" Margin="0,-2,0,0"/>
+                                                <TextBlock Text="{CommonControls:Localize LoraAdapter}" Margin="0,-2,0,0"/>
                                             </StackPanel>
                                         </DockPanel>
                                         <CommonControls:FontAwesome Style="{StaticResource StatusIcon}" Tag="{Binding Status}" Icon="f0ed" IconStyle="Solid" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,8,0" />
@@ -198,7 +198,7 @@
                                             <TextBlock DockPanel.Dock="Bottom" Text="{Binding Name}" FontSize="13" FontWeight="DemiBold" TextWrapping="Wrap" Margin="4,0,0,10" />
                                             <StackPanel Margin="4,6,0,0" Opacity=".7">
                                                 <TextBlock Text="{Binding Pipeline, Converter={StaticResource EnumShortNameConverter}}"/>
-                                                <TextBlock Text="Control-Net" Margin="0,-2,0,0"/>
+                                                <TextBlock Text="{CommonControls:Localize ControlNet}" Margin="0,-2,0,0"/>
                                             </StackPanel>
                                         </DockPanel>
                                         <CommonControls:FontAwesome Style="{StaticResource StatusIcon}" Tag="{Binding Status}" Icon="f0ed" IconStyle="Solid" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,8,0" />
@@ -249,7 +249,7 @@
                                             <TextBlock DockPanel.Dock="Bottom" Text="{Binding Name}" FontSize="13" FontWeight="DemiBold" TextWrapping="Wrap" Margin="4,0,0,10"/>
                                             <StackPanel Margin="4,6,0,0" Opacity=".7">
                                                 <TextBlock Text="{Binding Checkpoint.Folder}"/>
-                                                <TextBlock Text="Component" Margin="0,-2,0,0"/>
+                                                <TextBlock Text="{CommonControls:Localize Component}" Margin="0,-2,0,0"/>
                                             </StackPanel>
                                         </DockPanel>
                                         <CommonControls:FontAwesome Style="{StaticResource StatusIcon}" Tag="{Binding Status}" Icon="f0ed" IconStyle="Solid" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,8,8,0" />
@@ -277,7 +277,7 @@
 
                         <Grid Visibility="{Binding ModelCollection.Count, Converter={StaticResource LessOrEqualThanToVisibilityConverter}, ConverterParameter=0}">
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="No Items Found." FontSize="18" Opacity="0.6"/>
+                                <TextBlock Text="{CommonControls:Localize NoItemsFound}" FontSize="18" Opacity="0.6"/>
                             </StackPanel>
                         </Grid>
 
@@ -299,10 +299,10 @@
                     <DockPanel DockPanel.Dock="Bottom"  Margin="6" >
                         <UniformGrid Rows="1" Height="32" Margin="0,6,0,0">
                             <Grid>
-                                <CommonControls:IconButton Text="Download" FontSize="13" Icon="f0ed" IconSize="16" IconStyle="Light" IconColor="{StaticResource AccentColour2}" Command="{Binding DownloadCommand}" />
-                                <CommonControls:IconButton Text="Update" FontSize="13" Icon="f0ed" IconSize="16" IconStyle="Light" IconColor="{StaticResource WarningColour}" Command="{Binding DownloadCommand}" Visibility="{Binding SelectedItem.Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Unknown}"/>
+                                <CommonControls:IconButton Text="{CommonControls:Localize Download}" FontSize="13" Icon="f0ed" IconSize="16" IconStyle="Light" IconColor="{StaticResource AccentColour2}" Command="{Binding DownloadCommand}" />
+                                <CommonControls:IconButton Text="{CommonControls:Localize Update}" FontSize="13" Icon="f0ed" IconSize="16" IconStyle="Light" IconColor="{StaticResource WarningColour}" Command="{Binding DownloadCommand}" Visibility="{Binding SelectedItem.Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Unknown}"/>
                             </Grid>
-                            <CommonControls:IconButton Text="Information" FontSize="13" Icon="f05a" IconSize="16" IconStyle="Light"  IconColor="{StaticResource InfoColour}" Command="{Binding DownloadInformationCommand}" />
+                            <CommonControls:IconButton Text="{CommonControls:Localize Information}" FontSize="13" Icon="f05a" IconSize="16" IconStyle="Light"  IconColor="{StaticResource InfoColour}" Command="{Binding DownloadInformationCommand}" />
                         </UniformGrid>
                     </DockPanel>
 
@@ -327,17 +327,17 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Memory:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Memory, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MemoryProfile[1].Recommended}" />
-                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Type:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Type, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding ModelType}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Status:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Status, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Status}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Output:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Output, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding MediaType}" />
-                                            <TextBlock Grid.Row="2" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Backend:" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Backend, Append=:}" />
                                             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Backend}" />
-                                            <TextBlock Grid.Row="2" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Access:" />
+                                            <TextBlock Grid.Row="2" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Access, Append=:}" />
                                             <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding AccessToken, TargetNullValue=Not Required}" />
                                         </Grid>
 
@@ -381,17 +381,17 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Memory:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Memory, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MemoryProfile[1].Recommended}" />
-                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Type:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Type, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding ModelType}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Status:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Status, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Status}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Output:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Output, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding MediaType}" />
-                                            <TextBlock Grid.Row="2" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Backend:" />
+                                            <TextBlock Grid.Row="2" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Backend, Append=:}" />
                                             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Backend}" />
-                                            <TextBlock Grid.Row="2" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Access:" />
+                                            <TextBlock Grid.Row="2" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Access, Append=:}" />
                                             <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding AccessToken, TargetNullValue=Not Required}" />
                                         </Grid>
 
@@ -433,9 +433,9 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Status:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Status, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Status}" />
-                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Access:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Access, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding AccessToken, TargetNullValue=Not Required}" />
                                         </Grid>
                                         <StackPanel Margin="6,2">
@@ -475,9 +475,9 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Status:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Status, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Status}" />
-                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Access:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Access, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding AccessToken, TargetNullValue=Not Required}" />
                                         </Grid>
                                         <StackPanel Margin="6,2">
@@ -517,13 +517,13 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Memory:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Memory, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MemorySize, StringFormat={}{0}GB}" />
-                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Scale:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Scale, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding ScaleFactor, StringFormat={}{0}x}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Status:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Status, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Status}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Access:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Access, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding AccessToken, TargetNullValue=Not Required}" />
                                         </Grid>
                                         <StackPanel Margin="6,2">
@@ -549,13 +549,13 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Memory:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Memory, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MemorySize, StringFormat={}{0}GB}" />
-                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Type:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Type, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding Type}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Status:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Status, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Status}" />
-                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Access:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Access, Append=:}" />
                                             <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding AccessToken, TargetNullValue=Not Required}" />
                                         </Grid>
                                         <StackPanel Margin="6,2">
@@ -581,9 +581,9 @@
                                                 <RowDefinition/>
                                                 <RowDefinition/>
                                             </Grid.RowDefinitions>
-                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="Status:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="0" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Status, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Status}" />
-                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="Access:" />
+                                            <TextBlock Grid.Row="0" Grid.Column="2" FontStyle="Italic" Opacity=".7" Text="{CommonControls:Localize Access, Append=:}" />
                                             <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding AccessToken, TargetNullValue=Not Required}" />
                                         </Grid>
                                         <StackPanel Margin="6,2">
@@ -604,15 +604,15 @@
             <!--Downloads-->
             <DockPanel Margin="0,6,0,0">
                 <DockPanel DockPanel.Dock="Top">
-                    <TextBlock DockPanel.Dock="Bottom" Text="Active Downloads" Style="{StaticResource FieldTextBlockStyle}" Margin="3,0,0,0"/>
+                    <TextBlock DockPanel.Dock="Bottom" Text="{CommonControls:Localize ActiveDownloads}" Style="{StaticResource FieldTextBlockStyle}" Margin="3,0,0,0"/>
                 </DockPanel>
                 <StackPanel DockPanel.Dock="Bottom">
                     <UniformGrid  Columns="2" Height="32">
                         <Grid>
-                            <CommonControls:IconButton Text="Cancel" FontSize="13" Icon="f05e" IconStyle="Light" IconColor="{StaticResource DangerColour}" Command="{Binding DownloadCancelCommand}" />
-                            <CommonControls:IconButton Text="Retry" FontSize="13" Icon="f01e" IconStyle="Light" IconColor="{StaticResource WarningColour}" Command="{Binding DownloadRetryCommand}" Visibility="{Binding SelectedDownload.Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=DownloadFailed, FallbackValue=Collapsed}"/>
+                            <CommonControls:IconButton Text="{CommonControls:Localize Cancel}" FontSize="13" Icon="f05e" IconStyle="Light" IconColor="{StaticResource DangerColour}" Command="{Binding DownloadCancelCommand}" />
+                            <CommonControls:IconButton Text="{CommonControls:Localize Retry}" FontSize="13" Icon="f01e" IconStyle="Light" IconColor="{StaticResource WarningColour}" Command="{Binding DownloadRetryCommand}" Visibility="{Binding SelectedDownload.Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=DownloadFailed, FallbackValue=Collapsed}"/>
                         </Grid>
-                        <CommonControls:IconButton Text="Cancel All" FontSize="13" Icon="f05e" IconStyle="Light" IconColor="{StaticResource DangerColour}" Command="{Binding DownloadCancelAllCommand}" />
+                        <CommonControls:IconButton Text="{CommonControls:Localize CancelAll}" FontSize="13" Icon="f05e" IconStyle="Light" IconColor="{StaticResource DangerColour}" Command="{Binding DownloadCancelAllCommand}" />
                     </UniformGrid>
                 </StackPanel>
                 <ListBox ItemsSource="{Binding DownloadCollection}" SelectedItem="{Binding SelectedDownload}" ItemContainerStyle="{StaticResource SettingsListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -626,9 +626,9 @@
                                 <DockPanel>
                                     <StackPanel DockPanel.Dock="Right">
                                         <Grid Margin="0,0,2,2">
-                                            <TextBlock Text="Queued" TextAlignment="Right"  Opacity=".7" FontSize="11" Visibility="{Binding Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=DownloadQueue}"/>
-                                            <TextBlock Text="Downloading" TextAlignment="Right"  Opacity=".7" FontSize="11" Visibility="{Binding Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Downloading}"/>
-                                            <TextBlock Text="Failed" TextAlignment="Right"  Opacity=".7" FontSize="11" Visibility="{Binding Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=DownloadFailed}"/>
+                                            <TextBlock Text="{CommonControls:Localize Queued}" TextAlignment="Right"  Opacity=".7" FontSize="11" Visibility="{Binding Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=DownloadQueue}"/>
+                                            <TextBlock Text="{CommonControls:Localize Downloading}" TextAlignment="Right"  Opacity=".7" FontSize="11" Visibility="{Binding Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Downloading}"/>
+                                            <TextBlock Text="{CommonControls:Localize Failed}" TextAlignment="Right"  Opacity=".7" FontSize="11" Visibility="{Binding Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=DownloadFailed}"/>
                                         </Grid>
                                         <StackPanel Margin="0,0,2,2" Visibility="{Binding Status, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Downloading}">
                                             <TextBlock Opacity=".7" FontSize="11" HorizontalAlignment="Right">

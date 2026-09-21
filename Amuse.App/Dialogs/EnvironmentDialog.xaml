@@ -9,7 +9,7 @@
         MinWidth="480"
         MaxWidth="480"
         x:Name="UI"
-        Title="Environment Setup"
+        Title="{CommonControls:Localize Title_EnvironmentSetup}"
         Icon="/Images/Icon.ico"
         Style="{StaticResource {x:Type CommonControls:DialogControl}}">
     <DockPanel DataContext="{Binding ElementName=UI}" Margin="15, 15, 15, 10">
@@ -18,11 +18,11 @@
         <Grid DockPanel.Dock="Bottom"  Margin="0,15,0,0">
             <UniformGrid Columns="2" Height="30" HorizontalAlignment="Right">
                 <Grid IsEnabled="{Binding IsExecuting, Converter={StaticResource InverseBoolConverter}}">
-                    <Button Content="Create" Command="{Binding CreateCommand}" Width="100" IsDefault="True" Visibility="{Binding IsCreate, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                    <Button Content="Update" Command="{Binding UpdateCommand}" Width="100" IsDefault="True" Visibility="{Binding IsUpdate, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                    <Button Content="Rebuild" Command="{Binding RebuildCommand}" Width="100" IsDefault="True" Visibility="{Binding IsRebuild, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button Content="{CommonControls:Localize Create}" Command="{Binding CreateCommand}" Width="100" IsDefault="True" Visibility="{Binding IsCreate, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button Content="{CommonControls:Localize Update}" Command="{Binding UpdateCommand}" Width="100" IsDefault="True" Visibility="{Binding IsUpdate, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <Button Content="{CommonControls:Localize Rebuild}" Command="{Binding RebuildCommand}" Width="100" IsDefault="True" Visibility="{Binding IsRebuild, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                 </Grid>
-                <Button Content="Cancel" Command="{Binding CancelCommand}" Width="100"/>
+                <Button Content="{CommonControls:Localize Cancel}" Command="{Binding CancelCommand}" Width="100"/>
             </UniformGrid>
         </Grid>
 

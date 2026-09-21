@@ -51,7 +51,7 @@
                             <!--Execute/Cancel-->
                             <UniformGrid DockPanel.Dock="Bottom" Columns="2" Height="30" >
                                 <DockPanel>
-                                    <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="Immediately stops generation by closing the backend process." ToolTipService.InitialShowDelay="200">
+                                    <Button DockPanel.Dock="Left" Width="30" Command="{Binding StopCommand}" Visibility="{Binding GenerateService.IsCanceling, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="{CommonControls:Localize ToolTip_GenerateStop}" ToolTipService.InitialShowDelay="200">
                                         <CommonControls:FontAwesome Icon="f00d" Color="{StaticResource DangerColour}" />
                                     </Button>
                                     <Grid IsEnabled="{Binding GenerateService.IsCanceling, Converter={StaticResource InverseBoolConverter}}">
@@ -61,7 +61,7 @@
                                                     <Setter Property="Content" Value="Cancel" />
                                                     <Style.Triggers>
                                                         <DataTrigger Binding="{Binding GenerateService.IsCanceling}" Value="True">
-                                                            <Setter Property="Content" Value="Canceling" />
+                                                            <Setter Property="Content" Value="{CommonControls:Localize Canceling}" />
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>
@@ -70,8 +70,8 @@
                                     </Grid>
                                 </DockPanel>
                                 <Grid IsEnabled="{Binding IsSelectionValid, ElementName=ModelControl}">
-                                    <Button Content="Generate" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
-                                    <Button Content="Automate" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                    <Button Content="{CommonControls:Localize Generate}" Command="{Binding ExecuteCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource InverseEnumToVisibilityConverter}, ConverterParameter=Automation}"/>
+                                    <Button Content="{CommonControls:Localize Automate}" Command="{Binding ExecuteAutomationCommand}" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Automation}"/>
                                 </Grid>
                             </UniformGrid>
 
@@ -90,7 +90,7 @@
                                     IsAutomating="{Binding IsAutomating, Mode=OneWay}"
                                     IsEnabled="{Binding IsPipelineLoaded}"/>
                                 <DockPanel Margin="0,-6,0,0" Visibility="{Binding SelectedOption, ElementName=InputControl, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Options}">
-                                    <TextBlock DockPanel.Dock="Top" Text="Reference Audio (optional)" Style="{StaticResource FieldTextBlockStyle}" Margin="0,0,0,2"/>
+                                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize ReferenceAudioOptional}" Style="{StaticResource FieldTextBlockStyle}" Margin="0,0,0,2"/>
                                     <CommonControls:AudioStreamElement 
                                         x:Name="InputAudioControl"
                                         Height="160"
@@ -133,7 +133,7 @@
                             <!--Output-->
                             <DockPanel DockPanel.Dock="Bottom" Margin="10,10,10,4">
                                 <DockPanel Height="150">
-                                    <TextBlock DockPanel.Dock="Top" Text="Audio Result" Style="{StaticResource FieldTextBlockStyle}"/>
+                                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize AudioResult}" Style="{StaticResource FieldTextBlockStyle}"/>
                                     <CommonControls:AudioStreamElement 
                                         x:Name="ResultControl"
                                         Source="{Binding ResultAudio, Mode=TwoWay}" 
@@ -153,7 +153,7 @@
                                 </Grid.RowDefinitions>
                                 <DockPanel Grid.Row="0" Margin="0,0,0,5">
                                     <DockPanel>
-                                        <TextBlock DockPanel.Dock="Top" Text="Style" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize Style}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <Border Style="{StaticResource TextDropZoneStyle}">
                                             <CommonControls:PlaceholderTextBox Text="{Binding Options.Prompt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap"/>
                                         </Border>
@@ -164,7 +164,7 @@
 
                                 <DockPanel Grid.Row="2" Margin="0,-2,0,0">
                                     <DockPanel >
-                                        <TextBlock DockPanel.Dock="Top" Text="Lyrics" Style="{StaticResource FieldTextBlockStyle}"/>
+                                        <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize Lyrics}" Style="{StaticResource FieldTextBlockStyle}"/>
                                         <Border Style="{StaticResource TextDropZoneStyle}">
                                             <CommonControls:PlaceholderTextBox Text="{Binding Options.Prompt2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
                                         </Border>
@@ -191,7 +191,7 @@
                     <!--Style-->
                     <DockPanel DockPanel.Dock="Top" >
                         <StackPanel DockPanel.Dock="Top" TextBlock.FontSize="11">
-                            <TextBlock Text="Style" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Style}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <TextBlock Text="Combine genre, instruments, mood, and style for the most accurate results. For example, 'Dreamy lo-fi hip-hop with soft piano and bedroom-pop production' works better than a single-word prompt." TextWrapping="Wrap" Opacity=".9"/>
                             <StackPanel Margin="0,6,0,0" Opacity=".9">
                                 <TextBlock Text="- Name the genre: synthwave, hip-hop, lo-fi, or folk"/>
@@ -202,9 +202,9 @@
                         </StackPanel>
                         <DockPanel>
                             <UniformGrid DockPanel.Dock="Top" Columns="3" Margin="0,12,0,0" VerticalAlignment="Bottom" Opacity=".8" Height="22">
-                                <Button Content="Style Sample" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Prompt1" FontSize="11" />
-                                <Button Content="Style Sample" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Prompt2" FontSize="11" />
-                                <Button Content="Style Sample" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Prompt3" FontSize="11" />
+                                <Button Content="{CommonControls:Localize StyleSample}" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Prompt1" FontSize="11" />
+                                <Button Content="{CommonControls:Localize StyleSample}" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Prompt2" FontSize="11" />
+                                <Button Content="{CommonControls:Localize StyleSample}" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Prompt3" FontSize="11" />
                             </UniformGrid>
                         </DockPanel>
                     </DockPanel>
@@ -212,14 +212,14 @@
                     <!--Lyric-->
                     <DockPanel Margin="0,20,0,0">
                         <StackPanel DockPanel.Dock="Top" TextBlock.FontSize="11">
-                            <TextBlock Text="Lyrics" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize Lyrics}" Style="{StaticResource FieldTextBlockStyle}"/>
                             <StackPanel Opacity=".9">
                                 <TextBlock Text="- Keep lines around 6-10 syllables"/>
                                 <TextBlock Text="- Use UPPERCASE for words you want emphasized or shouted"/>
                                 <TextBlock Text="- Use ( ) for background vocals or echoes"/>
                                 <TextBlock Text="- Add descriptors: [Chorus - anthemic] or [Verse - whispered]"/>
                             </StackPanel>
-                            <TextBlock Text="Lyric Tags" Margin="0,8,0,0" Style="{StaticResource FieldTextBlockStyle}"/>
+                            <TextBlock Text="{CommonControls:Localize LyricTags}" Margin="0,8,0,0" Style="{StaticResource FieldTextBlockStyle}"/>
                         </StackPanel>
 
                         <Grid DockPanel.Dock="Top" Opacity=".9">
@@ -252,16 +252,16 @@
                             <TextBlock Grid.Column="1" Grid.Row="6" FontSize="11" Text="Winds down, often fades" Margin="0,1"/>
                         </Grid>
                         <UniformGrid DockPanel.Dock="Top" Columns="3" Margin="0,12,0,0" Opacity=".8" Height="22">
-                            <Button Content="Lyrics Sample" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Lyrics1" FontSize="11"/>
-                            <Button Content="Lyrics Sample" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Lyrics2" FontSize="11"/>
-                            <Button Content="Lyrics Sample" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Lyrics3" FontSize="11"/>
+                            <Button Content="{CommonControls:Localize LyricsSample}" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Lyrics1" FontSize="11"/>
+                            <Button Content="{CommonControls:Localize LyricsSample}" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Lyrics2" FontSize="11"/>
+                            <Button Content="{CommonControls:Localize LyricsSample}" Command="{Binding AppendLyricExampleCommand}" CommandParameter="Lyrics3" FontSize="11"/>
                         </UniformGrid>
                         <TextBlock />
                     </DockPanel>
 
                     <!--Reference Audio-->
                     <StackPanel TextBlock.FontSize="11">
-                        <TextBlock Text="Reference Audio" Style="{StaticResource FieldTextBlockStyle}"/>
+                        <TextBlock Text="{CommonControls:Localize ReferenceAudio}" Style="{StaticResource FieldTextBlockStyle}"/>
                         <StackPanel Opacity=".9">
                             <TextBlock Text="Use an audio optional file as a template for the final output"/>
                             <TextBlock Text="- Matches the tonal warmth and frequency balance"/>

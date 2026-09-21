@@ -1,5 +1,6 @@
 ﻿using Amuse.App.Common;
 using Amuse.App.Dialogs;
+using Amuse.App.Resources;
 using Amuse.App.Services;
 using Microsoft.Extensions.Logging;
 using System;
@@ -156,7 +157,7 @@ namespace Amuse.App.Views
 
         private async Task RemoveEnvironmentAsync()
         {
-            if (await DialogService.ShowMessageAsync("Remove Environment", $"Are you sure you want to remove this environment?", TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
+            if (await DialogService.ShowMessageAsync(AppDefault.RemoveEnvironment, AppDefault.RemoveEnvironmentMessage, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
             {
                 await EnvironmentService.DeleteAsync(_selectedEnvironment);
                 Settings.Environments.Remove(_selectedEnvironment);
@@ -170,13 +171,13 @@ namespace Amuse.App.Views
 
         private async Task ImportEnvironmentAsync()
         {
-            var importPath = await DialogService.OpenFileAsync("Import Environment", filter: "JSON |*.json;", defualtExt: "json");
+            var importPath = await DialogService.OpenFileAsync(AppDefault.ImportEnvironment, filter: "JSON |*.json;", defualtExt: "json");
             if (!string.IsNullOrEmpty(importPath))
             {
                 var environmentImports = await Json.LoadArrayAsync<EnvironmentModel>(importPath);
                 if (environmentImports.IsNullOrEmpty())
                 {
-                    await DialogService.ShowMessageAsync("Import Error", "Failed to import Environment file.");
+                    await DialogService.ShowMessageAsync(AppErrors.ImportErrorTitle, AppErrors.ImportEnvironment);
                     return;
                 }
 
@@ -193,7 +194,7 @@ namespace Amuse.App.Views
 
         private async Task ExportEnvironmentAsync()
         {
-            var exportPath = await DialogService.SaveFileAsync("Export Environment", $"{_selectedEnvironment.Name}.json", filter: "JSON |*.json;", defualtExt: "json");
+            var exportPath = await DialogService.SaveFileAsync(AppDefault.ExportEnvironment, $"{_selectedEnvironment.Name}.json", filter: "JSON |*.json;", defualtExt: "json");
             if (!string.IsNullOrEmpty(exportPath))
             {
                 await Json.SaveAsync<EnvironmentModel>(exportPath, _selectedEnvironment.DeepClone(0));
@@ -242,7 +243,7 @@ namespace Amuse.App.Views
 
         private async Task EnvironmentDeleteAsync()
         {
-            if (await DialogService.ShowMessageAsync("Delete Environment", $"Are you sure you want to delete this environment?", TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
+            if (await DialogService.ShowMessageAsync(AppDefault.DeleteEnvironment, AppDefault.DeleteEnvironmentMessage, TensorStack.WPF.Dialogs.MessageDialogType.YesNo, TensorStack.WPF.Dialogs.MessageBoxIconType.Warning, TensorStack.WPF.Dialogs.MessageBoxStyleType.Danger))
             {
                 await EnvironmentService.DeleteAsync(SelectedEnvironment);
             }

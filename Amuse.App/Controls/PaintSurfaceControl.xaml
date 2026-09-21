@@ -33,16 +33,16 @@
 
                     <!--Refresh-->
                     <Grid>
-                        <Button Command="{Binding ExecuteCommand}" Visibility="{Binding IsGenerating, Converter={StaticResource InverseBooleanToVisibilityConverter}}"  ToolTip="Live Generation" >
+                        <Button Command="{Binding ExecuteCommand}" Visibility="{Binding IsGenerating, Converter={StaticResource InverseBooleanToVisibilityConverter}}"  ToolTip="{CommonControls:Localize ToolTip_Paint_Live}" >
                             <CommonControls:FontAwesome Icon="&#xe2ca;" IconStyle="Light" Color="{StaticResource SuccessColour}"/>
                         </Button>
-                        <Button Command="{Binding CancelCommand}" Visibility="{Binding IsGenerating, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="Cancel Generation" >
+                        <Button Command="{Binding CancelCommand}" Visibility="{Binding IsGenerating, Converter={StaticResource BooleanToVisibilityConverter}}" ToolTip="{CommonControls:Localize ToolTip_Paint_Cancel}" >
                             <CommonControls:FontAwesome Icon="&#xf00d;" IconStyle="Light" Color="{StaticResource WarningColour}"/>
                         </Button>
                     </Grid>
 
                     <!--RoundBrush-->
-                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.RoundBrush}" Height="40" ToolTip="Round Paint Brush">
+                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.RoundBrush}" Height="40" ToolTip="{CommonControls:Localize ToolTip_Paint_RoundBrush}">
                         <CommonControls:FontAwesome Icon="&#xf1fc;" IconStyle="Light"  >
                             <CommonControls:FontAwesome.Style>
                                 <Style TargetType="{x:Type CommonControls:FontAwesome}" >
@@ -72,7 +72,7 @@
                     </Button>
 
                     <!--SquareBrush-->
-                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.SquareBrush}" Height="40" ToolTip="Square Paint Brush">
+                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.SquareBrush}" Height="40" ToolTip="{CommonControls:Localize ToolTip_Paint_SquareBrush}">
                         <CommonControls:FontAwesome Icon="&#xf55d;" IconStyle="Light"  >
                             <CommonControls:FontAwesome.Style>
                                 <Style TargetType="{x:Type CommonControls:FontAwesome}" >
@@ -102,7 +102,7 @@
                     </Button>
 
                     <!--Highlighter-->
-                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.Highlight}" ToolTip="Highlighter Pen">
+                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.Highlight}" ToolTip="{CommonControls:Localize ToolTip_Paint_Highlighter}">
                         <CommonControls:FontAwesome Icon="&#xf591;" IconStyle="Light"  >
                             <CommonControls:FontAwesome.Style>
                                 <Style TargetType="{x:Type CommonControls:FontAwesome}" >
@@ -132,7 +132,7 @@
                     </Button>
 
                     <!--Eraser-->
-                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.Eraser}" ToolTip="Eraser">
+                    <Button Command="{Binding SelectToolCommand}" CommandParameter="{x:Static local:PaintDrawingTool.Eraser}" ToolTip="{CommonControls:Localize ToolTip_Paint_Eraser}">
                         <CommonControls:FontAwesome Icon="&#xf12d;" IconStyle="Light"  >
                             <CommonControls:FontAwesome.Style>
                                 <Style TargetType="{x:Type CommonControls:FontAwesome}" >
@@ -162,12 +162,12 @@
                     </Button>
 
                     <!--FitToCurve-->
-                    <ToggleButton IsChecked="{Binding IsFitToCurveEnabled}" ToolTip="Fit to curve">
+                    <ToggleButton IsChecked="{Binding IsFitToCurveEnabled}" ToolTip="{CommonControls:Localize ToolTip_Paint_FitCurve}">
                         <CommonControls:FontAwesome Icon="&#xe23f;" IconStyle="Light" Color="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" />
                     </ToggleButton>
 
                     <!--Pressure-->
-                    <ToggleButton IsChecked="{Binding IsPressureEnabled}" ToolTip="Enable stylus pressure support" >
+                    <ToggleButton IsChecked="{Binding IsPressureEnabled}" ToolTip="{CommonControls:Localize ToolTip_Paint_Stylus}" >
                         <CommonControls:FontAwesome Icon="&#xe211;" IconStyle="Light" Color="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type ToggleButton}}}" />
                     </ToggleButton>
 
@@ -179,7 +179,7 @@
 
                 <!--ToolSize-->
                 <DockPanel  Margin="2" >
-                    <TextBlock DockPanel.Dock="Top" Text="Tool Size" FontSize="8" Margin="5,-4,6,0" Opacity=".6" FontStyle="Italic" HorizontalAlignment="Center"/>
+                    <TextBlock DockPanel.Dock="Top" Text="{CommonControls:Localize ToolSize}" FontSize="8" Margin="5,-4,6,0" Opacity=".6" FontStyle="Italic" HorizontalAlignment="Center"/>
                     <TextBlock DockPanel.Dock="Bottom" Text="{Binding DrawingToolSize, StringFormat={}{0}}"  FontSize="8" Opacity=".6" FontWeight="Medium" HorizontalAlignment="Center" />
                     <Slider HorizontalAlignment="Center" Value="{Binding DrawingToolSize}" Orientation="Vertical" Minimum="1" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="1" LargeChange="5" >
                         <i:Interaction.Behaviors>
@@ -228,23 +228,23 @@
                 </ListBox>
 
                 <!--Fill-->
-                <Button DockPanel.Dock="Left"  Command="{Binding FillCanvasCommand}" Style="{StaticResource TransparentButton}" Margin="4" ToolTip="Fill Background">
+                <Button DockPanel.Dock="Left"  Command="{Binding FillCanvasCommand}" Style="{StaticResource TransparentButton}" Margin="4" ToolTip="{CommonControls:Localize ToolTip_Paint_FillBG}">
                     <CommonControls:FontAwesome Icon="&#xf576;" IconStyle="Light"  />
                 </Button>
 
                 <!--Image-->
-                <Button DockPanel.Dock="Left" Command="{Binding LoadCanvasCommand}"  Style="{StaticResource TransparentButton}" Margin="4" ToolTip="Load Image Background">
+                <Button DockPanel.Dock="Left" Command="{Binding LoadCanvasCommand}"  Style="{StaticResource TransparentButton}" Margin="4" ToolTip="{CommonControls:Localize ToolTip_Paint_LoadImageBG}">
                     <CommonControls:FontAwesome Icon="&#xf03e;" IconStyle="Light"  />
                 </Button>
 
                 <!--Clear-->
-                <Button DockPanel.Dock="Left" Command="{Binding ClearCanvasCommand}" Style="{StaticResource TransparentButton}" Margin="4" ToolTip="Clear Drawing">
+                <Button DockPanel.Dock="Left" Command="{Binding ClearCanvasCommand}" Style="{StaticResource TransparentButton}" Margin="4" ToolTip="{CommonControls:Localize ToolTip_Paint_ClearDraw}">
                     <CommonControls:FontAwesome Icon="&#xf05e;" IconStyle="Light" Color="{StaticResource DangerColour}"  />
                 </Button>
 
                 <!--OverlayOpacity-->
                 <DockPanel Margin="10,4,0,0">
-                    <CommonControls:SliderControl Text="Overlay" Value="{Binding OverlayOpacity}" Minimum="0" Maximum="1" TickFrequency="0.01" IsPercent="True"/>
+                    <CommonControls:SliderControl Text="{CommonControls:Localize Overlay}" Value="{Binding OverlayOpacity}" Minimum="0" Maximum="1" TickFrequency="0.01" IsPercent="True"/>
                 </DockPanel>
 
             </DockPanel>
@@ -255,12 +255,12 @@
                 <UniformGrid Columns="2">
 
                     <!--Steps-->
-                    <CommonControls:SliderControl Text="Quality" Value="{Binding Options.Steps}" Minimum="1" Maximum="100" TickFrequency="1" />
+                    <CommonControls:SliderControl Text="{CommonControls:Localize Quality}" Value="{Binding Options.Steps}" Minimum="1" Maximum="100" TickFrequency="1" />
 
                     <!--Strength-->
                     <Grid>
-                        <CommonControls:SliderControl Text="Strength" Value="{Binding Options.Strength}" Minimum="0" Maximum="1" TickFrequency="0.01" IsPercent="True" Visibility="{Binding IsControlNetEnabled, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
-                        <CommonControls:SliderControl Text="Strength" Value="{Binding Options.ControlNetStrength}" Minimum="0" Maximum="1" TickFrequency="0.01" IsPercent="True" Visibility="{Binding IsControlNetEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <CommonControls:SliderControl Text="{CommonControls:Localize Strength}" Value="{Binding Options.Strength}" Minimum="0" Maximum="1" TickFrequency="0.01" IsPercent="True" Visibility="{Binding IsControlNetEnabled, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+                        <CommonControls:SliderControl Text="{CommonControls:Localize Strength}" Value="{Binding Options.ControlNetStrength}" Minimum="0" Maximum="1" TickFrequency="0.01" IsPercent="True" Visibility="{Binding IsControlNetEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     </Grid>
                 </UniformGrid>
 
@@ -335,32 +335,32 @@
                             Height="{Binding Options.Height}" />
                         <Grid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Open" InputGestureText="Ctrl+O" Command="{Binding LoadCanvasCommand}" >
+                                <MenuItem Header="{CommonControls:Localize Open}" InputGestureText="Ctrl+O" Command="{Binding LoadCanvasCommand}" >
                                     <MenuItem.Icon>
                                         <CommonControls:FontAwesome Icon="&#xf1c5;" IconStyle="Light" Size="15" />
                                     </MenuItem.Icon>
                                 </MenuItem>
-                                <MenuItem Header="Copy" InputGestureText="Ctrl+C" Command="{Binding CopyCanvasCommand}" >
+                                <MenuItem Header="{CommonControls:Localize Copy}" InputGestureText="Ctrl+C" Command="{Binding CopyCanvasCommand}" >
                                     <MenuItem.Icon>
                                         <CommonControls:FontAwesome Icon="&#xf0c5;" IconStyle="Light" Size="15" />
                                     </MenuItem.Icon>
                                 </MenuItem>
-                                <MenuItem Header="Paste" InputGestureText="Ctrl+V" Command="{Binding PasteCanvasCommand}" >
+                                <MenuItem Header="{CommonControls:Localize Paste}" InputGestureText="Ctrl+V" Command="{Binding PasteCanvasCommand}" >
                                     <MenuItem.Icon>
                                         <CommonControls:FontAwesome Icon="&#xf0ea;" IconStyle="Light" Size="15" />
                                     </MenuItem.Icon>
                                 </MenuItem>
-                                <MenuItem Header="Save" InputGestureText="Ctrl+S" Command="{Binding SaveCanvasCommand}" >
+                                <MenuItem Header="{CommonControls:Localize Save}" InputGestureText="Ctrl+S" Command="{Binding SaveCanvasCommand}" >
                                     <MenuItem.Icon>
                                         <CommonControls:FontAwesome Icon="&#xf0c7;" IconStyle="Light" Size="15" />
                                     </MenuItem.Icon>
                                 </MenuItem>
-                                <MenuItem Header="Undo" InputGestureText="Ctrl+Z" Command="{Binding UndoCanvasCommand}"  >
+                                <MenuItem Header="{CommonControls:Localize Undo}" InputGestureText="Ctrl+Z" Command="{Binding UndoCanvasCommand}"  >
                                     <MenuItem.Icon>
                                         <CommonControls:FontAwesome Icon="&#xf2ea;" IconStyle="Light" Size="15" />
                                     </MenuItem.Icon>
                                 </MenuItem>
-                                <MenuItem Header="Redo" InputGestureText="Ctrl+Y" Command="{Binding RedoCanvasCommand}"  >
+                                <MenuItem Header="{CommonControls:Localize Redo}" InputGestureText="Ctrl+Y" Command="{Binding RedoCanvasCommand}"  >
                                     <MenuItem.Icon>
                                         <CommonControls:FontAwesome Icon="&#xf2f9;" IconStyle="Light" Size="15" />
                                     </MenuItem.Icon>

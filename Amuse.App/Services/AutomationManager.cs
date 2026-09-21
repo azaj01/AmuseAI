@@ -1,12 +1,14 @@
 ﻿using Amuse.App.Common;
+using Amuse.App.Resources;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using TensorStack.Common;
-using TensorStack.Media.Image;
 using TensorStack.Media.Audio;
 using TensorStack.Media.Video;
+using TensorStack.WPF.Image;
+using TensorStack.WPF.Resources;
 
 namespace Amuse.App.Services
 {
@@ -32,7 +34,7 @@ namespace Amuse.App.Services
                         Id = index + 1,
                         Count = seeds.Length,
                         GenerateOptions = options,
-                        OutputFile = GetOutputFile(automationOptions, outputMediaType, "Image", seed)
+                        OutputFile = GetOutputFile(automationOptions, outputMediaType, Default.Image, seed)
                     };
                 }
             }
@@ -208,7 +210,7 @@ namespace Amuse.App.Services
                             Count = imageFiles.Length,
                             InputImages = [image],
                             UpscaleOptions = upscaleOptions with { },
-                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"Upscale_{name}")
+                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"{AppDefault.Upscale}_{name}")
                         };
                     }
                 }
@@ -225,7 +227,7 @@ namespace Amuse.App.Services
                             Count = videoFiles.Length,
                             VideoStreams = [videoStream],
                             UpscaleOptions = upscaleOptions with { },
-                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"Upscale_{name}")
+                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"{AppDefault.Upscale}_{name}")
                         };
                     }
                 }
@@ -257,7 +259,7 @@ namespace Amuse.App.Services
                             Count = imageFiles.Length,
                             InputImages = [image],
                             ExtractOptions = extractOptions with { },
-                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"Extract_{name}")
+                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"{AppDefault.Extract}_{name}")
                         };
                     }
                 }
@@ -274,7 +276,7 @@ namespace Amuse.App.Services
                             Count = videoFiles.Length,
                             VideoStreams = [videoStream],
                             ExtractOptions = extractOptions with { },
-                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"Extract_{name}")
+                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"{AppDefault.Extract}_{name}")
                         };
                     }
                 }
@@ -307,7 +309,7 @@ namespace Amuse.App.Services
                             Count = videoFiles.Length,
                             VideoStreams = [videoStream],
                             InterpolateOptions = interpolateOptions with { },
-                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"Interpolate_{name}")
+                            OutputFile = GetOutputFile(automationOptions, outputMediaType, $"{AppDefault.Interpolate}_{name}")
                         };
                     }
                 }
