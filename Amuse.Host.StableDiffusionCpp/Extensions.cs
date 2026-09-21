@@ -146,6 +146,7 @@ namespace Amuse.Host.StableDiffusionCpp
                 {
                     VaePath = pipelineOptions.CheckpointConfig.Vae,
                     LlmPath = pipelineOptions.CheckpointConfig.TextEncoder,
+                    LlmVisionPath = pipelineOptions.CheckpointConfig.TextEncoder2,
                     DiffusionModelPath = pipelineOptions.CheckpointConfig.Transformer,
                     ControlNetPath = pipelineOptions.ControlNet?.Path,
                     ModelArgs = "qwen_image_zero_cond_t=true" // TODO: should be optional
