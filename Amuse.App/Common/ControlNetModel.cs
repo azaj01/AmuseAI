@@ -140,7 +140,7 @@ namespace Amuse.App.Common
             if (Checkpoint == null)
                 return ModelStatusType.Available;
 
-            var isValid = Checkpoint.IsInstalled(settings.DirectoryControlNet,  settings.Components);
+            var isValid = Checkpoint.IsInstalled(settings.DirectoryControlNet, settings.Components);
             if ((Status == ModelStatusType.Available || Status == ModelStatusType.Unknown) && isValid)
                 return ModelStatusType.Installed;
             else if (Status == ModelStatusType.Installed && !isValid)

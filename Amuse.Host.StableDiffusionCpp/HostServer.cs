@@ -7,14 +7,14 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using TensorStack.Common.Pipeline;
 using TensorStack.StableDiffusionCpp;
 
 namespace Amuse.Host.StableDiffusionCpp
 {
     public sealed class HostServer : PipelineServer
     {
-        private readonly IProgress<TensorStack.StableDiffusionCpp.Common.PipelineProgress> _pipelineRelayCallback;
-        private readonly IProgress<PipelineProgress> _progressRelayCallback;
+        private readonly IProgress<IRunProgress> _progressCallback;
         private PipelineCreateOptions _options;
         private PipelineLoadOptions _pipelineOptions;
         private StableDiffusionPipeline _pipeline;
@@ -27,8 +27,7 @@ namespace Amuse.Host.StableDiffusionCpp
         public HostServer(ServerConfig channelConfig, ILogger logger)
             : base(channelConfig, logger)
         {
-            _progressRelayCallback = new Progress<PipelineProgress>(async (p) => await QueueProgress(p));
-            _pipelineRelayCallback = new Progress<TensorStack.StableDiffusionCpp.Common.PipelineProgress>(async (p) => await UpdateProgress(p));
+            _progressCallback = new Progress<IRunProgress>(async (p) => await UpdateProgress(p));
         }
 
 
@@ -66,15 +65,15 @@ namespace Amuse.Host.StableDiffusionCpp
                 await SendLoadingProgress("Creating Environment...");
 
                 var timestamp = Stopwatch.GetTimestamp();
-                var isReinstall = request.CreateOptions.Mode == EnvironmentMode.Update || request.CreateOptions.Mode == EnvironmentMode.Rebuild || request.CreateOptions.Mode == EnvironmentMode.Reinstall;
-                var backendConfig = new TensorStack.StableDiffusionCpp.Common.BackendConfig
+                var configuration = new TensorStack.Common.BackendConfig
                 {
                     Name = request.CreateOptions.Environment,
                     Requirements = request.CreateOptions.Requirements,
-                    Directory = Path.Combine(request.CreateOptions.Directory, request.CreateOptions.Environment),
+                    Directory = request.CreateOptions.Directory
                 };
 
-                if (!await InstallManager.InitializeAsync(backendConfig, isReinstall, async (l, m) => await SendProgressMessage(l, m)))
+                var installManager = new StableDiffusionBackend(configuration, _progressCallback, Logger);
+                if (!await installManager.SetupAsync(request.CreateOptions.Status))
                     throw new Exception($"Failed to Install StableDiffusion.Cpp {request.CreateOptions.HostVersion}");
 
                 _options = request.CreateOptions;
@@ -103,7 +102,7 @@ namespace Amuse.Host.StableDiffusionCpp
 
                 var contextOptions = _options.CreateContextOptions(_pipelineOptions);
                 var backendDirectory = Path.Combine(_options.Directory, _options.Environment);
-                _pipeline = new StableDiffusionPipeline(backendDirectory, _pipelineRelayCallback, OnLogCallback);
+                _pipeline = new StableDiffusionPipeline(backendDirectory, _progressCallback, Logger);
                 await _pipeline.LoadContextAsync(contextOptions, cancellationToken);
 
                 await SendResponse(cancellationToken);
@@ -208,42 +207,25 @@ namespace Amuse.Host.StableDiffusionCpp
         /// Updates the progress.
         /// </summary>
         /// <param name="progress">The progress.</param>
-        private async Task UpdateProgress(TensorStack.StableDiffusionCpp.Common.PipelineProgress progress)
+        private async Task UpdateProgress(IRunProgress progress)
         {
-            await QueueProgress(new PipelineProgress
+            if (progress is TensorStack.StableDiffusionCpp.Common.PipelineProgress pipelineProgress)
             {
-                BatchMaximum = progress.BatchMaximum,
-                BatchValue = progress.BatchValue,
-                Elapsed = progress.Elapsed,
-                ElapsedKey = progress.ElapsedKey,
-                Key = progress.Key,
-                Maximum = progress.Maximum,
-                Message = progress.Message,
-                Subkey = progress.Subkey,
-                Timestamp = progress.Timestamp,
-                Value = progress.Value,
-                Tensors = progress.Tensors
-            });
-        }
-
-
-        /// <summary>
-        /// Called when StableDiffusion.cpp log emitted.
-        /// </summary>
-        /// <param name="level">The level.</param>
-        /// <param name="message">The message.</param>
-        private void OnLogCallback(LogLevelType level, string message)
-        {
-            var logLevel = level switch
-            {
-                LogLevelType.Info => LogLevel.Information,
-                LogLevelType.Debug => LogLevel.Debug,
-                LogLevelType.Warn => LogLevel.Warning,
-                LogLevelType.Error => LogLevel.Error,
-                LogLevelType.Verbose => LogLevel.Trace,
-                _ => LogLevel.Trace
-            };
-            Logger?.Log(logLevel, "[StableDiffusion.cpp] {message}", message);
+                await QueueProgress(new PipelineProgress
+                {
+                    BatchMaximum = pipelineProgress.BatchMaximum,
+                    BatchValue = pipelineProgress.BatchValue,
+                    Elapsed = pipelineProgress.Elapsed,
+                    ElapsedKey = pipelineProgress.ElapsedKey,
+                    Key = pipelineProgress.Key,
+                    Maximum = pipelineProgress.Maximum,
+                    Message = pipelineProgress.Message,
+                    Subkey = pipelineProgress.Subkey,
+                    Timestamp = pipelineProgress.Timestamp,
+                    Value = pipelineProgress.Value,
+                    Tensors = pipelineProgress.Tensors
+                });
+            }
         }
 
 
@@ -253,17 +235,6 @@ namespace Amuse.Host.StableDiffusionCpp
         private async Task SendLoadingProgress(string message = null)
         {
             await QueueProgress(new PipelineProgress { Key = "Load", Subkey = "Pipeline", Message = message ?? "Loading Pipeline Components..." });
-        }
-
-
-        /// <summary>
-        /// Sends the progress message.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        private async Task SendProgressMessage(LogLevelType level, string message)
-        {
-            OnLogCallback(level, message);
-            await QueueProgress(new PipelineProgress { Key = "Initialize", Message = message });
         }
     }
 }

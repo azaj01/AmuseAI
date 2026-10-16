@@ -14,9 +14,9 @@ namespace Amuse.App.Services
 {
     public static class DocumentManager
     {
-        private static readonly DefaultDocumentParser DefaultParser = new ();
+        private static readonly DefaultDocumentParser DefaultParser = new();
         private static readonly Dictionary<string, IDocumentParser> DocumentParsers = new(StringComparer.OrdinalIgnoreCase)
-        {  
+        {
             {".pdf", new PdfDocumentPParser() },
             {".docx", new DocxDocumentParser() }
         };

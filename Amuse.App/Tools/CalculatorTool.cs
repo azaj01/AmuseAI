@@ -11,7 +11,7 @@ namespace Amuse.App.Tools
         /// </summary>
         /// <value>The name.</value>
         public override string Name => "calculator";
-     
+
         /// <summary>
         /// Gets the tool description.
         /// </summary>

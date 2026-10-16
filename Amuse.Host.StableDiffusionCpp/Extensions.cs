@@ -41,15 +41,11 @@ namespace Amuse.Host.StableDiffusionCpp
 
                 // Misc
                 ForceSdxlVaeConvScale = true,
-                FlashAttn = pipelineOptions.IsFlashAttentionEnabled,
-                DiffusionFlashAttn = pipelineOptions.IsFlashAttentionEnabled,
                 LoraApplyMode = Pipeline.LoraApplyType.AtRuntime,
                 PreviewType = Pipeline.PreviewType.Projection,
                 ConditioningCacheSize = 1,
-
-                // Vulkan Specific
-                VaeConvDirect = backendType == Pipeline.BackendType.Vulkan,
-                DiffusionConvDirect = backendType == Pipeline.BackendType.Vulkan,
+                FlashAttnMode = "auto", //TODO
+                ConvDirectMode = "auto" //TODO
             };
 
 
@@ -196,6 +192,7 @@ namespace Amuse.Host.StableDiffusionCpp
             if (pipelineOptions.Pipeline == PipelineType.AnimaPipeline
              || pipelineOptions.Pipeline == PipelineType.ErniePipeline
              || pipelineOptions.Pipeline == PipelineType.Flux2KleinPipeline
+             || pipelineOptions.Pipeline == PipelineType.Flux3KleinPipeline
              || pipelineOptions.Pipeline == PipelineType.Krea2Pipeline
              || pipelineOptions.Pipeline == PipelineType.ZImagePipeline
              || pipelineOptions.Pipeline == PipelineType.BooguImagePipeline
@@ -323,9 +320,9 @@ namespace Amuse.Host.StableDiffusionCpp
         /// <param name="options">The options.</param>
         /// <returns>Pipeline.BackendType.</returns>
         /// <exception cref="System.Exception">Backend Not Found</exception>
-        private static Pipeline.BackendType GetBackendType(PipelineCreateOptions options)
+        private static Pipeline.SDBackendType GetBackendType(PipelineCreateOptions options)
         {
-            if (!Enum.TryParse(options.HostVersion, true, out Pipeline.BackendType backendType))
+            if (!Enum.TryParse(options.HostVersion, true, out Pipeline.SDBackendType backendType))
                 throw new Exception($"{options.HostVersion} Backend Not Found.");
 
             return backendType;
@@ -337,9 +334,9 @@ namespace Amuse.Host.StableDiffusionCpp
         /// </summary>
         /// <param name="pipelineOptions">The pipeline options.</param>
         /// <param name="backendType">Type of the backend.</param>
-        private static string GetBackend(PipelineLoadOptions pipelineOptions, Pipeline.BackendType backendType)
+        private static string GetBackend(PipelineLoadOptions pipelineOptions, Pipeline.SDBackendType backendType)
         {
-            var deviceId = backendType == Pipeline.BackendType.Vulkan
+            var deviceId = backendType == Pipeline.SDBackendType.Vulkan
                 ? pipelineOptions.DeviceId
                 : pipelineOptions.DeviceVendorIndex;
             return $"{backendType.GetShortName()}{deviceId}";
@@ -351,7 +348,7 @@ namespace Amuse.Host.StableDiffusionCpp
         /// </summary>
         /// <param name="pipelineOptions">The pipeline options.</param>
         /// <param name="backendType">Type of the backend.</param>
-        private static string GetParamsBackend(PipelineLoadOptions pipelineOptions, Pipeline.BackendType backendType)
+        private static string GetParamsBackend(PipelineLoadOptions pipelineOptions, Pipeline.SDBackendType backendType)
         {
             if (pipelineOptions.MemoryMode == MemoryModeType.OffloadCPU || pipelineOptions.MemoryMode == MemoryModeType.OffloadModel)
             {

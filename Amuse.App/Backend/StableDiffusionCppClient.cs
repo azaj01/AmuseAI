@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using TensorStack.Common;
 using TensorStack.WPF.Services;
 
 namespace Amuse.App.Runtime
@@ -61,16 +62,16 @@ namespace Amuse.App.Runtime
         private async Task<EnvironmentModel> InitializeEnvironmentAsync()
         {
             var environment = _environmentService.GetEnvironment(Pipeline.Device, Pipeline.GenerateModel.Backend, Pipeline.GenerateModel.Pipeline);
-            if ((environment.Status == EnvironmentMode.Create || environment.Status == EnvironmentMode.Load) && _environmentService.Exists(environment))
+            if ((environment.Status == BackendStatus.Create || environment.Status == BackendStatus.Load) && _environmentService.Exists(environment))
                 return environment;
 
             var environmentDialog = DialogService.GetDialog<EnvironmentDialog>();
-            if (environment.Status == EnvironmentMode.Update)
+            if (environment.Status == BackendStatus.Update)
             {
                 if (await environmentDialog.UpdateAsync(environment))
                     return environment;
             }
-            else if (environment.Status == EnvironmentMode.Rebuild)
+            else if (environment.Status == BackendStatus.Rebuild)
             {
                 if (await environmentDialog.RebuildAsync(environment))
                     return environment;

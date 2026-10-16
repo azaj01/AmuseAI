@@ -1,11 +1,11 @@
-﻿using Amuse.Common;
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
+using TensorStack.Common;
 
 namespace Amuse.App
 {
@@ -151,8 +151,8 @@ namespace Amuse.App
                                 if (defaultEnvironment.Version > environment.Version)
                                 {
                                     defaultEnvironment.Status = int.IsEvenInteger(defaultEnvironment.Version)
-                                        ? EnvironmentMode.Update
-                                        : EnvironmentMode.Rebuild;
+                                        ? BackendStatus.Update
+                                        : BackendStatus.Rebuild;
                                 }
 
                                 // Merge any user settings

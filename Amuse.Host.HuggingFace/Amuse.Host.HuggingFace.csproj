@@ -7,6 +7,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <Configurations>Debug;Release;Release_Installer</Configurations>
     <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
     <BaseOutputPath>..\Amuse.App\bin</BaseOutputPath>
   </PropertyGroup>
 
@@ -35,13 +37,6 @@
   <!--Release-->
   <ItemGroup Condition="'$(Configuration)' == 'Release' OR '$(Configuration)' == 'Release_Installer'">
     <PackageReference Include="TensorStack.HuggingFace" Version="$(PackageVersion)" />
-  </ItemGroup>
-
-  <!--Binaries-->
-  <ItemGroup>
-    <Reference Include="CSnakes.Runtime">
-      <HintPath>CSnakes.Runtime.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <!--Images-->

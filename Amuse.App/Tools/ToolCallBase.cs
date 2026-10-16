@@ -84,7 +84,7 @@ namespace Amuse.App.Tools
         {
             var content = $"[Error] {Name} tool failed to execute, Exception: {exception.Message}";
             Debug.WriteLine(content);
-            return content; 
+            return content;
         }
 
 

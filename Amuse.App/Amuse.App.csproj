@@ -8,6 +8,8 @@
     <ApplicationIcon>Images\Icon.ico</ApplicationIcon>
     <Configurations>Debug;Release;Release_Installer</Configurations>
     <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
   </PropertyGroup>
 
   <!--Projects-->
@@ -20,8 +22,8 @@
     <PackageReference Include="DocumentFormat.OpenXml" Version="3.5.1" />
     <PackageReference Include="PdfPig" Version="0.1.16" />
     <PackageReference Include="System.Linq.Async" Version="7.0.1" />
-    <PackageReference Include="System.Management" Version="10.0.12" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.12" />
+    <PackageReference Include="System.Management" Version="10.0.13" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.13" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="10.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
     <PackageReference Include="Markdig" Version="1.4.0" />
@@ -56,18 +58,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CSnakes.Runtime">
-      <HintPath>CSnakes.Runtime.dll</HintPath>
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="OnnxStack.Adapter.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <PackageCopyToOutput>true</PackageCopyToOutput>
       <Pack>true</Pack>
     </Content>
   </ItemGroup>
+
+  <!--Embedded-->
   <ItemGroup>
     <EmbeddedResource Include="Controls\MarkdownElement.css" />
     <EmbeddedResource Include="Controls\MarkdownElement.js" />
@@ -95,6 +93,8 @@
     <Resource Include="Fonts\Solid-900.otf" />
     <Resource Include="Fonts\Thin-100.otf" />
   </ItemGroup>
+
+  <!--Localization-->
   <ItemGroup>
     <Compile Update="Resources\AppDefault.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -129,6 +129,16 @@
 
   <!--Settings-->
   <ItemGroup>
+    <None Update="Settings.default.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Templates.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!--Plugins-->
+  <ItemGroup>
     <None Update="Plugins\Preview\Flux1.onnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -146,12 +156,6 @@
     </None>
     <None Update="Plugins\Preview\StableDiffusionXL.onnx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Settings.default.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Templates.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

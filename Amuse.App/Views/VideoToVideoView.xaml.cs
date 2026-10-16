@@ -236,7 +236,7 @@ namespace Amuse.App.Views
                 frames.Add(sourceFrame.Frame);
             }
             Progress.Indeterminate($"{AppDefault.EncodingVideoFrames}...");
-            return new VideoSequence([..frames], Options.FrameRate);
+            return new VideoSequence([.. frames], Options.FrameRate);
         }
     }
 }

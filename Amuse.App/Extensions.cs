@@ -381,7 +381,7 @@ namespace Amuse.App
             {
                 using (var doc = JsonDocument.Parse(value))
                 {
-                   return doc.RootElement.Clone();
+                    return doc.RootElement.Clone();
                 }
             }
             catch (JsonException)

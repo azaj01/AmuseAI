@@ -245,7 +245,7 @@ namespace Amuse.App.Views
         }
 
 
-        private static Dictionary<string, string> ExamplePrompts = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> ExamplePrompts = new Dictionary<string, string>
         {
 
             {"Prompt1","power pop, catchy melody, male vocals, drums, bass, high energy, bright" },

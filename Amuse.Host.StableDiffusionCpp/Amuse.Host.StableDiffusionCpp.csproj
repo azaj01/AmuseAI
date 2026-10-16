@@ -7,6 +7,8 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
     <Configurations>Debug;Release;Release_Installer</Configurations>
     <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+    <ServerGarbageCollection>true</ServerGarbageCollection>
+    <ConcurrentGarbageCollection>true</ConcurrentGarbageCollection>
     <BaseOutputPath>..\Amuse.App\bin</BaseOutputPath>
   </PropertyGroup>
 
@@ -15,7 +17,6 @@
     <EmbeddedResource Remove="bin\**" />
     <None Remove="bin\**" />
   </ItemGroup>
-
 
   <!--Projects-->
   <ItemGroup>

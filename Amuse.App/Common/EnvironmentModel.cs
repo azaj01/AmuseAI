@@ -21,7 +21,7 @@ namespace Amuse.App.Common
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public int Id { get; set; }
         public int Version { get; set; }
-        public EnvironmentMode Status { get; set; }
+        public BackendStatus Status { get; set; }
         public BackendType Backend { get; set; }
 
         public string Name

@@ -187,7 +187,7 @@ namespace Amuse.App.Controls
             };
 
             IsWhisperPipeline = newModel.Pipeline == PipelineType.WanPipeline;
-            IsSupertonicPipeline = newModel.Pipeline ==  PipelineType.SupertonicPipeline;
+            IsSupertonicPipeline = newModel.Pipeline == PipelineType.SupertonicPipeline;
 
             //Schedulers
             if (!newOptions.Schedulers.IsNullOrEmpty())

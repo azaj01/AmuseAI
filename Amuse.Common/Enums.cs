@@ -33,6 +33,9 @@ namespace Amuse.Common
         [Display(Name = "FLUX.2 Klein Pipeline", ShortName = "FLUX.2", Description = "A compact FLUX.2 variant designed to make the capabilities of the FLUX family more accessible with substantially lower computational requirements. Best suited to applications where generation speed, memory usage, and local inference efficiency are important.")]
         Flux2KleinPipeline = 22,
 
+        [Display(Name = "FLUX.3 Klein Pipeline", ShortName = "FLUX.3", Description = "A compact FLUX.3 variant designed to make the capabilities of the FLUX family more accessible with substantially lower computational requirements. Best suited to applications where generation speed, memory usage, and local inference efficiency are important.")]
+        Flux3KleinPipeline = 23,
+
         [Display(Name = "Chroma Pipeline", ShortName = "Chroma", Description = "Chroma is a Flux-derived text-to-image model focused on improving prompt understanding, image quality, and detailed visual composition.")]
         ChromaPipeline = 30,
 
@@ -207,15 +210,6 @@ namespace Amuse.Common
 
         [Display(Name = "ImageToText", ShortName = "I2T", Description = "")]
         ImageToText = 801
-    }
-
-    public enum EnvironmentMode
-    {
-        Create = 0,
-        Load = 1,
-        Update = 2,
-        Rebuild = 3,
-        Reinstall = 4
     }
 
     public enum DataType

@@ -167,7 +167,7 @@ namespace Amuse.App.Controls
 
         private bool CanLoad()
         {
-            return _selectedDevice != null && !IsSelectionValid && (_selectedUpscaler != null || _selectedExtractor != null); 
+            return _selectedDevice != null && !IsSelectionValid && (_selectedUpscaler != null || _selectedExtractor != null);
         }
 
 

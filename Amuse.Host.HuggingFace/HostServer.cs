@@ -6,6 +6,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using TensorStack.Common.Pipeline;
 using TensorStack.Common.Tensor;
 using TensorStack.HuggingFace;
 
@@ -13,13 +14,13 @@ namespace Amuse.Host.HuggingFace
 {
     public sealed class HostServer : PipelineServer
     {
-        private readonly IProgress<TensorStack.HuggingFace.Common.PipelineProgress> _progressCallback;
+        private readonly IProgress<IRunProgress> _progressCallback;
         private HuggingFacePipeline _pipeline;
 
         public HostServer(ServerConfig config, ILogger logger)
             : base(config, logger)
         {
-            _progressCallback = new Progress<TensorStack.HuggingFace.Common.PipelineProgress>(async (p) => await UpdateProgress(p));
+            _progressCallback = new Progress<IRunProgress>(async (p) => await UpdateProgress(p));
         }
 
 
@@ -42,6 +43,7 @@ namespace Amuse.Host.HuggingFace
             return Task.CompletedTask;
         }
 
+
         protected override async Task CreatePipelineAsync(PipelineRequest request, CancellationToken cancellationToken)
         {
             try
@@ -49,17 +51,16 @@ namespace Amuse.Host.HuggingFace
                 var timestamp = Stopwatch.GetTimestamp();
                 var environmentRequest = request.CreateOptions;
                 var pythonOptions = request.CreateOptions.ToPythonOptions();
-                var environmentMode = environmentRequest.Mode.Cast<Amuse.Common.EnvironmentMode, TensorStack.HuggingFace.Common.EnvironmentMode>();
-                var pythonEnvironment = new InstallManager(pythonOptions, Config.DirectoryBase, Logger);
-                if (environmentRequest.Mode == Amuse.Common.EnvironmentMode.Load || (environmentRequest.Mode == Amuse.Common.EnvironmentMode.Create && pythonEnvironment.Exists()))
+                var pythonEnvironment = new HuggingFaceBackend(pythonOptions, _progressCallback);
+                if (environmentRequest.Status == TensorStack.Common.BackendStatus.Load || (environmentRequest.Status == TensorStack.Common.BackendStatus.Create && pythonEnvironment.Exists()))
                 {
                     Logger.LogInformation("[PipelineServer] [CreatePipeline] Loading existing environment...");
-                    await pythonEnvironment.LoadAsync(_progressCallback);
+                    await pythonEnvironment.LoadAsync();
                 }
                 else
                 {
-                    Logger.LogInformation($"[PipelineServer] [CreatePipeline] Creating environment, Mode: {environmentRequest.Mode}...");
-                    await pythonEnvironment.CreateAsync(environmentMode, _progressCallback);
+                    Logger.LogInformation($"[PipelineServer] [CreatePipeline] Creating environment, Mode: {environmentRequest.Status}...");
+                    await pythonEnvironment.SetupAsync(environmentRequest.Status);
                 }
 
                 Logger.LogInformation($"[PipelineServer] [CreatePipeline] Environment created, Elapsed: {Stopwatch.GetElapsedTime(timestamp)}");
@@ -71,6 +72,7 @@ namespace Amuse.Host.HuggingFace
                 await SendException(ex, cancellationToken);
             }
         }
+
 
         protected override async Task LoadPipelineAsync(PipelineRequest request, CancellationToken cancellationToken)
         {
@@ -170,9 +172,12 @@ namespace Amuse.Host.HuggingFace
         }
 
 
-        private async Task UpdateProgress(TensorStack.HuggingFace.Common.PipelineProgress progress)
+        private async Task UpdateProgress(IRunProgress progress)
         {
-            await QueueProgress(progress.ToProgress());
+            if (progress is TensorStack.HuggingFace.Common.PipelineProgress pipelineProgress)
+            {
+                await QueueProgress(pipelineProgress.ToProgress());
+            }
         }
 
     }

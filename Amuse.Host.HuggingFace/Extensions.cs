@@ -5,21 +5,21 @@ using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using TensorStack.Common;
-using TensorStack.HuggingFace.Config;
+using TensorStack.HuggingFace.Common;
 using TensorStack.HuggingFace.Scheduler;
 
 namespace Amuse.Host.HuggingFace
 {
     public static class Extensions
     {
-        public static EnvironmentConfig ToPythonOptions(this PipelineCreateOptions options)
+        public static BackendConfig ToPythonOptions(this PipelineCreateOptions options)
         {
-            return new EnvironmentConfig
+            return new BackendConfig
             {
                 IsDebug = options.IsDebug,
                 Directory = options.Directory,
-                Environment = options.Environment,
-                PythonVersion = options.HostVersion,
+                Name = options.Environment,
+                Version = options.HostVersion,
                 Requirements = options.Requirements?.ToArray(),
                 Variables = options.Variables?.ToDictionary()
             };
@@ -30,7 +30,7 @@ namespace Amuse.Host.HuggingFace
         {
             return new TensorStack.HuggingFace.Common.PipelineReloadOptions
             {
-                ProcessType = options.ProcessType.Cast<Common.ProcessType, TensorStack.HuggingFace.Common.ProcessType>(),
+                ProcessType = options.ProcessType.Cast<Common.ProcessType, TensorStack.HuggingFace.ProcessType>(),
                 ControlNet = options.ControlNet?.ToPythonOptions(),
                 LoraAdapters = options.LoraAdapters?.Select(x => x.ToPythonOptions()).ToList()
             };
@@ -44,7 +44,7 @@ namespace Amuse.Host.HuggingFace
                 ModelPath = options.ModelPath,
                 Template = options.Template,
                 ModelType = options.ModelType,
-                DataType = options.DataType.Cast<Amuse.Common.DataType, TensorStack.HuggingFace.Common.DataType>(),
+                DataType = options.DataType.Cast<Amuse.Common.DataType, TensorStack.HuggingFace.DataType>(),
                 Device = options.Device,
                 DeviceBusId = options.DeviceBusId,
                 DeviceId = options.DeviceId,
@@ -53,10 +53,10 @@ namespace Amuse.Host.HuggingFace
                 IsOptimizeDeviceEnabled = options.IsOptimizeDeviceEnabled,
                 IsOptimizeChannelsEnabled = options.IsOptimizeChannelsEnabled,
 
-                MemoryMode = options.MemoryMode.Cast<Amuse.Common.MemoryModeType, TensorStack.HuggingFace.Common.MemoryModeType>(),
+                MemoryMode = options.MemoryMode.Cast<Amuse.Common.MemoryModeType, TensorStack.HuggingFace.MemoryModeType>(),
                 Pipeline = GetPipelineType(options).ToString(),
-                ProcessType = options.ProcessType.Cast<Amuse.Common.ProcessType, TensorStack.HuggingFace.Common.ProcessType>(),
-                QuantType = options.QuantType.Cast<Amuse.Common.QuantizationType, TensorStack.HuggingFace.Common.QuantizationType>(),
+                ProcessType = options.ProcessType.Cast<Amuse.Common.ProcessType, TensorStack.HuggingFace.ProcessType>(),
+                QuantType = options.QuantType.Cast<Amuse.Common.QuantizationType, TensorStack.HuggingFace.QuantizationType>(),
                 Variant = options.Variant,
 
                 ControlNet = options.ControlNet?.ToPythonOptions(),
@@ -200,15 +200,15 @@ namespace Amuse.Host.HuggingFace
                 InputImages = options.InputImages,
                 InputAudios = options.InputAudios,
                 SampleRate = options.SampleRate,
-                CacheType = options.CacheType.Cast<Amuse.Common.CacheType, TensorStack.HuggingFace.Common.CacheType>(),
+                CacheType = options.CacheType.Cast<Amuse.Common.CacheType, TensorStack.HuggingFace.CacheType>(),
                 Tools = options.Tools
             };
         }
 
 
-        public static TensorStack.HuggingFace.Config.LoraConfig ToPythonOptions(this Common.LoraConfig config)
+        public static TensorStack.HuggingFace.Common.LoraConfig ToPythonOptions(this Common.LoraConfig config)
         {
-            return new TensorStack.HuggingFace.Config.LoraConfig
+            return new TensorStack.HuggingFace.Common.LoraConfig
             {
                 Path = config.Path,
                 Name = config.Name,
@@ -217,9 +217,9 @@ namespace Amuse.Host.HuggingFace
         }
 
 
-        public static TensorStack.HuggingFace.Config.ControlNetConfig ToPythonOptions(this Common.ControlNetConfig config)
+        public static TensorStack.HuggingFace.Common.ControlNetConfig ToPythonOptions(this Common.ControlNetConfig config)
         {
-            return new TensorStack.HuggingFace.Config.ControlNetConfig
+            return new TensorStack.HuggingFace.Common.ControlNetConfig
             {
                 Path = config.Path,
                 Name = config.Name,
@@ -228,9 +228,9 @@ namespace Amuse.Host.HuggingFace
         }
 
 
-        public static TensorStack.HuggingFace.Config.CheckpointConfig ToPythonOptions(this Common.CheckpointConfig config)
+        public static TensorStack.HuggingFace.Common.CheckpointConfig ToPythonOptions(this Common.CheckpointConfig config)
         {
-            return new TensorStack.HuggingFace.Config.CheckpointConfig
+            return new TensorStack.HuggingFace.Common.CheckpointConfig
             {
                 TextEncoder = config.TextEncoder,
                 TextEncoder2 = config.TextEncoder2,
@@ -1343,7 +1343,7 @@ namespace Amuse.Host.HuggingFace
 
         public static TensorStack.HuggingFace.Common.ConversationMessage[] ToPythonOptions(this List<Common.ConversationMessage> messages)
         {
-            return messages.Select(x => new TensorStack.HuggingFace.Common.ConversationMessage(x.Role.Cast<Common.ConversationRole, TensorStack.HuggingFace.Common.ConversationRole>(), x.Content, x.ImageIndex, x.AudioIndex, x.ToolCalls)).ToArray();
+            return messages.Select(x => new TensorStack.HuggingFace.Common.ConversationMessage(x.Role.Cast<Common.ConversationRole, TensorStack.HuggingFace.ConversationRole>(), x.Content, x.ImageIndex, x.AudioIndex, x.ToolCalls)).ToArray();
         }
 
 

@@ -94,9 +94,9 @@ namespace Amuse.App.Tools
             try
             {
                 var name = GetArgument<string>("name");
-              
+
                 var action = GetArgumentOrDefault("action", "start");
-                                if (action == "list")
+                if (action == "list")
                 {
                     var applications = _applications
                         .Where(x => x.Name.Contains(name, StringComparison.OrdinalIgnoreCase))

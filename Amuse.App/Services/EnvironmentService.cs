@@ -44,25 +44,25 @@ namespace Amuse.App.Services
         public async Task CreateAsync(PipelineModel pipeline, IProgress<PipelineProgress> progressCallback, CancellationToken cancellationToken = default)
         {
             var environment = GetEnvironment(pipeline);
-            await CreateInternalAsync(environment, EnvironmentMode.Create, progressCallback, cancellationToken);
+            await CreateInternalAsync(environment, BackendStatus.Create, progressCallback, cancellationToken);
         }
 
 
         public async Task CreateAsync(EnvironmentModel environment, IProgress<PipelineProgress> progressCallback, CancellationToken cancellationToken = default)
         {
-            await CreateInternalAsync(environment, EnvironmentMode.Create, progressCallback, cancellationToken);
+            await CreateInternalAsync(environment, BackendStatus.Create, progressCallback, cancellationToken);
         }
 
 
         public async Task UpdateAsync(EnvironmentModel environment, IProgress<PipelineProgress> progressCallback, CancellationToken cancellationToken = default)
         {
-            await CreateInternalAsync(environment, EnvironmentMode.Update, progressCallback, cancellationToken);
+            await CreateInternalAsync(environment, BackendStatus.Update, progressCallback, cancellationToken);
         }
 
 
         public async Task RebuildAsync(EnvironmentModel environment, IProgress<PipelineProgress> progressCallback, CancellationToken cancellationToken = default)
         {
-            await CreateInternalAsync(environment, EnvironmentMode.Rebuild, progressCallback, cancellationToken);
+            await CreateInternalAsync(environment, BackendStatus.Rebuild, progressCallback, cancellationToken);
         }
 
 
@@ -73,14 +73,14 @@ namespace Amuse.App.Services
         }
 
 
-        public EnvironmentMode GetStatus(PipelineModel pipeline)
+        public BackendStatus GetStatus(PipelineModel pipeline)
         {
             var environment = GetEnvironment(pipeline);
             return GetStatus(environment);
         }
 
 
-        public EnvironmentMode GetStatus(EnvironmentModel environment)
+        public BackendStatus GetStatus(EnvironmentModel environment)
         {
             return environment.Status;
         }
@@ -119,7 +119,7 @@ namespace Amuse.App.Services
         }
 
 
-        public PipelineCreateOptions CreatePipelineOptions(EnvironmentModel environment, EnvironmentMode environmentMode = EnvironmentMode.Create)
+        public PipelineCreateOptions CreatePipelineOptions(EnvironmentModel environment, BackendStatus status = BackendStatus.Create)
         {
             var backendPath = GetBackendPath(environment);
             if (environment.Backend == BackendType.HuggingFace)
@@ -132,7 +132,7 @@ namespace Amuse.App.Services
                     HostVersion = environment.HostVersion,
                     Requirements = [.. environment.Requirements],
                     Variables = environment.Variables?.ToDictionary() ?? [],
-                    Mode = environmentMode
+                    Status = status
                 };
 
                 environmentConfig.Variables.Add("HF_HUB_OFFLINE", "1");
@@ -151,7 +151,7 @@ namespace Amuse.App.Services
                     HostVersion = environment.HostVersion,
                     Requirements = [.. environment.Requirements],
                     Variables = environment.Variables?.ToDictionary() ?? [],
-                    Mode = environmentMode
+                    Status = status
                 };
                 return environmentConfig;
             }
@@ -159,9 +159,9 @@ namespace Amuse.App.Services
         }
 
 
-        private async Task CreateInternalAsync(EnvironmentModel environment, EnvironmentMode mode, IProgress<PipelineProgress> progressCallback, CancellationToken cancellationToken = default)
+        private async Task CreateInternalAsync(EnvironmentModel environment, BackendStatus status, IProgress<PipelineProgress> progressCallback, CancellationToken cancellationToken = default)
         {
-            var createOptions = CreatePipelineOptions(environment, mode);
+            var createOptions = CreatePipelineOptions(environment, status);
             if (environment.Backend == BackendType.HuggingFace)
             {
                 var clientConfig = new ClientConfig
@@ -205,7 +205,7 @@ namespace Amuse.App.Services
         {
             var backendPath = GetBackendPath(environment);
             return environment.Backend == BackendType.HuggingFace
-                ? Path.Combine(backendPath, "Pipelines", $".{environment.Environment}")
+                ? Path.Combine(backendPath, "Pipelines", environment.Environment)
                 : Path.Combine(backendPath, environment.Environment);
         }
 
@@ -220,7 +220,7 @@ namespace Amuse.App.Services
 
         private async Task SaveEnvironmentStatusAsync(EnvironmentModel environment)
         {
-            environment.Status = EnvironmentMode.Create;
+            environment.Status = BackendStatus.Create;
             await _settings.SaveAsync();
         }
     }
@@ -238,12 +238,12 @@ namespace Amuse.App.Services
         Task RebuildAsync(EnvironmentModel environment, IProgress<PipelineProgress> progressCallback, CancellationToken cancellationToken = default);
         Task DeleteAsync(EnvironmentModel environment);
 
-        EnvironmentMode GetStatus(PipelineModel pipeline);
-        EnvironmentMode GetStatus(EnvironmentModel environment);
+        BackendStatus GetStatus(PipelineModel pipeline);
+        BackendStatus GetStatus(EnvironmentModel environment);
 
         EnvironmentModel GetEnvironment(PipelineModel pipeline);
         EnvironmentModel GetEnvironment(Device device, BackendType backendType, PipelineType pipelineType);
 
-        PipelineCreateOptions CreatePipelineOptions(EnvironmentModel environment, EnvironmentMode environmentMode = EnvironmentMode.Create);
+        PipelineCreateOptions CreatePipelineOptions(EnvironmentModel environment, BackendStatus status = BackendStatus.Create);
     }
 }

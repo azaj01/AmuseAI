@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TensorStack.Common;
 
 
 namespace Amuse.Common
@@ -11,7 +12,7 @@ namespace Amuse.Common
         public string HostVersion { get; set; }
         public string[] Requirements { get; set; }
         public Dictionary<string, string> Variables { get; set; }
-        public EnvironmentMode Mode { get; set; }
+        public BackendStatus Status { get; set; }
         public short ServerPort { get; set; }
         public string ServerAddress { get; set; }
     }
