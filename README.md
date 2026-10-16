@@ -21,6 +21,7 @@ Local AI image, video, audio and text.
 - Qwen
 - FLUX.1
 - FLUX.2
+- FLUX.3
 - Chroma
 - Kandinsky5
 - StableDiffusion-XL
