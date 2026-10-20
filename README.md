@@ -39,6 +39,7 @@ Local AI image, video, audio and text.
 - HiDream-O1
 - LLaDA Image
 - SenseNova U1.5
+- MOSS-Image
 
 ## Video Pipelines
 - Wan 2.2
