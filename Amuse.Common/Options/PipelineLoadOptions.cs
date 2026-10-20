@@ -6,7 +6,6 @@ namespace Amuse.Common
 {
     public sealed record PipelineLoadOptions
     {
-        public string ModelPath { get; set; }
         public string Template { get; set; }
         public string ModelType { get; set; }
         public string Variant { get; set; }

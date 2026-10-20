@@ -45,6 +45,9 @@ namespace Amuse.Common
         [Display(Name = "Qwen Image Pipeline", ShortName = "Qwen", Description = "Qwen's image-generation family, with particular emphasis on instruction following, complex compositions, and text rendering. It is well suited to tasks where the model needs to understand detailed natural-language instructions rather than simply reproduce a visual style.")]
         QwenImagePipeline = 50,
 
+        [Display(Name ="MOSS Image", ShortName = "MOSS", Description = "MOSS-Image is a text-to-image model family from OpenMOSS that supports natural-language prompts, tag sequences, and JSON layouts for controlling text placement and object arrangement. \r\n")]
+        MossImagePipeline = 51,
+
         [Display(Name = "Iris Pipeline", ShortName = "Iris", Description = "The Iris pipeline uses a pixel-space generative model to produce high-resolution images directly from text prompts and serves as a versatile vision foundation for tasks such as depth estimation, image restoration, and upscaling without requiring a separate decoder.\r\n")]
         IrisPipeline = 54,
 

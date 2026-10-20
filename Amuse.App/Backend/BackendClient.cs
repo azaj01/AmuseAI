@@ -597,7 +597,6 @@ namespace Amuse.App.Runtime
             return new PipelineLoadOptions
             {
                 Variant = model.Variant,
-                ModelPath = Path.GetFullPath(Settings.DirectoryDiffusion),
                 LoraAdapterPath = Path.GetFullPath(Settings.DirectoryLoraAdapter),
                 Template = model.Template,
                 Pipeline = model.Pipeline,
@@ -629,7 +628,6 @@ namespace Amuse.App.Runtime
             return new PipelineLoadOptions
             {
                 Variant = model.Variant,
-                ModelPath = Path.GetFullPath(Settings.DirectoryLangaugeModel),
                 LoraAdapterPath = Path.GetFullPath(Settings.DirectoryLoraAdapter),
                 Template = model.Template,
                 Pipeline = model.Pipeline,

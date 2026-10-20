@@ -114,11 +114,11 @@
       "Backend": "StableDiffusionCpp",
       "Environment": "vulkan",
       "HostVersion": "Vulkan",
-      "Version": 968,
+      "Version": 982,
       "Status": "Create",
       "Variables": {},
       "Requirements": [
-        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-968-8cd731e/sd-master-8cd731e-bin-win-vulkan-x64.zip"
+        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-982-0518b34/sd-master-0518b34-bin-win-vulkan-x64.zip"
       ]
     },
     {
@@ -129,12 +129,12 @@
       "Backend": "StableDiffusionCpp",
       "Environment": "vulkan",
       "HostVersion": "Vulkan",
-      "Version": 968,
+      "Version": 982,
       "Status": "Create",
       "IsDefault": true,
       "Variables": {},
       "Requirements": [
-        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-968-8cd731e/sd-master-8cd731e-bin-win-vulkan-x64.zip"
+        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-982-0518b34/sd-master-0518b34-bin-win-vulkan-x64.zip"
       ]
     },
     {
@@ -145,12 +145,12 @@
       "Backend": "StableDiffusionCpp",
       "Environment": "vulkan",
       "HostVersion": "Vulkan",
-      "Version": 968,
+      "Version": 982,
       "Status": "Create",
       "IsDefault": true,
       "Variables": {},
       "Requirements": [
-        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-968-8cd731e/sd-master-8cd731e-bin-win-vulkan-x64.zip"
+        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-982-0518b34/sd-master-0518b34-bin-win-vulkan-x64.zip"
       ]
     },
     {
@@ -161,13 +161,13 @@
       "Backend": "StableDiffusionCpp",
       "Environment": "cuda",
       "HostVersion": "CUDA",
-      "Version": 968,
+      "Version": 982,
       "Status": "Create",
       "IsDefault": true,
       "Variables": {},
       "Requirements": [
-        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-968-8cd731e/cudart-sd-bin-win-cu12-x64.zip",
-        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-968-8cd731e/sd-master-8cd731e-bin-win-cuda12-x64.zip"
+        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-982-0518b34/cudart-sd-bin-win-cu12-x64.zip",
+        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-982-0518b34/sd-master-0518b34-bin-win-cuda12-x64.zip"
       ]
     },
     {
@@ -178,11 +178,11 @@
       "Backend": "StableDiffusionCpp",
       "Environment": "rocm",
       "HostVersion": "ROCM",
-      "Version": 968,
+      "Version": 982,
       "Status": "Create",
       "Variables": {},
       "Requirements": [
-        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-968-8cd731e/sd-master-8cd731e-bin-win-rocm-10.1.0-x64.zip",
+        "https://github.com/leejet/stable-diffusion.cpp/releases/download/master-982-0518b34/sd-master-0518b34-bin-win-rocm-10.1.0-x64.zip",
         "https://stable.repo.amd.com/rocm/core/tarball/therock-dist-windows-multiarch-10.1.0.tar.gz"
       ]
     }
@@ -1265,6 +1265,37 @@
         "MainFile": "llada-image-connectors-edit.safetensors",
         "DownloadFiles": [
           "https://huggingface.co/fszontagh/LLaDA-Image-GGUF/resolve/main/llada-image-connectors-edit.safetensors"
+        ]
+      }
+    },
+    {
+      "Id": 600,
+      "Name": "MOSS Image Tokenizer",
+      "Key": "TOK_MOSS",
+      "Link": "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base",
+      "Checkpoint": {
+        "Name": "Component",
+        "Type": "OnlineFolder",
+        "Folder": "Tokenizer",
+        "Path": "MossImage",
+        "MainFile": "tokenizer.json",
+        "DownloadFiles": [
+          "https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base/resolve/main/tokenizer/tokenizer.json"
+        ]
+      }
+    },
+    {
+      "Id": 601,
+      "Name": "Qwen3.5 9B GGUF",
+      "Key": "TE_Qwen35_9B_GGUF",
+      "Link": "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF",
+      "Checkpoint": {
+        "Name": "Component",
+        "Type": "OnlineFolder",
+        "Folder": "TextEncoder",
+        "MainFile": "Qwen3.5-9B-Q8_0.gguf",
+        "DownloadFiles": [
+          "https://huggingface.co/unsloth/Qwen3.5-9B-GGUF/resolve/main/Qwen3.5-9B-Q8_0.gguf"
         ]
       }
     }
@@ -16207,6 +16238,312 @@
         }
       ],
       "Link": "https://huggingface.co/realrebelai/FLUX-3-Image-Klein_GGUFs"
+    },
+    {
+      "Id": 720,
+      "Backend": "StableDiffusionCpp",
+      "Name": "MOSS Base",
+      "Template": "MossImage_Base",
+      "Pipeline": "MossImagePipeline",
+      "ModelType": "Base",
+      "BaseType": "bfloat16",
+      "MediaType": "Image",
+      "ProcessTypes": [ "TextToImage", "ImageToImage", "ImageInpaint" ],
+      "Checkpoint": {
+        "Tokenizer": {
+          "Name": "Tokenizer",
+          "Type": "Component",
+          "Path": "TOK_MOSS"
+        },
+        "Vae": {
+          "Name": "AutoEncoder",
+          "Type": "Component",
+          "Path": "VAE_Flux2"
+        },
+        "TextEncoder": {
+          "Name": "TextEncoder",
+          "Type": "Component",
+          "Path": "TE_Qwen35_9B_GGUF"
+        },
+        "Transformer": {
+          "Name": "Transformer",
+          "Type": "OnlineFile",
+          "DownloadFiles": [
+            "https://huggingface.co/leejet/MOSS-Image-Base-GGUF/resolve/main/MOSS-Image-Base-Q8_0.gguf"
+          ]
+        }
+      },
+      "MemoryProfile": [
+        {
+          "QualityMode": "Draft",
+          "MemoryModes": [ 2, 8, 12 ]
+        },
+        {
+          "QualityMode": "Standard",
+          "MemoryModes": [ 2, 10, 16 ]
+        },
+        {
+          "QualityMode": "Production",
+          "MemoryModes": [ 2, 16, 22 ]
+        }
+      ],
+      "DefaultOptions": {
+        "Steps": 50,
+        "Width": 1024,
+        "Height": 1024,
+        "GuidanceScale": 3,
+        "Scheduler": "Euler",
+        "Schedulers": [
+          {
+            "Scheduler": "Euler"
+          },
+          {
+            "Scheduler": "EulerAncestral"
+          },
+          {
+            "Scheduler": "DPM2"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2SAncestral"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2M"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2Mv2"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2MSDE"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2MSDEBT"
+          },
+          {
+            "Scheduler": "ResidualMultistep"
+          },
+          {
+            "Scheduler": "Residual2S"
+          },
+          {
+            "Scheduler": "Heun"
+          },
+          {
+            "Scheduler": "IPNDM"
+          },
+          {
+            "Scheduler": "LCM"
+          },
+          {
+            "Scheduler": "DDIM"
+          },
+          {
+            "Scheduler": "TCD"
+          },
+          {
+            "Scheduler": "LMS"
+          },
+          {
+            "Scheduler": "ERSDE"
+          }
+        ]
+      },
+      "Resolutions": [
+        {
+          "Width": 640,
+          "Height": 1536
+        },
+        {
+          "Width": 768,
+          "Height": 1344
+        },
+        {
+          "Width": 832,
+          "Height": 1280
+        },
+        {
+          "Width": 896,
+          "Height": 1152
+        },
+        {
+          "Width": 768,
+          "Height": 768
+        },
+        {
+          "Width": 1024,
+          "Height": 1024,
+          "IsDefault": true
+        },
+        {
+          "Width": 1152,
+          "Height": 896
+        },
+        {
+          "Width": 1280,
+          "Height": 832
+        },
+        {
+          "Width": 1344,
+          "Height": 768
+        },
+        {
+          "Width": 1536,
+          "Height": 640
+        }
+      ],
+      "Link": "https://huggingface.co/leejet/MOSS-Image-Base-GGUF"
+    },
+    {
+      "Id": 721,
+      "Backend": "StableDiffusionCpp",
+      "Name": "MOSS SFT",
+      "Template": "MossImage_SFT",
+      "Pipeline": "MossImagePipeline",
+      "ModelType": "Base",
+      "BaseType": "bfloat16",
+      "MediaType": "Image",
+      "ProcessTypes": [ "TextToImage", "ImageToImage", "ImageInpaint" ],
+      "Checkpoint": {
+        "Tokenizer": {
+          "Name": "Tokenizer",
+          "Type": "Component",
+          "Path": "TOK_MOSS"
+        },
+        "Vae": {
+          "Name": "AutoEncoder",
+          "Type": "Component",
+          "Path": "VAE_Flux2"
+        },
+        "TextEncoder": {
+          "Name": "TextEncoder",
+          "Type": "Component",
+          "Path": "TE_Qwen35_9B_GGUF"
+        },
+        "Transformer": {
+          "Name": "Transformer",
+          "Type": "OnlineFile",
+          "DownloadFiles": [
+            "https://huggingface.co/leejet/MOSS-Image-SFT-GGUF/resolve/main/MOSS-Image-SFT-Q8_0.gguf"
+          ]
+        }
+      },
+      "MemoryProfile": [
+        {
+          "QualityMode": "Draft",
+          "MemoryModes": [ 2, 8, 12 ]
+        },
+        {
+          "QualityMode": "Standard",
+          "MemoryModes": [ 2, 10, 16 ]
+        },
+        {
+          "QualityMode": "Production",
+          "MemoryModes": [ 2, 16, 22 ]
+        }
+      ],
+      "DefaultOptions": {
+        "Steps": 50,
+        "Width": 1024,
+        "Height": 1024,
+        "GuidanceScale": 3,
+        "Scheduler": "Euler",
+        "Schedulers": [
+          {
+            "Scheduler": "Euler"
+          },
+          {
+            "Scheduler": "EulerAncestral"
+          },
+          {
+            "Scheduler": "DPM2"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2SAncestral"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2M"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2Mv2"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2MSDE"
+          },
+          {
+            "Scheduler": "DPMPlusPlus2MSDEBT"
+          },
+          {
+            "Scheduler": "ResidualMultistep"
+          },
+          {
+            "Scheduler": "Residual2S"
+          },
+          {
+            "Scheduler": "Heun"
+          },
+          {
+            "Scheduler": "IPNDM"
+          },
+          {
+            "Scheduler": "LCM"
+          },
+          {
+            "Scheduler": "DDIM"
+          },
+          {
+            "Scheduler": "TCD"
+          },
+          {
+            "Scheduler": "LMS"
+          },
+          {
+            "Scheduler": "ERSDE"
+          }
+        ]
+      },
+      "Resolutions": [
+        {
+          "Width": 640,
+          "Height": 1536
+        },
+        {
+          "Width": 768,
+          "Height": 1344
+        },
+        {
+          "Width": 832,
+          "Height": 1280
+        },
+        {
+          "Width": 896,
+          "Height": 1152
+        },
+        {
+          "Width": 768,
+          "Height": 768
+        },
+        {
+          "Width": 1024,
+          "Height": 1024,
+          "IsDefault": true
+        },
+        {
+          "Width": 1152,
+          "Height": 896
+        },
+        {
+          "Width": 1280,
+          "Height": 832
+        },
+        {
+          "Width": 1344,
+          "Height": 768
+        },
+        {
+          "Width": 1536,
+          "Height": 640
+        }
+      ],
+      "Link": "https://huggingface.co/leejet/MOSS-Image-SFT-GGUF"
     }
   ],
   "LoraAdapterModels": [

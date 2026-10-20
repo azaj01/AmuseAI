@@ -41,7 +41,6 @@ namespace Amuse.Host.HuggingFace
         {
             return new PipelineConfig
             {
-                ModelPath = options.ModelPath,
                 Template = options.Template,
                 ModelType = options.ModelType,
                 DataType = options.DataType.Cast<Amuse.Common.DataType, TensorStack.HuggingFace.DataType>(),

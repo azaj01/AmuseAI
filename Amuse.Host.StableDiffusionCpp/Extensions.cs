@@ -150,7 +150,8 @@ namespace Amuse.Host.StableDiffusionCpp
                 };
             }
 
-            if (pipelineOptions.Pipeline == PipelineType.LensPipeline)
+            if (pipelineOptions.Pipeline == PipelineType.LensPipeline
+             || pipelineOptions.Pipeline == PipelineType.MossImagePipeline)
             {
                 return contextOptions with
                 {
